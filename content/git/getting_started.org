@@ -1,6 +1,6 @@
-~~~
-title: Git: Getting started
-~~~
+---
+title: 'Git: Getting started'
+---
 
 ** Getting Started with git
 Throughout the semester we will us the git version control utility to
@@ -46,5 +46,24 @@ Perhaps you already have a git repo stored on a remote machine, or you
 want to fork a local repo.
 *** Common Commit Cycle
 - Add files to the staging area
+  #+BEGIN_EXAMPLE
+  git add [file list]
+  #+END_EXAMPLE
 - Commit staged changes to the repo
-  
+  #+BEGIN_EXAMPLE
+  git commit -m "[commit message]"
+  #+END_EXAMPLE
+  The previous two commands are /local/ operations. No changes are made on the server, or are accessible to me.  
+
+- To push your new commits to the server:
+  #+BEGIN_EXAMPLE
+  git push origin master
+  #+END_EXAMPLE
+  or if it is not the first time
+  #+BEGIN_EXAMPLE
+  git push
+  #+END_EXAMPLE
+
+** More Resources
+   - [[/git/common_errors/][Common errors with git]]
+   - [[http://git-scm.com/documentation][Git documentation]]
