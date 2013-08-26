@@ -63,7 +63,6 @@ have any preference then consider setting up an account at
   connections between technical details and philosophy, or making
   connections between Unix philosophy and other domains of knowledge.
   
-
 * Gain Access to a Working *nix system
   You will come across the term '*nix' from time to time. It generally
   means "Unix, Linux or any other Unix-like" system (as you will soon
@@ -100,6 +99,7 @@ have any preference then consider setting up an account at
    lessons in The Linux Command Line.
 
 ** Choose a Distribution
+   For speedy on-campus downloads try using the [[http://mirror.cc.vt.edu/][Virginia Tech Mirror]].
 *** Fedora
     Sponsored by [[http://www.redhat.com][Red Hat]], [[http://fedoraproject.org][Fedora]] shares similar system configuration
     features and tools with [[http://www.redhat.com/products/enterprise-linux/][Red Hat Enterprise Linux]] (RHEL).  Since
@@ -112,6 +112,9 @@ have any preference then consider setting up an account at
     [[http://spins.fedoraproject.org][Fedora Spins]] make it easy to get up and running with a DE of your
     choosing.
 
+**** Next Steps
+     - [[http://docs.fedoraproject.org/en-US/Fedora/19/html/Burning_ISO_images_to_disc/index.html][Burning ISO images to disk]]
+     - [[http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/index.html][Installation Guide]]
 **** Resources
      - [[http://www.thegeekstuff.com/2011/08/yum-command-examples/][15 Linux Yum Command Examples]]
 
@@ -233,6 +236,12 @@ have any preference then consider setting up an account at
     apt-get install git
     #+END_EXAMPLE
 
+    Arch
+    #+BEGIN_EXAMPLE
+    pacman -S git
+    #+END_EXAMPLE
+
+    See [[/git/getting_started/][Getting Started with git]] for post-install instructions.
 *** weechat
     #+BEGIN_EXAMPLE
     yum install weechat
@@ -244,9 +253,28 @@ have any preference then consider setting up an account at
     #+END_EXAMPLE
 
 *** Text Editor
-    A good text editor is a *nix developers most important tool. After enough practice, your editor of choice should feel like an extension of your body.
-    There are more text editors for *nix systems then there are Linux Distributions and Window managers.  The two most popular are vi and emacs.
+    A good text editor is a *nix developers most important tool. After
+    enough practice, your editor of choice should feel like an
+    extension of your body.  There are more text editors for *nix
+    systems then there are Linux Distributions and Window managers.
+    The two most popular are vi (or usually the newer vim) and emacs.
 
     #+BEGIN_EXAMPLE
     yum install emacs
     #+END_EXAMPLE
+
+    or
+    
+    #+BEGIN_EXAMPLE
+    yum install vim
+    #+END_EXAMPLE
+
+    You will find that folks in the *nix community can be fiercely
+    passionate about either /vi/ or /emacs/.  It is best to at least
+    be aware of this [[http://en.wikipedia.org/wiki/Editor_war][ongoing conflict]], but ultimately, which is better
+    depends on which you prefer. /vi/ has a bit more of an up-front
+    learning curve than /emacs/ because of its different editing
+    modes, a feature not found in text editors users are already
+    familiar with. Emacs still has a learning curve, but its default
+    editing mode should be familiar to anyone who has used a text
+    editor before.
