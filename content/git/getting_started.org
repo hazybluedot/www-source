@@ -1,0 +1,50 @@
+~~~
+title: Git: Getting started
+~~~
+
+** Getting Started with git
+Throughout the semester we will us the git version control utility to
+manage our software projects and submit them for evaluation. If you
+have never used or heard of a version control system before take a
+moment to read the "[[http://git-scm.com/book/en/Getting-Started-About-Version-Control][About Version Control]]" section of the git
+documentation, and, because it ties in so nicely with the content of
+this class, read the next section about the [[http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git][history of git]]. If video
+explaination is more your style, check out the [[http://git-scm.com/videos][Git Basics videos]],
+starting with "What is Version Control".
+
+#+BEGIN_ASIDE
+While we will be exclusivly using git do keep in mind that it is one
+of several widly used Version Control Systems. While the commands used
+to interact with different systems will vary, the underlying ideas will
+apply to any you encounter.
+#+END_ASIDE
+
+*** Two Ways to Create a new git repo
+- Create a new, empty repo
+
+#+BEGIN_SRC shell-script
+  git init
+#+END_SRC
+
+This will initialize the /current directory/ as a git repo. If you
+append a new directory name to the command it will be created and an
+empty git repo will be initialized in it.
+
+#+BEGIN_SRC shell-script
+  git init new_repo
+#+END_SRC
+
+*What did this do?*
+You may be underwhelmed by the result of these commands.
+
+#+BEGIN_SRC shell-script
+  ls -al
+#+END_SRC
+
+- Clone an existing repo
+Perhaps you already have a git repo stored on a remote machine, or you
+want to fork a local repo.
+*** Common Commit Cycle
+- Add files to the staging area
+- Commit staged changes to the repo
+  
