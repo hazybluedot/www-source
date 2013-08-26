@@ -1,0 +1,17 @@
+---
+title: Assignments
+---
+
+* Assignments
+** Review the Syllabus, due Wednesday August 28 at 10:10am
+   Read [[/syllabus/][the syllabus]] for this class as well as the [[/getting_started/][getting started]]
+   documentation. Please bring any concerns or questions to my
+   attention.
+** Setup a Blog, write a post, due Friday August 30 at 11:59pm
+1. [[/getting_started/][Set up a blog]]
+2. Read chapter [[http://catb.org/esr/writings/taoup/html/philosophychapter.html][I.1 Philosophy]] of [[http://www.catb.org/esr/writings/taoup/html/][The Art of Unix Programming]]. Pick
+   two nuggets that jump out at you and blog about them.  These could
+   either be things that spark your interest, or that you don't quite
+   understand. Be sure to include a cited quote for each nugget. How
+   do you hope to explore these interests in this class?
+3. Send me an email with the url to your blog post. I will add the feed to to the class list and your future posts will be syndicated to the class website.

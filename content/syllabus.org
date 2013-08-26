@@ -1,0 +1,210 @@
+---
+title: Syllabus
+created_at: 
+---
+
+* ECE2524: Syllabus (Draft)
+** Course Overview
+Welcome to Introduction to Unix for Engineers. This course will
+introduces you to the Unix operating system and Unix design
+philosophy. Unix has been around and in use since 1969 and currently
+some variant (most often Linux) is running on 90% of the world's super
+computers. While it is difficult to calculate exact numbers, in 2008
+Microsoft CEO Steve Ballmer estimated that 60% of internet web servers
+ran Linux. Its Unix roots are mostly hidden from the end user, but
+Apple's OS X is built on top of a Unix variant called BSD and the
+Android OS, built on top of a modified Linux kernel, has enjoyed
+greater than 50% market share since February of 2012. Due to its low
+cost, and ability to run on low-powered hardware, Linux is often found
+running on embedded systems, such as those used in robotics. Chances
+are good that you have already interacted, perhaps indirectly, with
+Unix/Linux. However, even if you never plan to sit in front of a Unix
+terminal after this class, learning how Unix is built, and what has
+allowed it to thrive in the fast-paced technology world will provide
+valuable lessons about good software design.
+
+In this class we will emphasize commonly used tools and commands for
+file manipulation, text editing, task management, and program
+compilation. You will learn special features of the Unix shell, the
+basics of system administration, and the Python programming
+language. You will also learn how to compile and debug C/C++ programs
+as well as design well-written, maintainable software. These skills
+can also be applied to software designed outside of a Unix
+environment, and so are relevant to anyone writing software,
+regardless of the platform.
+
+Think of this course as an software design course, which makes use of
+Unix-based tools and encourages a Unix design philosophy.
+
+** Prerequisite
+   The prereq for this course is ECE2574: Data Structures and
+Algorithms. In that course you became familiar with Object Oriented
+Programming and implementing generic data structures and algorithms in
+C++.  The emphasis was on correctly implementing APIs. The programs
+you wrote were mostly light wrappers around your data structures and
+algorithms to aid in testing and confirm proper functionality. All of
+that is of course still important, and will continue to be, but in
+this class the focus is shifted closer to the program/user
+input/output level.  You will be using data structures and algorithms
+you became familiar with previously to build small but functional
+stand alone programs.
+
+** Required Books
+   Note, each of these is available freely online. You may choose to
+   purchase a print copy if you wish.
+
+   - [[http://linuxcommand.org/tlcl.php][The Linux Command Line]], by William Shotts 
+   - [[http://catb.org/esr/writings/taoup/][The Art of Unix Programming]], by Eric S. Raymond
+   - [[http://www.diveinto.org/python3/][Dive into Python 3]], by Mark Pilgrim
+** Computing Resources
+We will use a free version of the GNU/Linux operating system, which
+you are expected to use on your laptop. It is recommended that you
+install [[http://fedoraproject.org/][Fedora 19]] on a separate partition on your hardrive, or on a
+bootable USB flash drive.  If you are currently familiar with another
+version of GNU/Linux such as Ubuntu, or Arch Linux, you may use that
+instead.
+
+See [[/getting_started/][Getting Started]] for more information on choosing an Linux
+distribution and other steps you should take to prepare for the
+semester.
+
+** Course Delivery
+We will be implementing a [[http://www.insidehighered.com/blogs/hack-higher-education/top-ed-tech-trends-2012-flipped-classroom][flipped or inverted classroom]]. In a
+traditional class a lecturer stands at the front and, well, lectures,
+while the learners listen passively, possibly taking notes.  This
+classroom style was invented at a time when books were so expensive a
+university could afford to have only one copy, and the only practical
+way to give students access to a book was to have someone read it
+allowed in front of a class.
+
+Times have changed, and not only are books cheap enough (barely) for
+individuals to each own a copy we don't even need to because the
+material for this class is freely available to anyone with an internet
+connection. There will be weekly reading assignments, along with
+self-study exercises, possibly some pre-recorded video clips thrown
+in. Treat this material as the "lecture", the work we do in class will
+assume that you remain up to date with it.
+
+Class time will be used for discussing how the reading/online material
+relates to good software design and working in small groups to explore
+concepts through inspecting and writing code. The work done in class
+will lead directly into graded assignments. In some cases it may be
+possible to complete most of the work of a graded assignment during
+class time.
+
+While I have made small changes in past semesters to transition to a
+flipped classroom environment, this is the first that I have commited
+to it completely.  Expect there to be some bumps along the way. If I
+have to make adjustments to class structure or assignments along the
+way that affect grading, I will always do so in your favor. 
+
+Please feel free to tell me what is working and what is not. There may
+be times and materials that are better suited to a more traditional
+lecture style, so I will remain as flexible and open minded as
+possible and ask that you do the same.
+
+** Schedule and Assignments   
+  - Syllabus review, due Wednesday Aug 28, 10:10am 
+  - First Blog Post, due Friday, Aug 30 11:59pm
+  - more to come
+*** Late Work
+   - 10% will be deducted from the maximum possible score for each day an assignment is late.
+*** Create Your Own Assignment
+   There are a wide variety of interests in this class, and the Unix
+   world is incredibly vast.  It would be impossible (nor appropriate,
+   in an "Intro" class) to cover all topics related to the Unix
+   environment.  I will have a list of assignments with at least a
+   brief description of each posted by the end of the first week of
+   classes. Look it over, if there is one in particular that doesn't
+   interest you, you may request your own in its place. To be approved
+   your proposal must be given to me at least two weeks prior to the
+   due date of the one to be replaced. It must be of similar scope,
+   and you provide a detailed write-up as well as an automated way to
+   evaluate a submission. The late penalty will still apply to
+   approved custom assignments turned in past the original deadline.
+ 
+** Grade Distribution
+- Participation (25%)
+  + In class activities
+  + Blog
+- Assignments (50%)
+  + Quizzes
+  + Homework
+
+- Midterm (10%)
+- Group Project (15%)
+
+** Final Project
+   During the semester students will form groups of three or four and discuss project ideas. Creative and/or useful project ideas are encouraged, emphasis is not on project complexity, but rather on application of the Unix design philosophy, readable code and the effective use of tools for collaborative software development.
+
+** Major Learning Objectives
+After completion of this course, participants will be able to
+
+- understand the Unix design philosophy, why it has allowed Unix to survive in an ever-changing technological world and how it can be applied to software design in non-Unix environments;
+- answer questions relating to the operation and use of multi-user, multi-process operating systems such as Unix;
+- use Unix as a general working environment, including file management, application use, and network access;
+- demonstrate an ability to compile programs in a Unix environment, and to use commonly available software tools including compilers, editors, utilities, and scripting languages; and
+- apply basic system administration skills relating to user account creation and management, file system management, and network connection management.
+
+** Honor Code
+In keeping with the ethics and professionalism of an engineering
+career, adherence to the Virginia Tech Honor Code is expected in all
+phases of this course.
+
+Homework and in class assignments: You will often be working in groups
+of two or three to explore material and work on small assignments that
+are turned into graded homework submissions. Be honest and open about
+what you contributed and any code you may have started with.  There
+will be times when you find pieces of open source code online that
+provide most of the functionality of some part or more of a particular
+assignment. In a real world scenario you would properly credit the
+source, honor any requirements in the original license, and use the
+code you found. We can achieve more if we don't continue to re-invent
+the wheel, so to speak.
+
+However, because this is a class setting, I need to evaluate whether
+or not you understand the concepts that are discussed during the
+course.  It is still acceptable to find and use code you find online
+(again, assuming it doesn't violate the license of the code), but
+you *must* extend the functionality in a way that demonstrates you
+understand how the original code works, and the underlying concepts
+that were to be demonstrated by completion of the assignment.
+
+If there is ever any doubt, please come see me immediately. If you
+submit code that violates a license, or you submit someone else's work
+as your own, regardless of where you found it, or under what license
+it was released, I am required to report it to the honor board. If you
+come to me early with a concern in most cases we will be able to
+resolve it in a way that allows you to receive full credit for an
+assignment. A zero on an assignment is preferable and more easily
+recovered from than a plagiarism charge on your record.
+
+Exams and quizzes: All examinations and quizzes must be completely
+independent work.
+
+** Special accommodations
+
+Special accommodations are possible for students who have
+documentation from the office of [[http://www.ssd.vt.edu][Services for Students with
+Disabilities]]. Any student with special needs due to a disability or
+religious observance should contact the instructor during the first 2
+weeks of the semester.
+
+** Virginia Tech's Principles of Community
+   Virginia Tech is a public land-grant university, committed to teaching and learning, research, and outreach to the Commonwealth of Virginia, the nation, and the world community. Learning from the experiences that shape Virginia Tech as an institution, we acknowledge those aspects of our legacy that reflected bias and exclusion. Therefore, we adopt and practice the following principles as fundamental to our on-going efforts to increase access and inclusion and to create a community that nurtures learning and growth for all of its members:
+
+   - We affirm the inherent dignity and value of every person and strive to maintain a climate for work and learning based on mutual respect and understanding.
+   - We affirm the right of each person to express thoughts and opinions freely. We encourage open expression within a climate of civility, sensitivity, and mutual respect.
+   - We affirm the value of human diversity because it enriches our lives and the University. We acknowledge and respect our differences while affirming our common humanity.
+   - We reject all forms of prejudice and discrimination, including those based on age, color, disability, gender, national origin, political affiliation, race, religion, sexual orientation, and veteran status. We take individual and collective responsibility for helping to eliminate bias and discrimination and for increasing our own understanding of these issues through education, training, and interaction with others.
+   - We pledge our collective commitment to these principles in the spirit of the Virginia Tech motto of Ut Prosim (That I May Serve). (see )
+
+** Safe Zone
+Though I am *not* a registered [[http://www.mps.vt.edu/lgbtq/safezone/][Safe Zone]] (I have not completed the
+required training to claim that status), it is my goal to provide a
+safe, inclusive environment in which to learn. If you are ever made to
+feel uncomfortable or unsafe (for *any* reason) in this class, or any
+other, please bring it to my attention. If I am unable to personally
+help or resolve an issue I can direct you to someone more capable and
+will never divulge anything you tell me in confidence to another party
+without your permission (unless required to do so by law).

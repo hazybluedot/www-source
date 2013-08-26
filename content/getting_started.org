@@ -1,0 +1,252 @@
+---
+title: 'Getting Started'
+---
+#+OPTIONS: f:t
+* Set up a blog
+** Why Blog in an Intro to Engineering class?
+  We will be blogging regularly during the semester (and hopefully
+  continuing afterwards as well!).  There are at least three good
+  reasons for this.
+
+  The Linux community is supported by its members. There have been
+  countless times I have been searching for a particular command, or
+  for a solution to a particular problem and come across the answer on
+  a blog post written by someone who had the same question I did.
+  Keeping an active blog is a way to participate in the community that
+  we will all rely on.
+
+  It also gives me (the instructor) an easy way to get more feedback
+  on how the course is going for everyone.  This can occur both
+  passively (in reading blog posts I get the sense that key concepts
+  haven't been explained well) or actively (you write about a specific
+  problem with the class, or an assignment).  I am always open to
+  constructive criticism, both regarding the content of the course,
+  and my own teaching style and philosophy, but it's very difficult
+  for me to address potential conflicts if I don't know they exist!
+
+  Last but certainly not least, an active blog is a component of your
+  professional digital identity.  Prospective employers or graduate
+  school admissions departments will almost certainly conduct an
+  internet search before selecting final candidates for
+  interviews. They *will* find your profiles up on various social
+  networking sites, embarrassing photos and all. You only have limited
+  control over that. But what you have much more control over is
+  whether or not that is the *only* piece of digital information they
+  have to evaluate you. 
+
+  Don't stress out about it. No one expects blog posts to be
+  professionally published articles.  They should be thoughtful, and
+  well written, but do not need to be ground breaking.  Posts along
+  the lines of "Here is my understanding of topic X so far, but I'm
+  still really confused about how it relates to Y and Z" are perfectly
+  acceptable.
+
+** Set up
+Any blog service that offers an RSS/Atom feed will do. If you don't
+have any preference then consider setting up an account at
+[[http://blogs.lt.vt.edu/][Blogs@VT]].
+
+** Get started, get into a routine
+  Getting in the habit of blogging is hard. It is very common to have
+  difficulty starting because you feel you "don't have anything to
+  write about". Or if you do that "it's not good enough" or you need
+  to "think more about it" first.  I've experienced all these excuses
+  and more, and so has everyone else I've talked to who has started
+  blogging. I will give a prompt for the first blog post, to help you
+  get started, but in general the assignment is very open ended, and
+  that's the point.  Write about how you feel about what's going on in
+  this class, or any other, write about a particular assignment, write
+  about world issues that you're interested in (and try to relate it
+  back to Unix/Linux/Open source... I can almost guarantee that there
+  is always a connection to be made between any two topics, no matter
+  how different they may seem). I am looking to see that you're making
+  connections between technical details and philosophy, or making
+  connections between Unix philosophy and other domains of knowledge.
+  
+
+* Gain Access to a Working *nix system
+  You will come across the term '*nix' from time to time. It generally
+  means "Unix, Linux or any other Unix-like" system (as you will soon
+  learn the '*' is a wild card character used when listing files on a
+  Unix-like system).  This course is called "Introduction to Unix",
+  but most of us won't be using an official Unix operating system, but
+  that's ok. As we'll discover all "Unix-like" systems function
+  similarly at the command line level.  The vast majority of the
+  commands and techniques we'll look at will work the same across all
+  Unix-like systems. There will be times I'll show something that is
+  specific to Linux but will try to make a point to bring this to your
+  attention (and of course, if you come across some material in this
+  course that is Linux-specific but not marked as such, do please let
+  me know!).
+  
+** Shell Account
+   Everyone will need to create a shell account as it will be used for
+   assignment submission.  You can get by at least the first couple
+   weeks using only remote access to the CVL if you have trouble
+   getting a *nix system installed on your computer.
+   1. [[https://computing.ece.vt.edu/accounts/][Set up an account]]
+   2. Follow [[https://computing.ece.vt.edu/wiki/How_to_gain_Remote_Access_to_the_CVL_over_the_Internet][instructions for remote access]] but use 'ece2524.ece.vt.edu' in place of 'cvl.ece.vt.edu'[fn:1]
+      + Windows: (for the purposes of this class you only need PuTTY, Xming is optional)
+      + OS X: follow the instructions for "Unix Based Operating Systems" 
+
+[fn:1] Note that 'ece2524.ece.vt.edu' uses the same user home
+   directories as 'cvl.ece.vt.edu'. Any files you create on one are
+   accessible on the other. The only difference is in the software
+   that is installed: 'ece2524.ece.vt.edu' has updated versions of gcc
+   and has the IRC client weechat installed.
+** Mac Users
+   OS X *is* a Unix-based operating system. You shouldn't need to do
+   anything more than open the Terminal app to get started with the
+   lessons in The Linux Command Line.
+
+** Choose a Distribution
+*** Fedora
+    Sponsored by [[http://www.redhat.com][Red Hat]], [[http://fedoraproject.org][Fedora]] shares similar system configuration
+    features and tools with [[http://www.redhat.com/products/enterprise-linux/][Red Hat Enterprise Linux]] (RHEL).  Since
+    RHEL has an emphasis on tried and true tested software for
+    stability it does not contain cutting edge features and
+    code. Instead Red Hat uses Fedora as an incubator for newer
+    software that may potentially migrate to RHEL.
+
+    The default desktop environment is the popular Gnome system, but
+    [[http://spins.fedoraproject.org][Fedora Spins]] make it easy to get up and running with a DE of your
+    choosing.
+
+**** Resources
+     - [[http://www.thegeekstuff.com/2011/08/yum-command-examples/][15 Linux Yum Command Examples]]
+
+*** Ubuntu
+    Probably one of the most well known distributions due to marketing
+    campaigns by its supporting company Canonical, Ubuntu is extremely
+    easy to install and has out-of-the-box support for most hardware.
+    It aims to provide a similar experience to users migrating from
+    Windows or Mac OS X and so come pre-installed with a large
+    selection of applications.  The downside of this is that it has a
+    rather large install footprint due to optional software packages
+    that you may or may not decide to use.
+
+    If you want to use Ubuntu on an older machine that might not have
+    the graphics hardware to make Unity work well, try [[http://linuxg.net/how-to-install-xfce-4-10-on-ubuntu-13-04-12-10-12-04-and-linux-mint-15-14-13/][installing
+    XFCE]].
+
+*** Arch Linux
+    Arch is a popular distribution for Linux enthusiasts due to its
+    minimalist approach to installing packages. After the default
+    install only a base set of command line tools are available. No
+    graphical environment is installed by default leaving it up to the
+    user to install the one of their choosing (or none at all). Arch
+    does not provide an automatic installer like the other
+    distributions, because of this it can be intimidating for new
+    users.  However, the documentation on [[https://wiki.archlinux.org/][the wiki]] is suburb and the
+    [[https://wiki.archlinux.org/index.php/Beginners%2527_Guide][Beginner's Guide]] walks a new user through every step of the
+    install process.  If you want to learn more about the different
+    components that go together to form a complete operating system,
+    this is a great way to go.
+    
+    Arch Linux adopts a rolling release schedule. Instead of less
+    frequent full system updates, software packages are updated
+    individually as new versions become available. This means that a
+    well maintained ArchLinux system will always be running on cutting
+    edge software. For the most part this works well, and bugs and
+    security patches are addressed quickly.  However, sometimes
+    problems emerge when a package is updated that other packages
+    depend on, breaking other tools that haven't yet been updated to
+    work with the newer dependencies.  Don't avoid Arch for this
+    reason, if a particular issue does come up it is quite easy to
+    revert to an older package version and prevent it from being
+    updated until you are sure other software has been updated to work
+    with the newer version.  In particular, this issue can be
+    frustrating if you have critical hardware (disk, network, etc)
+    that requires 3rd party drivers not included in the kernel. Kernel
+    updates can render these drivers inoperable, potentially causing
+    problems booting. I had to deal with this due to my Broadcom
+    Wireless card on my MacBook Pro.  As long as I was careful to
+    update the Broadcom drivers for the new kernel before rebooting,
+    everything went smoothly. There were times I'd forget though,
+    reboot after a Kernel update and be stuck without wireless.  At
+    that point, I'd either have to reboot with an earlier Kernel
+    version and update the wireless drivers, or plug into a wired
+    connection to do the update.  Either way, frustrating but
+    certainly not irrecoverable!
+
+** Choose an Installation Method
+*** Install to Harddrive
+   For best performance, this is the way to go. It does involve re-partitioning your harddrive however. In most cases it is easy to shrink the size of your Windows partition without destroying existing data, but of course it is always recommended to have a recent backup available before 
+  
+*** Install to USB Drive
+   If you are unable or unwilling to re-partition your harddrive to create space for Linux along side Windows or OS X, most distributions will install just fine to a USB flash drive. Make sure to use a drive large enough to install the system with enough space left over for your own files.  For a Fedora or Arch install you can get by with an 8gb flash drive.  You may have to go to a 16Gb drive with Ubuntu 13 unless you remove packages you aren't using.
+
+*** Virtual Machine
+   I recommend [[https://www.virtualbox.org/][VirtualBox]], but VMWare should work too. Choose a
+   distribution that installs a lightweight desktop environment (or
+   none at all!) such as XFCE or LXDE.  There are [[http://spins.fedoraproject.org/][Fedora Spins]] for
+   each of these environments. If you already have Ubuntu installed as
+   a virtual machine and you are experience sluggish GUI performance,
+   [[http://www.noobslab.com/2013/07/install-xfce-410-desktop-in-ubuntu.html][install
+   and use XFCE]], it should give you a better user experience.
+
+   In general, expect the system to be a little more sluggish when
+   running under a virtual machine instead of a native install.  Also,
+   resist the urge to switch back to your native OS (Windows or OS X)
+   to complete tasks that you are uncomfortable with performing in
+   Linux.  Remember, there *will* be a transition period during which
+   time it will feel disorienting and confusing to re-learn common
+   tasks on a new system. With time, you will become just as
+   proficient using a Linux-based system as any other, but only if you
+   practice!
+
+** Keep your system up to date
+    After a new install, and regularly after that, update the system:
+
+    Fedora
+    #+BEGIN_EXAMPLE
+    sudo yum update
+    #+END_EXAMPLE
+    
+
+    Ubuntu
+    #+BEGIN_EXAMPLE
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    #+END_EXAMPLE
+
+    Arch
+    #+BEGIN_EXAMPLE
+    sudo pacman -Syu
+    #+END_EXAMPLE
+
+    Remember, for Arch Linux especially, take note if something
+    critical to the boot process, such as the Linux kernel, will be
+    updated. Depending on your hardware configuration you may need to
+    take some extra steps after the update before rebooting to ensure
+    a smooth update!
+
+** Install Software
+*** git
+    Fedora
+#+BEGIN_EXAMPLE
+    yum install git
+#+END_EXAMPLE
+
+    Ubuntu
+    #+BEGIN_EXAMPLE
+    apt-get install git
+    #+END_EXAMPLE
+
+*** weechat
+    #+BEGIN_EXAMPLE
+    yum install weechat
+    #+END_EXAMPLE
+
+*** Development Tools
+    #+BEGIN_EXAMPLE
+    yum groupinstall "Development Tools"
+    #+END_EXAMPLE
+
+*** Text Editor
+    A good text editor is a *nix developers most important tool. After enough practice, your editor of choice should feel like an extension of your body.
+    There are more text editors for *nix systems then there are Linux Distributions and Window managers.  The two most popular are vi and emacs.
+
+    #+BEGIN_EXAMPLE
+    yum install emacs
+    #+END_EXAMPLE
