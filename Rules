@@ -19,6 +19,10 @@ sass_options = Compass.sass_engine_options
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/assets/*' do
+  #don't filter
+end
+
 compile '/stylesheets/partials/*' do
   # don’t filter or layout
 end
@@ -58,6 +62,10 @@ end
 
 route '/stylesheets/*' do
   item.identifier.chop + '.css'
+end
+
+route '/assets/*/' do
+  item.identifier.chop
 end
 
 route '*' do
