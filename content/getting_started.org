@@ -41,11 +41,23 @@ title: 'Getting Started'
   still really confused about how it relates to Y and Z" are perfectly
   acceptable.
 
+** Use an existing blog
+If you already have one, you may certainly use an existing blog for
+this class.  I will filter the feeds to only syndicate posts made on
+or after the first day of class of the current semester.
+
+If you are actively blogging for another class or personal use that is
+fine as well.  I find it useful to read posts on completely different
+topics as it can help me better integrate this class into what is
+going on elsewhere. However, if you do *not* want your non-ECE2524
+related posts to show up on the class page then use the tag 'ece2524'
+on the posts you do want included, and be sure to let me know you will
+be using this tag when you email me your url.
+
 ** Set up
 Any blog service that offers an RSS/Atom feed will do. If you don't
 have any preference then consider setting up an account at
 [[http://blogs.lt.vt.edu/][Blogs@VT]].
-
 ** Get started, get into a routine
   Getting in the habit of blogging is hard. It is very common to have
   difficulty starting because you feel you "don't have anything to
