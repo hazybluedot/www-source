@@ -34,18 +34,18 @@ body {
             @include container($desktop);
             //@include susy-grid-background; 
         }
-    }
 
-    header, footer {
-        @include span-columns($total-columns);
-        @include at-breakpoint($desktop) {
-            $content-columns: ceil(3 * $desktop / $column-divizor);
-            @include span-columns($content-columns, $desktop);
-            @include pad(2,2);
-        }
-        .title {
-            display: block;
-        }
+	>header, >footer {
+            @include span-columns($total-columns);
+            @include at-breakpoint($desktop) {
+		$content-columns: ceil(3 * $desktop / $column-divizor);
+		@include span-columns($content-columns, $desktop);
+		@include pad(2,2);
+            }
+            .title {
+		display: block;
+            }
+	}
     }
 
     nav {
@@ -55,11 +55,11 @@ body {
     #sidebar {
         display: none;
         // One third of the grid columns, rounding down. With 24 cols, this is 8.
-        /*@include at-breakpoint($desktop) {
-            display: inline;
-            $sidebar-columns: floor($desktop / $column-divizor);
-            @include span-columns($sidebar-columns, $desktop);
-        }*/
+    /*@include at-breakpoint($desktop) {
+      display: inline;
+      $sidebar-columns: floor($desktop / $column-divizor);
+      @include span-columns($sidebar-columns, $desktop);
+      }*/
     }
 
     #content {
