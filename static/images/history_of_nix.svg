@@ -25,14 +25,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.22339336"
-     inkscape:cx="1955.4082"
+     inkscape:cx="1321.9964"
      inkscape:cy="1170.4693"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="false"
      units="ft"
-     inkscape:window-width="1440"
-     inkscape:window-height="881"
+     inkscape:window-width="1680"
+     inkscape:window-height="1031"
      inkscape:window-x="0"
      inkscape:window-y="19"
      inkscape:window-maximized="0" />
@@ -14466,6 +14466,13 @@
        width="322.06918"
        id="rect20015"
        style="opacity:0.25;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <rect
+       style="opacity:0.93999999;fill:#b1ff90;fill-opacity:0.35436892;stroke:#000000;stroke-width:4.80882645;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:4.80882645, 9.61765289;stroke-dashoffset:0"
+       id="rect5722"
+       width="2162.1052"
+       height="814.70636"
+       x="107.43381"
+       y="660.40302" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -14728,13 +14735,13 @@
      ns1:timeout-enable="false"
      ns1:clip="true"
      ns1:hide="true"
-     ns1:sequence="26"
+     ns1:sequence="27"
      ns1:title="Full View"
      ns1:refid="rect10178" />
   <ns1:frame
      ns1:refid="rect94547"
      ns1:title="1991: Linux"
-     ns1:sequence="25"
+     ns1:sequence="26"
      ns1:hide="true"
      ns1:clip="true"
      ns1:timeout-enable="false"
@@ -14760,7 +14767,7 @@
   <ns1:frame
      ns1:refid="rect5708"
      ns1:title="Unix Wars"
-     ns1:sequence="21"
+     ns1:sequence="22"
      ns1:hide="true"
      ns1:clip="true"
      ns1:timeout-enable="false"
@@ -14780,13 +14787,13 @@
      ns1:timeout-enable="false"
      ns1:clip="true"
      ns1:hide="true"
-     ns1:sequence="23"
+     ns1:sequence="24"
      ns1:title="1983: GNU Manifesto"
      ns1:refid="rect29687" />
   <ns1:frame
      ns1:refid="rect35115"
      ns1:title="The 80s"
-     ns1:sequence="24"
+     ns1:sequence="25"
      ns1:hide="true"
      ns1:clip="true"
      ns1:timeout-enable="false"
@@ -14806,7 +14813,7 @@
      ns1:timeout-enable="false"
      ns1:clip="true"
      ns1:hide="true"
-     ns1:sequence="27"
+     ns1:sequence="28"
      ns1:title="Linux on super computers"
      ns1:refid="rect144523" />
   <ns1:frame
@@ -14817,8 +14824,8 @@
      ns1:clip="true"
      ns1:timeout-enable="false"
      ns1:timeout-ms="5000.0"
-     ns1:transition-duration-ms="3000"
-     ns1:transition-zoom-percent="-50"
+     ns1:transition-duration-ms="3000.0"
+     ns1:transition-zoom-percent="-50.0"
      ns1:transition-profile="accelerate-decelerate"
      ns1:transition-path-hide="true"
      id="frame9464" />
@@ -14858,7 +14865,7 @@
      ns1:timeout-enable="false"
      ns1:clip="true"
      ns1:hide="true"
-     ns1:sequence="22"
+     ns1:sequence="23"
      ns1:title="Darpa goes with BSD"
      ns1:refid="rect99068" />
   <ns1:frame
@@ -14903,7 +14910,7 @@
   <ns1:frame
      ns1:refid="rect25485"
      ns1:title="Full View"
-     ns1:sequence="28"
+     ns1:sequence="29"
      ns1:hide="true"
      ns1:clip="true"
      ns1:timeout-enable="false"
@@ -14913,4 +14920,17 @@
      ns1:transition-profile="linear"
      ns1:transition-path-hide="true"
      id="frame4667" />
+  <ns1:frame
+     ns1:refid="rect5722"
+     ns1:title="Design Cycle"
+     ns1:sequence="21"
+     ns1:hide="true"
+     ns1:clip="true"
+     ns1:timeout-enable="false"
+     ns1:timeout-ms="5000"
+     ns1:transition-duration-ms="1000"
+     ns1:transition-zoom-percent="0"
+     ns1:transition-profile="linear"
+     ns1:transition-path-hide="true"
+     id="frame3017" />
 </svg>
