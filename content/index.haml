@@ -6,14 +6,19 @@ title: Unix for Engineers
   # Announcements 
   This site is currently under development. At some point in the near future syndicated blog posts will appear here. For the time being, you may find what you are seeking in the [syllabus](/syllabus/), or under [Getting Started](/getting_started/).
 
--# sorted_syndicates.each do |post|
+:markdown
+  # Recent Posts
+  
+- sorted_syndicates.each do |post|
   %article
     %header
-      %time{:pubtime => true, :datetime => get_pub_datetime(post)}
-        = get_pretty_date(post)
       %h1
         = link_to(post[:title], post[:entry_url])
       %p.author
+        On
+        %time{:pubtime => true, :datetime => get_pub_datetime(post)}
+          = get_pretty_date(post)
         = link_to(post[:author_name], post[:author_uri])
+        wrote:
 
     = get_post_start(post)
