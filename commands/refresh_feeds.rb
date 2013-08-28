@@ -13,12 +13,15 @@ class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
     # Set VCS if possible
     self.set_vcs(options[:vcs])
 
+    syndicate_since = Time.parse(self.site.config[:syndicate_since] || 'Jan 01 00:00:01 GMT 1969')
+    
     arguments.each do |file_name|
       if File.readable?(file_name)
         File.open(file_name).each do |uri|
           feed = Feedzirra::Feed.fetch_and_parse(uri)
           puts feed.title
-          feed.entries.each do |entry|
+# 
+          feed.entries.select { |e| (e.published > syndicate_since) && !((e.content || '') =~ /This is your first post\./) }.each do |entry|
             #entry.sanitize!
             entry_url = URI(entry.url)
             host = entry_url.host
@@ -27,10 +30,11 @@ class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
 
             exists = @site.items.find { |i| i.identifier == identifier }
             if exists
+              exists[:title] = 'Untitled' unless exists[:title]
               puts "Item " + exists[:title] + " already exists... TODO: check for update"
             else
               meta = {
-                :title => entry.title,
+                :title => entry.title || 'Untitled Post',
                 :entry_url => entry.url,
                 :kind => 'syndicate',
                 :created_at => entry.published,
