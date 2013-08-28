@@ -129,7 +129,7 @@ have any preference then consider setting up an account at
      - [[http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/index.html][Installation Guide]]
 **** Resources
      - [[http://www.thegeekstuff.com/2011/08/yum-command-examples/][15 Linux Yum Command Examples]]
-
+     - [[http://www.ehow.com/how_7242293_dual-boot-fedora-windows.html][How to Dual Boot Fedora & Windows]]
 *** Ubuntu
     Probably one of the most well known distributions due to marketing
     campaigns by its supporting company Canonical, Ubuntu is extremely
