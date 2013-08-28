@@ -3,11 +3,11 @@ title: Assignments
 ---
 
 * Assignments
-** Review the Syllabus, due Wednesday August 28 at 10:10am
+** By Wednesday August 28 at 10:10am
    Read [[/syllabus/][the syllabus]] for this class as well as the [[/getting_started/][getting started]]
    documentation. Please bring any concerns or questions to my
    attention.
-** Setup a Blog, write a post, due Friday August 30 at 11:59pm
+** By Friday August 30 at 11:59pm
 1. [[/getting_started/][Set up a blog]]
 2. Read chapter [[http://catb.org/esr/writings/taoup/html/philosophychapter.html][I.1 Philosophy]] of [[http://www.catb.org/esr/writings/taoup/html/][The Art of Unix Programming]]. Pick
    two nuggets that jump out at you and blog about them.  These could
@@ -15,3 +15,16 @@ title: Assignments
    understand. Be sure to include a cited quote for each nugget. How
    do you hope to explore these interests in this class?
 3. Send me an email with the url to your blog post. I will add the feed to to the class list and your future posts will be syndicated to the class website.
+** By Monday, September 2 at 10:10am
+   1. Read [[/git/getting_started/][Getting Started with Git]], following any links you need to based on your current level of comfort.
+   2. Read the first three sections of [[http://linuxcommand.org/lc3_learning_the_shell.php][Learning the Shell]] in The Linux
+      Command Line (section 3 is called "[[http://linuxcommand.org/lc3_lts0030.php][Looking Around]]" on the
+      website version and "Exploring the System" in the book/PDF).  
+   3. At this point you should know how to run commands from the
+      command line and have a working knowledge of the following
+      commands:
+      - pwd
+      - cd
+      - ls
+      - less
+      - file

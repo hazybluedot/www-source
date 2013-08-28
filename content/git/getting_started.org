@@ -2,7 +2,7 @@
 title: 'Git: Getting started'
 ---
 
-** Getting Started with git
+** Getting Started with ~git~
 Throughout the semester we will us the git version control utility to
 manage our software projects and submit them for evaluation. If you
 have never used or heard of a version control system before take a
@@ -12,38 +12,59 @@ this class, read the next section about the [[http://git-scm.com/book/en/Getting
 explaination is more your style, check out the [[http://git-scm.com/videos][Git Basics videos]],
 starting with "What is Version Control".
 
-#+BEGIN_ASIDE
-While we will be exclusivly using git do keep in mind that it is one
-of several widly used Version Control Systems. While the commands used
-to interact with different systems will vary, the underlying ideas will
-apply to any you encounter.
-#+END_ASIDE
+*** First Time Setup
+    Follow the instructions at [[http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup][First Time Git Setup]]. Pay special
+    attention to entering your identity information completely and
+    accurately (first and last name and a valid email address).  
 
-*** Two Ways to Create a new git repo
+    - Your Identity : If you configure git on multiple systems
+      (e.g. your ece2524 shell account and your laptop) be sure to use
+      the same email address for each. This will help me keep track of
+      who's who when we start working collaboratively.
+
+    - Your Editor : The default editor on Fedora installs is ~vim~.
+      If you have never used vim before besure to run the ~vimtutor~
+      command and work through enough to be able to insert text and
+      save a file. Alternatively you could set the editor used by ~git~
+      to ~nano~:
+      #+BEGIN_EXAMPLE
+      git config --global core.editor nano
+      #+END_EXAMPLE
+
+    - Your Diff Tool :
+      You may safely ignore this section for the time being.
+
+** Working with ~git~
+
+   While we will be exclusivly using git do keep in mind that it is
+one of several widly used Version Control Systems. While the commands
+used to interact with different systems will vary, the underlying
+ideas will apply to any you encounter.
+
+*** Two Ways to Create a new local ~git~ repo
 - Create a new, empty repo
 
-#+BEGIN_SRC shell-script
+    #+BEGIN_SRC shell-script
   git init
-#+END_SRC
+    #+END_SRC
 
-This will initialize the /current directory/ as a git repo. If you
-append a new directory name to the command it will be created and an
-empty git repo will be initialized in it.
+    This will initialize the /current directory/ as a git repo. If you append a new directory name to the command it will be created and an empty git repo will be initialized in it.
 
-#+BEGIN_SRC shell-script
+    #+BEGIN_SRC shell-script
   git init new_repo
-#+END_SRC
+    #+END_SRC
 
-*What did this do?*
-You may be underwhelmed by the result of these commands.
+    *What did this do?*
+    You may be underwhelmed by the result of these commands.
 
-#+BEGIN_SRC shell-script
+    #+BEGIN_SRC shell-script
   ls -al
-#+END_SRC
+    #+END_SRC
 
 - Clone an existing repo
-Perhaps you already have a git repo stored on a remote machine, or you
-want to fork a local repo.
+
+    Perhaps you already have a git repo stored on a remote machine, or you want to fork a local repo.
+
 *** Common Commit Cycle
 - Add files to the staging area
   #+BEGIN_EXAMPLE
