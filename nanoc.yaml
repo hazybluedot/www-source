@@ -9,6 +9,7 @@ site_subtitle: 'Introduction to Unix for Engineers'
 author_name: 'Darren Maczka'
 author_uri: 'http://hazyblue.me'
 
+syndicate_since: 'Aug 26 00:00:01 GMT 2013'
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
 # relative to the site directory.
