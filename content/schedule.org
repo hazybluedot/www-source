@@ -1,8 +1,8 @@
 ---
-title: Assignments
+title: Schedule
 ---
 
-* Assignments
+* Schedule
 ** By Wednesday August 28 at 10:10am
    Read [[/syllabus/][the syllabus]] for this class as well as the [[/getting_started/][getting started]]
    documentation. Please bring any concerns or questions to my
