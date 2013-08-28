@@ -15,7 +15,7 @@ title: Assignments
    understand. Be sure to include a cited quote for each nugget. How
    do you hope to explore these interests in this class?
 3. Send me an email with the url to your blog post. I will add the feed to to the class list and your future posts will be syndicated to the class website.
-** By Monday, September 2 at 10:10am
+** By Monday, September 2 at 10:10am (draft)
    1. Read [[/git/getting_started/][Getting Started with Git]], following any links you need to based on your current level of comfort.
    2. Read the first three sections of [[http://linuxcommand.org/lc3_learning_the_shell.php][Learning the Shell]] in The Linux
       Command Line (section 3 is called "[[http://linuxcommand.org/lc3_lts0030.php][Looking Around]]" on the
