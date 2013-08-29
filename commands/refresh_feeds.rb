@@ -13,6 +13,8 @@ class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
     # Set VCS if possible
     self.set_vcs(options[:vcs])
 
+    Feedzirra::Feed.add_common_feed_entry_element('dc:creator', :as => :creator)
+
     syndicate_since = Time.parse(self.site.config[:syndicate_since] || 'Jan 01 00:00:01 GMT 1969')
     
     arguments.each do |file_name|
@@ -20,32 +22,32 @@ class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
         File.open(file_name).each do |uri|
           feed = Feedzirra::Feed.fetch_and_parse(uri)
           puts feed.title
-# 
           feed.entries.select { |e| (e.published > syndicate_since) && !((e.content || '') =~ /This is your first post\./) }.each do |entry|
             #entry.sanitize!
             entry_url = URI(entry.url)
             host = entry_url.host
             path_parts = entry_url.path.split("/")
-            identifier = "/syndicated/" + host.gsub('.','_') + "/" + path_parts[1] + "/" + path_parts[2..-1].join("-") + "/"
-
+            entry.creator = path_parts[1] unless entry.creator
+            identifier = "/syndicated/" + host.gsub('.','_') + "/" + entry.creator + "/" + path_parts[2..-1].join("-") + "/"
             exists = @site.items.find { |i| i.identifier == identifier }
+            entry.title = 'Untitled Post' unless entry.title
+            print "\t" + entry.title
             if exists
               exists[:title] = 'Untitled' unless exists[:title]
-              puts "Item " + exists[:title] + " already exists... TODO: check for update"
+              #puts "Item " + exists[:title] + " already exists... TODO: check for update"
+              print ' (exists... TODO: check for update)'
             else
               meta = {
-                :title => entry.title || 'Untitled Post',
+                :title => entry.title,
                 :entry_url => entry.url,
                 :kind => 'syndicate',
                 :created_at => entry.published,
-                :author_name => entry.author || path_parts[1],
+                :author_name => entry.author || entry.creator,
                 :author_uri => feed.url,
                 :tags => entry.categories
               }
 
-              puts "\t creating item "+ identifier
-              puts "\t with meta data: " + meta.inspect
-              
+
               #create post if it doesn't exist
               data_source = self.site.data_sources[0]
               data_source.create_item(
@@ -54,7 +56,10 @@ class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
                                       identifier,
                                       { :extension => '.html' }
                                       )
+              print ' (created)'
+              
             end
+            print "\n"
           end
         end
       else
