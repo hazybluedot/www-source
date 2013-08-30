@@ -237,6 +237,7 @@ have any preference then consider setting up an account at
     a smooth update!
 
 ** Install Software
+   While many distributions come with a graphical application to manage installing and removing software, we will use the command line (the graphicall tools simply call the command line utilities anyway).  Open a terminal and run the following commands (you will have to run each with 'sudo' in front of it).
 *** git
     Fedora
 #+BEGIN_EXAMPLE
@@ -255,15 +256,32 @@ have any preference then consider setting up an account at
 
     See [[/git/getting_started/][Getting Started with git]] for post-install instructions.
 *** weechat
+    - Fedora
     #+BEGIN_EXAMPLE
     yum install weechat
     #+END_EXAMPLE
+    - Ubuntu
+      #+BEGIN_EXAMPLE
+      apt-get install weechat
+      #+END_EXAMPLE
 
+    - Arch
+      #+BEGIN_EXAMPLE
+      pacman -S weechat
+      #+END_EXAMPLE
 *** Development Tools
+    - Fedora
     #+BEGIN_EXAMPLE
     yum groupinstall "Development Tools"
     #+END_EXAMPLE
+    - Ubuntu
+    #+BEGIN_EXAMPLE
+    apt-get install build-essential
+    #+END_EXAMPLE
+    - ArchLinux
 
+      The base install of Arch gives you everything you need.
+    
 *** Text Editor
     A good text editor is a *nix developers most important tool. After
     enough practice, your editor of choice should feel like an
@@ -280,6 +298,8 @@ have any preference then consider setting up an account at
     #+BEGIN_EXAMPLE
     yum install vim
     #+END_EXAMPLE
+
+    Use ~apt-get~ in place of ~yum~ in Ubuntu.
 
     You will find that folks in the *nix community can be fiercely
     passionate about either /vi/ or /emacs/.  It is best to at least
