@@ -25,11 +25,16 @@ starting with "What is Version Control".
     - Your Editor : The default editor on Fedora installs is ~vim~.
       If you have never used vim before besure to run the ~vimtutor~
       command and work through enough to be able to insert text and
-      save a file. Alternatively you could set the editor used by ~git~
-      to ~nano~:
+      save a file. Alternatively you could set your systems' default editor to ~nano~:
       #+BEGIN_EXAMPLE
-      git config --global core.editor nano
+      echo '$EDITOR=nano' >> ~/.profile
       #+END_EXAMPLE
+      
+      You will have to open a new terminal window for the changes to take effect, or run
+      #+BEGIN_EXAMPLE
+      source ~/.profile
+      #+END_EXAMPLE
+      once from the current one.
 
     - Your Diff Tool :
       You may safely ignore this section for the time being.
