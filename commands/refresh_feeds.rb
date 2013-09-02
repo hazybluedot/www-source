@@ -20,14 +20,19 @@ class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
         File.open(file_name).each do |uri|
           feed = Feedzirra::Feed.fetch_and_parse(uri)
           if feed
-            puts feed.title
-            read_entries(feed)
+            begin
+              puts feed.title
+              read_entries(feed)
+            rescue Exception => e
+              $stderr.puts 'Error: ' + uri
+              $stderr.puts e.message
+            end
           else
-            puts 'Error: ' + uri
+            $stderr.puts 'Error: ' + uri
           end
         end
       else
-        p file_name+': Could not open file'
+        $stderr.puts file_name+': Could not open file'
       end
     end
   end
