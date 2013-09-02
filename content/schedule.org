@@ -32,11 +32,11 @@ title: Schedule
       [[/activities/scavenger/index.html][Source Code Scavenger Hunt]] 
 
 ** By Wednesday, September 4 at 10:10am
-   1. Work through section 4 from The Linux Command Line:
-      "Manipulating Files and Directories".  Note that the PDF version of the book introduces the
+   1. Work through section 4 from [[http://linuxcommand.org/tlcl.php][The Linux Command Line]]:
+      "Manipulating Files and Directories".  Note that the [[http://sourceforge.net/projects/linuxcommand/files/TLCL/13.07/TLCL-13.07.pdf/download][PDF version]] of the book introduces the
       ~ln~ command and includes a helpful exercise that the website
       version does not.  Be sure to familiarize yourself with the
-      contents of the PDF version.
+      contents of the [[http://sourceforge.net/projects/linuxcommand/files/TLCL/13.07/TLCL-13.07.pdf/download][PDF version]].
    2. At this point you should be familiar with the following
       additional commands:
       - cp
