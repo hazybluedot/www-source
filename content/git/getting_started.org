@@ -8,9 +8,11 @@ manage our software projects and submit them for evaluation. If you
 have never used or heard of a version control system before take a
 moment to read the "[[http://git-scm.com/book/en/Getting-Started-About-Version-Control][About Version Control]]" section of the git
 documentation, and, because it ties in so nicely with the content of
-this class, read the next section about the [[http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git][history of git]]. If video
-explaination is more your style, check out the [[http://git-scm.com/videos][Git Basics videos]],
-starting with "What is Version Control".
+this class, read the next section about the [[http://git-scm.com/book/en/Getting-Started-A-Short-History-of-Git][history of git]]. If you are
+already familiar with another version control system (e.g. SVN,
+mercurial) you can safely jump to [[http://git-scm.com/book/en/Getting-Started-Git-Basics][Git Basics]] paying speciall attention
+to [[http://git-scm.com/book/en/Getting-Started-Git-Basics#The-Three-States][The Three States]].  If video explaination is more your style, check
+out the [[http://git-scm.com/videos][Git Basics videos]], starting with "What is Version Control".
 
 *** First Time Setup
     Follow the instructions at [[http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup][First Time Git Setup]]. Pay special
@@ -40,11 +42,21 @@ starting with "What is Version Control".
       You may safely ignore this section for the time being.
 
 ** Working with ~git~
-
    While we will be exclusivly using git do keep in mind that it is
 one of several widly used Version Control Systems. While the commands
 used to interact with different systems will vary, the underlying
-ideas will apply to any you encounter.
+ideas will apply to any you encounter. Most common errors are caused
+by forgeting what each of the three states means:
+
+#+CAPTION: The Three States of a git managed files
+#+ATTR_HTML: :alt "the three states"
+[[/assets/images/git_states.png]]
+
+Review [[http://git-scm.com/book/en/Getting-Started-Git-Basics#The-Three-States][The Three States]] from [[http://git-scm.com/book/en/Getting-Started-Git-Basics][Git Basic]]s if you are unsure about the
+information on the diagram. What follows should be used as a reminder
+of the common sequence of commands used when working with ~git~. For a
+more detailed reference do an internet search for 'git cheat sheet',
+there are many available.
 
 *** Two Ways to Create a new local ~git~ repo
 - Create a new, empty repo
@@ -93,3 +105,4 @@ ideas will apply to any you encounter.
 ** More Resources
    - [[/git/common_errors/][Common errors with git]]
    - [[http://git-scm.com/documentation][Git documentation]]
+   - [[https://na1.salesforce.com/help/doc/en/salesforce_git_developer_cheatsheet.pdf][Git Cheat Sheet]] (one of many)
