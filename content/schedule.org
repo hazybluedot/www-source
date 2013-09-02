@@ -15,7 +15,7 @@ title: Schedule
    understand. Be sure to include a cited quote for each nugget. How
    do you hope to explore these interests in this class?
 3. Send me an email with the url to your blog post. I will add the feed to to the class list and your future posts will be syndicated to the class website.
-** By Monday, September 2 at 10:10am (draft)
+** By Monday, September 2 at 10:10am
    1. Read [[/git/getting_started/][Getting Started with Git]], following any links you need to based on your current level of comfort.
    2. Read the first three sections of [[http://linuxcommand.org/lc3_learning_the_shell.php][Learning the Shell]] in The Linux
       Command Line (section 3 is called "[[http://linuxcommand.org/lc3_lts0030.php][Looking Around]]" on the
@@ -28,3 +28,46 @@ title: Schedule
       - ls
       - less
       - file
+*** In Class
+      [[/activities/scavenger/index.html][Source Code Scavenger Hunt]] 
+
+** By Wednesday, September 4 at 10:10am
+   1. Work through section 4 from The Linux Command Line:
+      "Manipulating Files and Directories".  Note that the PDF version of the book introduces the
+      ~ln~ command and includes a helpful exercise that the website
+      version does not.  Be sure to familiarize yourself with the
+      contents of the PDF version.
+   2. At this point you should be familiar with the following
+      additional commands:
+      - cp
+      - mv
+      - mkdir
+      - rm
+      - ln
+      as well as have a basic understanding of how wildcards are used on the command line.
+
+** By Monday, September 9 at 10:10am
+   1. Work through sections 5 and 6 of The Linux Command Line:
+      - "Working with Commands"
+      - "Redirection"
+      After working through these sections you should be familiar with the additional list of commands:
+      - type
+      - which
+      - help
+      - man
+      - apropos
+      - info
+      - whatis
+      - alias
+      At this point you may be feeling overwhelmed with the number of
+      new commands you should be familiar with, as well as the
+      concepts introduced in the "Redirection" section.  But you also
+      now know several tools that you can use to help remind you what
+      a particular command does. Most of these commands will be found
+      on any Unix-like system you find yourself at which means perfect
+      memorization is not required. You will find that over time some
+      commands you will learn by heart because you used them often
+      while others you will use less frequently and refer to the
+      manual pages when needed. 
+
+	
