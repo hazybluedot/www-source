@@ -1,0 +1,62 @@
+---
+title: Getting Started with key authentication
+---
+#+OPTIONS: f:t
+
+** Generate a key pair
+We will be using a special git repository set up on ece2524.ece.vt.edu
+to submit homeworks and projects. The server requires SSH key
+authentication, to use it first follow the excellent instructions at
+GitHub help to [[https://help.github.com/articles/generating-ssh-keys][generate an SSH Key pair]].
+
+Notes: 
+
+- *Only run this command once*.  If you run it again and generate a new
+  key in place of the old one any authentication you have set up will
+  no longer work.
+- *using an empty password*: generating a key pair with no password is
+  a potential security risk.  The security obtained by public key
+  authentication is only as good as how secure your private key is. If
+  an unathorized person gains access to your machine, either locally,
+  or remotely, they can obtain your private key. If there is no
+  password set on it the hacker will immediately have access to all
+  servers that you have installed the public key to.  If you only use
+  this particular key pair to access your ECE2524 git account then
+  worst case scenario is this person will be able to submit homework
+  assignments for you (or tamper with them). Not a huge deal. If you
+  also use the same key pair to authenticate your CVL account, or any
+  other system with full shell access this is a much greater threat.
+  Consider setting a passphrase when generating your key!
+- *creating a keypair on your CVL shell account*: For the reasons given
+  above, storing your private key on a shared system always accessible
+  by the internet is inharently less secure than storing your key on
+  your own computer. If the /only/ Unix-like system is your shell
+  account, then you don't have any other option.  If, however, you run
+  a Unix-like system on your own computer you should create your key
+  pair locally and then use SSH Agent Forwarding to authenticate to
+  remote servers when connected to your shell account.
+
+** Install your key
+#+BEGIN_EXAMPLE
+$ scp ~/.ssh/id_rsa.pub ece2524@ece2524.ece.vt.edu:/dropbox/USERNAME.pub
+#+END_EXAMPLE
+
+Replace ~USERNAME~ with your CVL account username.
+
+*** Advanced Users: Multiple Keys
+    If you want to use multiple keys (e.g. you want to be able to access the ece2524 git server from both your desktop and laptop) then use 
+
+    #+BEGIN_EXAMPLE
+    $ scp ~/.ssh/id_rsa.pub ece2524@ece2524.ece.vt.edu:/dropbox/USERNAME@MACHINE.pub
+    #+END_EXAMPLE
+
+    where you replace ~USERNAME~ with your CVL account username[fn:1] and
+    ~MACHINE~ with a word unique to each of your different machiens
+    (e.g. ~desktop~ or ~laptop~). I am using [[http://gitolite.com/][gitolite]] as the git
+    server. See [[http://gitolite.com/gitolite/users.html#multi-key][multiple keys per user]] in the gitolite documentation
+    for more information.
+
+[fn:1] Strictly speaking you don't need to use your CVL username
+here. You could pick any username that is not already in use by
+gitolite. I find it is generally much less confusing if you just stick
+with your CVL username unless there is a very good reason not to.
