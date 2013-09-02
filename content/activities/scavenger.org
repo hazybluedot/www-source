@@ -1,0 +1,184 @@
+---
+title: Identify the Building Blocks
+---
+
+** Introduction
+   At this point you should be familiar what the following commands do and how to use them:
+   
+   - ~ls~
+   - ~pwd~
+   - ~cd~
+   - ~less~
+
+   Remember that they can be thought of as building blocks that can be
+   combine to create more complex programs. We still haven't covered
+   how that is done, or what the "mortar" is that allows us to combine
+   commands together. But the building block metaphor works at
+   different layers of abstraction, the command utilities being at a
+   rather high level away from the hardware.  
+
+   These utilities are built up from smaller blocks of standard
+   library calls and system calls. Today we will start inspecting some
+   of the source code used in a working system to 
+   
+   1. discover some of the useful functions the standard libraries
+      provide
+   2. get a feel for the structure (and variations in structure) of source code used in a production operating system.
+
+*** ~less~ tips
+    - the ~-N~ command line option tells ~less~ to print line numbers
+    - type ~/~ followed by a string to search for, then enter.  ~n~
+      jumps to the next search result while ~N~ jumps to the previous.
+
+** Connect to shell account
+   ssh into your shell account on ~ece2524.ece.vt.edu~:
+   - On a Unix-like (GNU/Linux, OS X, OpenBSD, etc.) system:
+     #+BEGIN_EXAMPLE
+     ssh username@ece2524.ece.vt.edu
+     #+END_EXAMPLE
+   - On Windows:
+     Follow [[https://computing.ece.vt.edu/wiki/Xming][instructions for Using PuTTY to access CVL]].
+
+** General structure of a program:
+   #+BEGIN_SRC c
+       //includes and definitions
+       
+       int 
+       main(int argc, char *argv[])
+       {
+         // initialization
+         
+         // command line option parsing
+         
+         // the 'real' work
+       }
+       
+       // helper functions
+   #+END_SRC
+   
+** Source Files
++ plan9
+  + ~pwd.c~ and ~ls.c~ are in ~/src/plan9/sys/src/cmd/~
+  + ~print.c~ and ~vfprint.c~ are in ~/src/plan9/sys/src/libc/fmt/~
++ OpenBSD
+  + ~/src/openbsd/bin/pwd/~
++ GNU
+  + ~pwd.c~ and ~ls.c~ are in ~/src/gnu/coreutils/src/~
+
+** Scavenger Hunt
+~pwd~ is a far simpler command, and the source code to implement it is
+not surprisingly much shorter than that of ~ls~, so start with ~pwd~
+and try to use what you learn there to aid in figuring out how ~ls~
+works.
+
+1. Read the [[http://pubs.opengroup.org/onlinepubs/007904875/utilities/pwd.html][POSIX specification]]. Note any command line options the command should accept.
+
+2. Inspecting the plan9 source for ~pwd~. Note, the plan9
+   implementation of pwd does not appear to accept any command line
+   options.
+   + what line/function call seems to be responsible for retrieving the working directory?
+   + what line/function call seems to be responsible for printing the working directory to the console?
+
+3. Inspect the OpenBSD source for ~pwd~.
+   + what line and function call seems to start the command line option parsing section?
+   + what line and function call seems to be responsible for retrieving the working directory?
+   + what line and function call seems to be responsible for printing the working directory to the console?
+
+4. Run the ~pwd~ command with an undefined option, for example:
+   #+BEGIN_EXAMPLE
+   $ pwd -x
+   #+END_EXAMPLE
+   You should see some sort of message indicating that ~-x~ is not a
+   valid option and you should also see a short usage summary.
+
+5. From the shell prompt run the command
+   #+BEGIN_EXAMPLE
+   $ ltrace pwd >/dev/null
+   #+END_EXAMPLE
+   
+   the output will contain a list of all library calls made by ~pwd~
+   program. Note that the version running on ~ece2524.ece.vt.edu~ is
+   the GNU version which doesn't call the same library function as the
+   OpenBSD or Plan9 implementations to print a message to the
+   console. From the output of the ~ltrace~ command, can you deduce
+   what library call is used by the GNU code for the same purpose?
+
+6. The plan9 source file ~pwd.c~ is 19 lines while the OpenBSD version
+   is 79 lines long (many of those are header comments).  The GNU
+   version of ~pwd.c~ weighs in at 389 lines. What may be the reasons
+   for this large difference in code size? 
+
+7. Can you identify the linked list implementation in the OpenBSD implementation of ~ls~? 
+** Appendix
+   Definition of the ~FTS~ and ~FTSENT~ structs are in ~/src/openbsd/base/include/fts.h~
+   #+BEGIN_SRC c
+     typedef struct {
+       struct _ftsent *fts_cur;    /* current node */
+       struct _ftsent *fts_child;    /* linked list of children */
+       struct _ftsent **fts_array;    /* sort array */
+       __dev_t fts_dev;        /* starting device # */
+       char *fts_path;            /* path for this descent */
+       int fts_rfd;            /* fd for root */
+       __size_t fts_pathlen;        /* sizeof(path) */
+       __size_t fts_nitems;        /* elements in the sort array */
+       int (*fts_compar)        /* compare function */
+       (const struct _ftsent * const *, const struct _ftsent * const *);
+     
+       //removed some defines
+       int fts_options;        /* fts_open options, global flags */
+       void *fts_clientptr;        /* thunk for sort function */
+     } FTS;
+     
+     typedef struct _ftsent {
+       struct _ftsent *fts_cycle;    /* cycle node */
+       struct _ftsent *fts_parent;    /* parent directory */
+       struct _ftsent *fts_link;    /* next file in directory */
+       long long fts_number;        /* local numeric value */
+     #define    fts_bignum    fts_number    /* XXX non-std, should go away */
+       void *fts_pointer;        /* local address value */
+       char *fts_accpath;        /* access path */
+       char *fts_path;            /* root path */
+       int fts_errno;            /* errno for this node */
+       int fts_symfd;            /* fd for symlink */
+       __size_t fts_pathlen;        /* strlen(fts_path) */
+       __size_t fts_namelen;        /* strlen(fts_name) */
+     
+       __ino_t fts_ino;        /* inode */
+       __dev_t fts_dev;        /* device */
+       __nlink_t fts_nlink;        /* link count */
+     
+     #define    FTS_ROOTPARENTLEVEL    -1
+     #define    FTS_ROOTLEVEL         0
+       long fts_level;            /* depth (-1 to N) */
+     
+       // removed some defines
+       int fts_info;            /* user status for FTSENT structure */
+     
+       // missing defines
+       unsigned fts_flags;        /* private flags for FTSENT structure */
+     
+       // missing defines
+       int fts_instr;            /* fts_set() instructions */
+     
+       struct stat *fts_statp;        /* stat(2) information */
+       char *fts_name;            /* file name */
+       FTS *fts_fts;            /* back pointer to main FTS */
+     } FTSENT;
+     
+     #include <sys/cdefs.h>
+     
+     __BEGIN_DECLS
+     FTSENT    *fts_children(FTS *, int);
+     int     fts_close(FTS *);
+     void    *fts_get_clientptr(FTS *);
+     #define     fts_get_clientptr(fts)    ((fts)->fts_clientptr)
+     FTS    *fts_get_stream(FTSENT *);
+     #define     fts_get_stream(ftsent)    ((ftsent)->fts_fts)
+     FTS    *fts_open(char * const *, int,
+                      int (*)(const FTSENT * const *, const FTSENT * const *));
+     FTSENT    *fts_read(FTS *);
+     int     fts_set(FTS *, FTSENT *, int);
+     void     fts_set_clientptr(FTS *, void *);
+     __END_DECLS
+     
+   #+END_SRC
