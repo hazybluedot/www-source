@@ -23,6 +23,17 @@
 
 @import "susy";
 
+// Grid --------------------------------------------------------------
+
+$total-columns  : 5;             // a 5-column default (design for smallest screen)
+$column-width   : 4em;            // each column is 4em wide
+$gutter-width   : 1em;            // 1em gutters between columns
+$grid-padding   : $gutter-width;  // grid-padding equal to gutters
+
+$mobile   : 5;
+$tablet   : 8;
+$desktop  : 16;
+
 $column-divizor: 4;
 
 body {

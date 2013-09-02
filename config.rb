@@ -6,7 +6,8 @@ require 'susy'
 http_path = "/"
 css_dir = "output/stylesheets"
 sass_dir = "content/sass"
-images_dir = "images"
+images_dir = "output/assets/images"
+http_images_path ="/assets/images"
 javascripts_dir = "javascripts"
 
 # You can select your preferred output style here (can be overridden via the command line):

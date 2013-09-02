@@ -4,12 +4,16 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass";
-@import "compass/reset";
+//@import "compass/reset";
+@include global-reset;
+@include reset-html5;
 
-@import "partials/base";
-@import "partials/typography";
-@import "partials/two_cols";
-//@import "partials/technicolor";
+@import "custom/colors";
+@import "custom/fonts";
+@import "custom/layout";
+@import "base";
+@import "partials";
+@import "custom/styles";
 
 footer {
     font-size: 75%;

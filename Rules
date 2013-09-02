@@ -23,7 +23,19 @@ compile '/assets/*' do
   #don't filter
 end
 
+compile '/stylesheets/_*/' do
+  # don’t filter or layout
+end
+
 compile '/stylesheets/partials/*' do
+  # don’t filter or layout
+end
+
+compile '/stylesheets/base/*' do
+  # don’t filter or layout
+end
+
+compile '/stylesheets/custom/*' do
   # don’t filter or layout
 end
 
@@ -52,9 +64,22 @@ route '/stylesheet/' do
   '/style.css'
 end
 
+route '/stylesheets/_*' do
+  nil
+end
+
 route '/stylesheets/partials/*' do
   nil
 end
+
+route '/stylesheets/base/*' do
+  nil
+end
+
+route '/stylesheets/custom/*' do
+  nil
+end
+
 
 route '/syndicated/*/' do
   nil
