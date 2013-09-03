@@ -1,0 +1,310 @@
+---
+title: Playing with Blocks
+---
+
+* Playing with Blocks
+** Create an empty directory
+1. Create a new directory called =ece2524=, make it your current working directory
+2. Create a new directory in =ece2524= called =blocks=, make it your current working directory
+
+** Install *trace utilities 
+If you are working on your local system, not your shell account, then you may need to install the =ltrace= and =strace= utilities:
+- Fedora
+#+BEGIN_EXAMPLE
+$ yum install ltrace strace
+#+END_EXAMPLE
+- Ubuntu
+#+BEGIN_EXAMPLE
+$ apt-get install ltrace strace
+#+END_EXAMPLE
+** Let's Build Something
+We now know that =printf= and =puts= are library calls that can print
+a message to the console. Let's write a simple program that uses these
+functions to explore how they work.
+
+Using a text editor (e.g. =nano=, =vim= or =emacs=), open a new file name =hello_puts.c= and type the following C source code.
+
+#+BEGIN_SRC c
+#include <stdio.h>
+
+int main()
+{
+    puts("hello world");
+}
+#+END_SRC
+
+Now compile it
+
+#+BEGIN_EXAMPLE
+$ cc -o hello_puts hello_puts.c
+#+END_EXAMPLE
+
+The =-o= option tells the compiler what to name the compiled binary.
+If you don't include it, the binary will be called =a.out=.
+
+Now run your new program:
+
+#+BEGIN_EXAMPLE
+$ ./hello_puts
+hello world
+#+END_EXAMPLE
+
+Nothing too surprising. But what is =puts= actually doing? Let's run our program with =ltrace=
+
+#+BEGIN_EXAMPLE
+$ ltrace ./hello_puts >/dev/null
+__libc_start_main(0x400530, 1, 0x7fffd5f2d4d8, 0x400550 <unfinished ...>
+puts("hello world")                                                                                   = 12
++++ exited (status 0) +++
+#+END_EXAMPLE
+
+Not too helpful. We already know our program calls =puts=. By the way,
+you may be wondering what the =>/dev/null= bit is for. This surpresses
+the normal output of your program, without it, the "=hello world="
+printed by your program will get mixed in with the output of the
+=ltrace= command making it more difficult to figure out what is going
+on. We'll be seeing a lot more of this after you read through the
+"Redirection" section of The Linux Command Line by next week.
+
+Just like =ltrace= lists the library calls made by a program, =strace=
+will list the system calls. Try running the =hello_puts= program with
+=strace=
+
+#+BEGIN_EXAMPLE
+$ strace ./hello_puts >/dev/null
+#+END_EXAMPLE
+
+There's going to be quite a few lines of output, even for such a
+simple program.  Look for where our string "hello world".  What is the
+system call that writes a string to the output?
+
+The =-c= option to =strace= will display statistics for the system calls made instead of the usual output. Try it now.
+
+#+BEGIN_EXAMPLE
+$ strace -c ./hello_puts
+#+END_EXAMPLE
+
+How many calls are made to the system call responsible for writing output?
+
+** git Break
+We want to make some changes to our program now to further explore the
+interaction between the library calls and system calls. But we just
+spent hours and hours writing beautiful lines of code that compile
+into a perfectly running program. Let's use =git= to manage our
+project and track changes.
+
+1. Confirm you are in the directory you created earlier:
+   #+BEGIN_EXAMPLE
+   $ pwd
+   /home/you/ece2524/blocks
+   #+END_EXAMPLE
+
+   This will be the base directory of your repository.
+   Just to see what happens when we try to run =git= commands from a directory that is not part of a git repository, try running 
+   
+   #+BEGIN_EXAMPLE
+   $ git status
+   fatal: Not a git repository (or any parent up to mount point /home)
+   Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+   #+END_EXAMPLE
+
+   So now if you see this in the future, you know what it means! 
+
+2. Let's make the current directory a git repository by initializing
+   it:
+
+   #+BEGIN_EXAMPLE
+   $ git init
+   #+END_EXAMPLE
+
+   Now the =status= command should work:
+
+   #+BEGIN_EXAMPLE
+   $ git status
+   #+END_EXAMPLE
+
+   You should see =hello_puts.c= listed in a section of output under
+   the title "Untracked Files". This means we haven't told =git= to
+   track our source file yet.  By default =git init= just creates an
+   empty repository. You will also notice that =git= is very helpful
+   and provides a hint as to how we might go about including the
+   untracked file in our repository.  Whenever you get unexpected
+   output or and error from a =git= command always read it
+   carefully. Chances are =git= will tell you what you can do to fix
+   it!
+
+3. add =hello_puts.c= to the staging area:
+
+   #+BEGIN_EXAMPLE
+   $ git add hello_puts.c
+   #+END_EXAMPLE
+
+   Let's check the status:
+
+   #+BEGIN_EXAMPLE
+   $ git status
+   #+END_EXAMPLE
+
+   The output should confirm that =hello_puts.c= has been added to the
+   staging area. It will be added to the repository in the next
+   commit. Notice again that =git= helpfully tells you how you can
+   unstage the file, if you added it by mistake.
+
+4.  Now for the commit
+
+   #+BEGIN_EXAMPLE
+   $ git commit -m "initial commit"
+   #+END_EXAMPLE
+
+   The output should confirm that one file was created in the repo. Now check the status again.
+
+   #+BEGIN_EXAMPLE
+   $ git status
+   # On branch master
+   nothing to commit, working directory clean
+   #+END_EXAMPLE
+
+   That is good to see!  Now of course you don't need to run =git
+   status= after every command, we just did that so we can get
+   familiarized with what the status output looks like at different
+   steps.  If you are ever unsure of what state your repo is in, run
+   =git status= to see what has been staged for commit, what hasn't
+   been added, etc.
+
+5. One last command before we get back to coding:
+
+   #+BEGIN_EXAMPLE
+   $ git log
+   commit ff908255abe8f4bea7597ce946e86e59fb459f21
+   Author: Ramona Flowers <rflowers@some.domain.com>
+   Date:   Tue Sep 3 19:04:44 2013 -0400
+
+       initial commit
+   $
+   #+END_EXAMPLE
+
+   You will see that =git= has logged some data about the commit you
+   just made including the author (you), the time it was made, as well
+   as a commit hash, a string of 40 characters that identify this
+   particular commit. You can refer to any commit made in a repository
+   by its commit id, but don't worry, you don't have to memorize it,
+   most of the commits that you would normally want to refer to will
+   be given names. For instance =HEAD= always refers to the commit
+   associated with the current branch (we will talk more about
+   branches later, for now just know that there is only one, and it is
+   called =master=).  All of this information is stored in the =.git=
+   directory.  Feel free to take a look at the files in that directory
+   to see what they do, but never modify them directly. Let =git=
+   handle that!
+
+   #+BEGIN_EXAMPLE
+   $ cat .git/HEAD
+   ref: refs/heads/master
+   $ cat .git/refs/heads/master
+   ff908255abe8f4bea7597ce946e86e59fb459f21
+   #+END_EXAMPLE
+
+   So we see that =HEAD= does indeed point to the commit we just made
+   (your commit id will probably be different!).
+
+** Resume the exploration
+Modify your program to make the call to =puts= 1000 times. Add and commit the changes:
+
+#+BEGIN_EXAMPLE
+$ git add hello_puts.c
+$ git commit -m "make call to puts 1000 times"
+#+END_EXAMPLE
+
+Look at the system call statistics again, how many calls were made?
+Why is it not 1000?
+
+Run =strace= with the default set of options to take a look at how the
+system call is being used.  What is going on?
+
+** Wrap Up and Submit
+Assuming you have successfully generated an SSH key and installed it
+on the server, you should be all set to submit your program.
+
+First, it is always good to create a file named =README= in the base
+directory of a software project. Usually this file will contain a
+description of the program.
+
+#+BEGIN_EXAMPLE
+$ git add README
+$ git commit -m "add a README"
+#+END_EXAMPLE
+
+Let's take a look at the log:
+
+#+BEGIN_EXAMPLE
+$ git log --oneline
+a1b85d4 add a README
+2d03839 call puts 1000 times
+ff90825 initial commit
+#+END_EXAMPLE
+
+The =--oneline= option prints the log in the shortened one-line format
+that you see. The commit id is also truncated, in all but the most
+extreme cases the first few characters of a commit id are all you need
+to identify it.
+
+Try running
+
+#+BEGIN_EXAMPLE
+$ git show HEAD:hello_puts.c
+#+END_EXAMPLE
+
+and 
+
+#+BEGIN_EXAMPLE
+$ git show ff90825:hello_puts.c
+#+END_EXAMPLE
+
+using whatever shortened hash is associated with your initial
+commit. See the difference?
+
+At this point, all this marvelous work you have done is on your local
+machine (or on your CLV file space, if you were working from your
+shell account). To get it on to the git server so that I (and
+eventually other class members) can see it we need to =add= a "remote"
+and =push= to it.
+
+#+BEGIN_EXAMPLE
+$ git remote add origin ece2524git@ece2524.ece.vt.edu:USERNAME/iotest.git
+#+END_EXAMPLE
+
+replace =USERNAME= with your git username (which should generally be
+the same as your CVL account username unless you used something
+different when you ran the =scp= command to copy your =.pub= key file
+to the server).
+
+#+BEGIN_EXAMPLE
+$ git push -u origin master
+#+END_EXAMPLE
+
+In the future, when you want to push additional changes made to this repo you can just run
+
+#+BEGIN_EXAMPLE
+$ git push
+#+END_EXAMPLE
+
+A good way to double check that everything worked is to try to clone a copy of your repo:
+
+#+BEGIN_EXAMPLE
+$ cd /tmp
+$ git clone ece2524git@ece2524.ece.vt.edu:USERNAME/iotest.git
+...
+$ ls iotest
+hello_puts.c   README
+$ cat iotest/hello_puts.c
+...
+#+END_EXAMPLE
+
+If everything looks as you expect, great, that's what is up on the
+server.  If not, go back to your working directory and run =git
+status= to see if there are modified files that haven't been committed
+to the repo.
+
+*Note*: if you clone one of your own repos the "remote" will already be
+set so you can add, commit and push changes back to the original
+repository without having to run the =git remote add= command. 
