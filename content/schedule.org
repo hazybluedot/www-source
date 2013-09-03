@@ -32,6 +32,7 @@ title: Schedule
       [[/activities/scavenger/index.html][Source Code Scavenger Hunt]] 
 
 ** By Wednesday, September 4 at 10:10am
+   1. Follow the instructions to [[/getting_started_ssh/index.html][create and install an SSH key]].
    1. Work through section 4 from [[http://linuxcommand.org/tlcl.php][The Linux Command Line]]:
       "Manipulating Files and Directories".  Note that the [[http://sourceforge.net/projects/linuxcommand/files/TLCL/13.07/TLCL-13.07.pdf/download][PDF version]] of the book introduces the
       ~ln~ command and includes a helpful exercise that the website
