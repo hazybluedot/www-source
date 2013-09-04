@@ -46,6 +46,8 @@ title: Schedule
       - rm
       - ln
       as well as have a basic understanding of how wildcards are used on the command line.
+*** In Class
+    [[/activities/io_test/index.html][I/O Test Activity]]
 
 ** By Monday, September 9 at 10:10am
    1. Work through sections 5 and 6 of The Linux Command Line:

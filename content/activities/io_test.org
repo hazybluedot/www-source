@@ -328,3 +328,15 @@ to the repo.
 *Note*: if you clone one of your own repos the "remote" will already be
 set so you can add, commit and push changes back to the original
 repository without having to run the =git remote add= command. 
+** If you finish early
+Some other things to try, just for fun:
+
+1. Replace =puts= and =printf= and see if there are any differences in what system calls are made.
+2. Write a simple "hello world" program in C++ using the insertion operator =<<= to output the string to =std::cout=. 
+   + The C++ compiler is =g++=.
+   + use the =-C= option with =ltrace= to get more readable library calls with C++ programs
+   + how many total system calls were made during the execution of the C++ program. How does that compare to the C program that does the same thing?
+3. Write a simple "hello world" program in C that directly make the
+   system call to write the "hello world" string to output. How does
+   the total number of system calls made differ from the =puts=
+   example?
