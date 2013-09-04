@@ -90,6 +90,14 @@ $ scp ~/.ssh/id_rsa.pub USERNAME@ece2524.ece.vt.edu:/dropbox/USERNAME.pub
 
 Replace ~USERNAME~ with your CVL account username.
 
+*Note*: If your CVL account username is different from your VT PID
+    tell me in an email what it is. The install script running on the
+    server checks that the person trying to install the key is on the
+    class roster which is based on your VT PID.  After you get a
+    confirmation from me that I've made the necessary adjustment, then
+    run the above command to copy your key to the =/dropbox= directory
+    on the serever.
+
 *** Advanced Users: Multiple Keys
     If you want to use multiple keys (e.g. you want to be able to access the ece2524 git server from both your desktop and laptop) then use 
 
