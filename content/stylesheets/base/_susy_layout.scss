@@ -46,22 +46,29 @@ body {
             //@include susy-grid-background; 
         }
 
-	>header, >footer {
+    }
+
+    >header, >footer {
+        @include span-columns($total-columns);
+        @include at-breakpoint($desktop) {
+	    $content-columns: ceil(3 * $desktop / $column-divizor);
+	    @include span-columns($content-columns, $desktop);
+	    @include pad(2,2);
+        }
+        .title {
+	    display: block;
+        }
+	hgroup, nav {
             @include span-columns($total-columns);
             @include at-breakpoint($desktop) {
 		$content-columns: ceil(3 * $desktop / $column-divizor);
-		@include span-columns($content-columns, $desktop);
+		@include span-columns($content-columns omega, $desktop);  
 		@include pad(2,2);
-            }
-            .title {
-		display: block;
+		//@include post(2);
             }
 	}
     }
-
-    nav {
-        @include span-columns($total-columns);
-    }
+    
     
     #sidebar {
         display: none;

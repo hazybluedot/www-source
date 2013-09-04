@@ -32,19 +32,19 @@
     %noscript
       %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/noscript.css', :media => 'screen'}
   %body
+    %header
+      %hgroup
+        %h1
+          = link_to(@config[:site_title],'/')
+        %h2
+          = link_to(@config[:site_subtitle], '/')
+      %nav
+        = link_to('Archive', '/archive/')
+        = link_to('Syllabus', '/syllabus/')
+        = link_to('Getting Started', '/getting_started/')
+        = link_to('Schedule', '/schedule/')
+        = link_to('History', '/assets/images/history_of_nix.svg')
     #container
-      %header
-        %hgroup
-          %h1
-            = link_to(@config[:site_title],'/')
-          %h2
-            = link_to(@config[:site_subtitle], '/')
-        %nav
-          = link_to('Archive', '/archive/')
-          = link_to('Syllabus', '/syllabus/')
-          = link_to('Getting Started', '/getting_started/')
-          = link_to('Schedule', '/schedule/')
-          = link_to('History', '/assets/images/history_of_nix.svg')
       #content
         = find_and_preserve(yield)
       %footer
