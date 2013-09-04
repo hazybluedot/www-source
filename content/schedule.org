@@ -34,10 +34,10 @@ title: Schedule
 ** By Wednesday, September 4 at 10:10am
    1. Follow the instructions to [[/getting_started_ssh/index.html][create and install an SSH key]].
    1. Work through section 4 from [[http://linuxcommand.org/tlcl.php][The Linux Command Line]]:
-      "Manipulating Files and Directories".  Note that the [[http://sourceforge.net/projects/linuxcommand/files/TLCL/13.07/TLCL-13.07.pdf/download][PDF version]] of the book introduces the
+      "Manipulating Files and Directories".  Note that the [[/assets/TLCL-13.07.pdf][PDF version]] of the book introduces the
       ~ln~ command and includes a helpful exercise that the website
       version does not.  Be sure to familiarize yourself with the
-      contents of the [[http://sourceforge.net/projects/linuxcommand/files/TLCL/13.07/TLCL-13.07.pdf/download][PDF version]].
+      contents of the [[/assets/TLCL-13.07.pdf][PDF version]].
    2. At this point you should be familiar with the following
       additional commands:
       - cp
@@ -56,8 +56,6 @@ title: Schedule
       - which
       - help
       - man
-      - apropos
-      - info
       - whatis
       - alias
       At this point you may be feeling overwhelmed with the number of
