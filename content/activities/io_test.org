@@ -3,10 +3,6 @@ title: Playing with Blocks
 ---
 
 * Playing with Blocks
-** Create an empty directory
-1. Create a new directory called =ece2524=, make it your current working directory
-2. Create a new directory in =ece2524= called =blocks=, make it your current working directory
-
 ** Install *trace utilities 
 If you are working on your local system, not your shell account, then you may need to install the =ltrace= and =strace= utilities:
 - Fedora
@@ -17,12 +13,29 @@ $ yum install ltrace strace
 #+BEGIN_EXAMPLE
 $ apt-get install ltrace strace
 #+END_EXAMPLE
+** Create an empty directory
+1. Create a new directory called =ece2524=, make it your current working directory
+2. Create a new directory in =ece2524= called =iotest=, make it your current working directory
+
+*Note*: You can create a directory structure =~/ece2524/iotest= in a
+single command, even if the =~/ece2524/= doesn't exist yet:
+#+BEGIN_EXAMPLE
+$ mkdir -p ~/ece2524/iotest
+#+END_EXAMPLE
+
+The =-p= option to =mkdir= stands for "parents" and will create parent
+directories as necessary.
+
+Make =~/ece2524/iotest/= your current working directory before
+moving on.
+
 ** Let's Build Something
+
 We now know that =printf= and =puts= are library calls that can print
 a message to the console. Let's write a simple program that uses these
 functions to explore how they work.
 
-Using a text editor (e.g. =nano=, =vim= or =emacs=), open a new file name =hello_puts.c= and type the following C source code.
+Using a [[/editor_101/index.html][text editor]] (e.g. =nano=, =vim= or =emacs=), open a new file name =hello_puts.c= and type the following C source code.
 
 #+BEGIN_SRC c
 #include <stdio.h>
@@ -63,8 +76,9 @@ you may be wondering what the =>/dev/null= bit is for. This surpresses
 the normal output of your program, without it, the "=hello world="
 printed by your program will get mixed in with the output of the
 =ltrace= command making it more difficult to figure out what is going
-on. We'll be seeing a lot more of this after you read through the
-"Redirection" section of The Linux Command Line by next week.
+on (try it without and see). We'll be seeing a lot more of this after
+you read through the "Redirection" section of The Linux Command Line
+by next week.
 
 Just like =ltrace= lists the library calls made by a program, =strace=
 will list the system calls. Try running the =hello_puts= program with
@@ -75,8 +89,8 @@ $ strace ./hello_puts >/dev/null
 #+END_EXAMPLE
 
 There's going to be quite a few lines of output, even for such a
-simple program.  Look for where our string "hello world".  What is the
-system call that writes a string to the output?
+simple program.  Look for where our string "hello world" shows up.
+What is the system call that writes a string to the output?
 
 The =-c= option to =strace= will display statistics for the system calls made instead of the usual output. Try it now.
 
@@ -96,7 +110,7 @@ project and track changes.
 1. Confirm you are in the directory you created earlier:
    #+BEGIN_EXAMPLE
    $ pwd
-   /home/you/ece2524/blocks
+   /home/you/ece2524/iotest
    #+END_EXAMPLE
 
    This will be the base directory of your repository.
@@ -218,16 +232,22 @@ $ git commit -m "make call to puts 1000 times"
 Look at the system call statistics again, how many calls were made?
 Why is it not 1000?
 
-Run =strace= with the default set of options to take a look at how the
-system call is being used.  What is going on?
+Run =strace= without the =-c= option to take a look at how the system
+call is being used.  What is going on?
 
 ** Wrap Up and Submit
 Assuming you have successfully generated an SSH key and installed it
 on the server, you should be all set to submit your program.
 
-First, it is always good to create a file named =README= in the base
-directory of a software project. Usually this file will contain a
-description of the program.
+Before we do that, it is always good to create a file named =README=
+in the base directory of a software project. Usually this file will
+contain a description of the program and any other information about
+the program that someone may find useful (are there any known bugs?
+Any special features that you want to point out, etc.)  In this case,
+create a =README= file containing a couple sentences describing how
+your small program can be used to explore the interaction between the
+=puts= library call and the system calls responsible for writing
+characters to the output. Save your =README= and exit your editor.
 
 #+BEGIN_EXAMPLE
 $ git add README
