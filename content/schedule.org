@@ -73,6 +73,9 @@ title: Schedule
       commands you will learn by heart because you used them often
       while others you will use less frequently and refer to the
       manual pages when needed. 
+*** In Class
+    [[/activities/redirection/index.html][Pipes and Streams]]
+
 ** By Wednesday, September 11 at 10:10am
    1. Work through section 7 of The Linux Command Line
    2. Read Section 3.1 [[http://www.catb.org/esr/writings/taoup/html/ch03s01.html][The Elements of Operating-System Style]] from [[http://www.catb.org/esr/writings/taoup/html/][The Art of Unix Programming]].

@@ -1,23 +1,29 @@
---- title: Fun with Redirection --- Hopefully working through section
-5 provided some level of comfort.  There *are* a lot of commands to
+--- 
+title: Pipes and Streams
+--- 
+
+#+OPTIONS: f:t
+
+Hopefully working through section 5 provided some level of comfort.  There *are* a lot of commands to
 remember, but there is also an excellent reference system available on
 most[fn:1] Unix-like systems.
 
-[fn:1] Like most components of a Unix-like system the manual pages are
-an optional install.  In most cases the manual pages for the basic
-commands are installed out of the box, and manual pages for new
-commands are pulled in when you install them with your package manager
-(e.g. ~apt-get~ or ~yum~).  There may be some situations, for example
-when building a system that will run on an embedded device with space
-limitations, where the manual pages are not installed. Of course, the
-documentation is also [[http://linux.die.net/][available online]]. Often times I just "run" my
-=man= command from an internet search engine.
+** Setup
+  Switch to the same ~iotest~ directory you used last week.  We will be adding new files to this repository.
+
+** Standard Streams
+
+Manual pages aren't just for shell commands. There are also reference pages for standard library calls and system calls.
 
 #+BEGIN_EXAMPLE
 $ man puts
 #+END_EXAMPLE
 
-Notice it tells you which header file you will need to include. Also note the 'BUGS' section. So something like this:
+We see that ~puts~ is part of a family of similar functions.  Notice
+the page tells you which header file you will need to include to use
+the functions. Also note the 'BUGS' section. 
+
+Something like this:
 
 #+BEGIN_SRC c
   #include <stdio.h>
@@ -30,14 +36,20 @@ Notice it tells you which header file you will need to include. Also note the 'B
 #+END_SRC
 
 is not recommended. Of course the best way to get someone to do
-something is to tell them not to, so let's compile this and see what
-happens.
+something is to tell them not to.
+
+*Write* the program up in a file called ~buffered_hello.c~. Be sure to
+*add* and *commit* it to the git repository, using an appropriate commit
+message.  Now let's compile it and see what happens.
 
 #+BEGIN_EXAMPLE
+$ cc -o buffered_hello buffered_hello.c
 $ ./buffered_hello
 ...
 $
 #+END_EXAMPLE
+
+Now run it again, but redirect the output to a file named ~test~
 
 #+BEGIN_EXAMPLE
 $./buffered_hello > test
@@ -47,32 +59,111 @@ $ cat test
 
 You should see some difference in the output between the two examples.
 What do you think accounts for the difference? Does this segment from
-the [[/assets/c-standard-draft-n1570.pdf][C standard]] shed any light?
+section 7.21.3 of the [[/assets/c-standard-draft-n1570.pdf][C standard]] shed any light?
 
 #+BEGIN_QUOTE
-7.21.3 Files
-...
-7 At program startup, three text streams are predefined and need not be opened explicitly
- — /standard input/ (for reading conventional input), /standard output/ (for writing
-  conventional output), and /standard error/ (for writing diagnostic output). As initially
- opened, the standard error stream is not fully buffered; the standard input and standard
-output streams are fully buffered if and only if the stream can be determined not to refer
-to an interactive device.
+At program startup, three text streams are predefined and need not be
+ opened explicitly — /standard input/ (for reading conventional
+ input), /standard output/ (for writing conventional output), and
+ /standard error/ (for writing diagnostic output). As initially
+ opened, the standard error stream is not fully buffered; the standard
+ input and standard output streams are fully buffered if and only if
+ the stream can be determined not to refer to an interactive device.
 #+END_QUOTE
+
+Note the order in which the standard streams are listed. This is the
+order they are opened and are assigned the file descriptors 0, 1,
+and 2, respectively.  Take a look at the man page for ~open~ to see
+why.
+
+#+BEGIN_EXAMPLE
+$ man open
+#+END_EXAMPLE
+
+Section 6 of /The Linux Command Line/ may leave the false impression
+that file descriptors are a shell-level feature for referring to the
+standard I/O streams. They are actually much more than that: they are
+a kernel-level value which are used to provide processes with access
+to open files.  You can think of file descriptors as a pointer to a
+particular file int the filesystem. While every process that starts up
+will have a file descriptor 1, which we commonly call /standard out/,
+the two file descriptor 1s that two different processes have will won't
+necessarily point to the same file.
+
+Take a moment to review the man page for
+the ~write~ system call.
 
 #+BEGIN_EXAMPLE
 $ man 2 write
 #+END_EXAMPLE
 
-Note: Why do we need the ~2~ here? What happens if we don't include it?
+Note: We did not need the ~2~ in the command when viewing the man page
+for ~open~, but we do for ~write~, why? What happens if we don't
+include it?
 
-Do ~strace~ and ~ltrace~ print their output to /standard out/ our /standard error/?
+Which argument to write indicates the file descriptor to write to?
 
-Doug McIlroy was largely responsible for introducing the notion of a 'pipeline' into the Unix ecosystem. 
+All this talk of file descriptors, but what is a file? The terminal
+screen isn't a file, is it? Well, in the eyes of any process running
+on the system, it is. 
 
-Given a file of test, print a sorted list of the Nth most frequently used words in the file, along with frequency count.
+#+BEGIN_EXAMPLE
+$ tty
+/dev/pts/6
+#+END_EXAMPLE
+
+Your output of ~tty~ will vary of course. It will report the filename
+of the current terminal connected to standard input. Try opening a new
+terminal window and run the command again, you should get a different
+value. So this is how the output from a command is directed to the
+terminal from which it was run, its standard streams all point to the
+filename associated with the terminal. On a Linux[fn:2] based system you can run
+
+#+BEGIN_EXAMPLE
+$ ls -l /proc/self/fd
+#+END_EXAMPLE
+
+to see the listing of file descriptors and their links for the current
+process, which when it runs is actually ~ls~, but do to some clever
+design decisions that we will talk about later, these are also the
+same values that the process running the shell has for its file
+descriptors. Run the same ~ls~ command from a different terminal
+window to see the difference.
+
+*Modify* the ~buffered_hello~ program to write both ~hello~ and ~world~
+to /standard error/, but preserving the ~puts~/~write~
+distinction. You will have to use a different ~puts~ function, one
+that accepts a ~FILE *stream~ as an argument.  For the standard
+library names the three streams ~stdin~, ~stdout~ and
+~stderr~. Recompile the program and run it without any redirection,
+and then again redirecting standard error to a file.  Do you see any
+differences in behavior compared to the example using /standard out/?
+
+*Add* and *commit* the changes to the repo, again with an appropriate
+commit message.
+
+** McIlroy's Pipeline
+
+In 1986 Donald Knuth, author of the seminal [[http://en.wikipedia.org/wiki/The_Art_of_Computer_Programming][The
+Art of Computer Programming (TAOCP)]], wrote a [[http://en.wikipedia.org/wiki/Literate_programming][Literate
+Programming]] article to solved the
+following problem:
+
+#+BEGIN_QUOTE
+Read a file of text, determine the n most frequently used words, and
+print out a sorted list of those words along with their frequencies.
+#+END_QUOTE
+
+Knuth's solution was written in Pascal and when printed was 10 pages long.
+
+Doug McIlroy was largely responsible for introducing 'pipes' into the
+Unix ecosystem. He reviewed Knuth's article, complimenting its
+cleverness, and then offered a 6 line shell pipeline that did the same
+thing[fn:3]
 
 #+BEGIN_SRC shell
+#!/bin/sh
+
 tr -cs A-Za-z '\n' |
 tr A-Z a-z |
 sort |
@@ -81,26 +172,60 @@ sort -rn |
 sed ${1}q
 #+END_SRC
 
-Use ~man~ to investigate what each line does to its input.  The ~sed~
-command is pretty powerful, and as such, there is a lot going on in
-the ~man~ page.  The ~${1}~ notation is a shell variable substituion.
-It will be replaced by the first command line argument given to the
-program when run from the command line. So
+Type the pipeline into a file named ~wordfreq~ and grant it executable
+permission:
+
+#+BEGIN_EXAMPLE
+$ chmod +x wordfreq
+#+END_EXAMPLE
+
+*Add* and *commit* ~wordfreq~ to the git repository.
+
+The command takes a single argument, the number 'n', and reads from
+standard input. Try
 
 #+BEGIN_EXAMPLE
 $ ./wordfreq 10 < moby.txt
 #+END_EXAMPLE
 
-would result in the last line evaluating as 
+using the text of [[/assets/moby.txt][Moby Dick]] as input.
+
+Use ~man~ to investigate what each line does to its input.  The ~sed~
+command is pretty powerful, and as such, there is a lot going on in
+the ~man~ page.  The ~${1}~ notation is a shell variable substitution.
+It will be replaced by the first command line argument given to the
+program when run from the command line. So if the command is run with
+~10~ as its argument, the ~sed~ command would expand to
 
 #+BEGIN_EXAMPLE
 sed 10q
 #+END_EXAMPLE
 
-which tells sed to quit when it reaches the 10th line of input. Until
+which tells ~sed~ to quit when it reaches the 10th line of input. Until
 it quits it will pass each line of standard input to standard output
 unchanged.  
 
-You learned about another command in section 6 that could be used in the place of ~sed~ in this script. Which is it?
+You learned about another command in section 6 that could be used in
+the place of ~sed~ in this script. Which is it?
 
-What change(s) could you make so that the script gave the N /least/ frequency used words?
+What change(s) could you make so that the script gave the N /least/
+frequency used words?
+
+## Footnotes
+[fn:1] Like most components of a Unix-like system the manual pages are
+an optional install.  In most cases the manual pages for the basic
+commands are installed out of the box, and manual pages for new
+commands are pulled in when you install them with your package manager
+(e.g. ~apt-get~ or ~yum~).  There may be some situations, for example
+when building a system that will run on an embedded device with space
+limitations, where the manual pages are not installed. Of course, the
+documentation is also [[http://linux.die.net/][available online]]. Often times I just "run" my
+=man= command from an internet search engine.
+
+[fn:2] the ~proc~ filesystem was introduced in Plan 9 from Bell
+Labs. While Plan 9 still hasn't gained much traction outside of
+academics many of its features have been incorporated into Linux and
+other Unix-like systems, the ~proc~ filesystem being one of them.
+
+[fn:3] this isn't really a fair or complete comparison. See [[http://www.leancrew.com/all-this/2011/12/more-shell-less-egg/][More
+shell, less egg]] for more information.
