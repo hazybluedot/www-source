@@ -10,6 +10,16 @@ most[fn:1] Unix-like systems.
 
 ** Setup
   Switch to the same ~iotest~ directory you used last week.  We will be adding new files to this repository.
+  
+  If you find that some of the manual pages used in this activity are not available on your system you probably need to install a package:
+  - Fedora
+    #+BEGIN_EXAMPLE
+    $ yum install man-pages
+    #+END_EXAMPLE
+  - Ubuntu
+    #+BEGIN_EXAMPLE
+    $ apt-get install manpages manpages-dev
+    #+END_EXAMPLE
 
 ** Standard Streams
 
