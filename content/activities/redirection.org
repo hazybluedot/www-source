@@ -1,0 +1,106 @@
+--- title: Fun with Redirection --- Hopefully working through section
+5 provided some level of comfort.  There *are* a lot of commands to
+remember, but there is also an excellent reference system available on
+most[fn:1] Unix-like systems.
+
+[fn:1] Like most components of a Unix-like system the manual pages are
+an optional install.  In most cases the manual pages for the basic
+commands are installed out of the box, and manual pages for new
+commands are pulled in when you install them with your package manager
+(e.g. ~apt-get~ or ~yum~).  There may be some situations, for example
+when building a system that will run on an embedded device with space
+limitations, where the manual pages are not installed. Of course, the
+documentation is also [[http://linux.die.net/][available online]]. Often times I just "run" my
+=man= command from an internet search engine.
+
+#+BEGIN_EXAMPLE
+$ man puts
+#+END_EXAMPLE
+
+Notice it tells you which header file you will need to include. Also note the 'BUGS' section. So something like this:
+
+#+BEGIN_SRC c
+  #include <stdio.h>
+  #include <unistd.h>
+  
+  int main() {
+    puts("hello");
+    write(1, "world\n", 6);
+  }
+#+END_SRC
+
+is not recommended. Of course the best way to get someone to do
+something is to tell them not to, so let's compile this and see what
+happens.
+
+#+BEGIN_EXAMPLE
+$ ./buffered_hello
+...
+$
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+$./buffered_hello > test
+$ cat test
+...
+#+END_EXAMPLE
+
+You should see some difference in the output between the two examples.
+What do you think accounts for the difference? Does this segment from
+the [[/assets/c-standard-draft-n1570.pdf][C standard]] shed any light?
+
+#+BEGIN_QUOTE
+7.21.3 Files
+...
+7 At program startup, three text streams are predefined and need not be opened explicitly
+ — /standard input/ (for reading conventional input), /standard output/ (for writing
+  conventional output), and /standard error/ (for writing diagnostic output). As initially
+ opened, the standard error stream is not fully buffered; the standard input and standard
+output streams are fully buffered if and only if the stream can be determined not to refer
+to an interactive device.
+#+END_QUOTE
+
+#+BEGIN_EXAMPLE
+$ man 2 write
+#+END_EXAMPLE
+
+Note: Why do we need the ~2~ here? What happens if we don't include it?
+
+Do ~strace~ and ~ltrace~ print their output to /standard out/ our /standard error/?
+
+Doug McIlroy was largely responsible for introducing the notion of a 'pipeline' into the Unix ecosystem. 
+
+Given a file of test, print a sorted list of the Nth most frequently used words in the file, along with frequency count.
+
+#+BEGIN_SRC shell
+tr -cs A-Za-z '\n' |
+tr A-Z a-z |
+sort |
+uniq -c |
+sort -rn |
+sed ${1}q
+#+END_SRC
+
+Use ~man~ to investigate what each line does to its input.  The ~sed~
+command is pretty powerful, and as such, there is a lot going on in
+the ~man~ page.  The ~${1}~ notation is a shell variable substituion.
+It will be replaced by the first command line argument given to the
+program when run from the command line. So
+
+#+BEGIN_EXAMPLE
+$ ./wordfreq 10 < moby.txt
+#+END_EXAMPLE
+
+would result in the last line evaluating as 
+
+#+BEGIN_EXAMPLE
+sed 10q
+#+END_EXAMPLE
+
+which tells sed to quit when it reaches the 10th line of input. Until
+it quits it will pass each line of standard input to standard output
+unchanged.  
+
+You learned about another command in section 6 that could be used in the place of ~sed~ in this script. Which is it?
+
+What change(s) could you make so that the script gave the N /least/ frequency used words?
