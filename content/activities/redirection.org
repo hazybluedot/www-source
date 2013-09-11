@@ -11,6 +11,12 @@ most[fn:1] Unix-like systems.
 ** Setup
   Switch to the same ~iotest~ directory you used last week.  We will be adding new files to this repository.
 
+** File Abstractions Through the Layers
+#+BEGIN_HTML
+<iframe height="350" width="500" src="/assets/images/call_layers.svg"></iframe> <br/>
+<a href="/assets/images/call_layers.svg">Full Screen</a>
+#+END_HTML
+
 ** Standard Streams
 
 Manual pages aren't just for shell commands. There are also reference pages for standard library calls and system calls.
@@ -190,16 +196,50 @@ $ ./wordfreq 10 < moby.txt
 
 using the text of [[/assets/moby.txt][Moby Dick]] as input.
 
-Use ~man~ to investigate what each line does to its input.  The ~sed~
-command is pretty powerful, and as such, there is a lot going on in
-the ~man~ page.  The ~${1}~ notation is a shell variable substitution.
-It will be replaced by the first command line argument given to the
-program when run from the command line. So if the command is run with
-~10~ as its argument, the ~sed~ command would expand to
+Try running only the first stage of the pipeline with some input, then
+the first and second, and so on. Inspect the output at each stage. You
+may wish to work with a sample text shorter than Moby Dick:
 
 #+BEGIN_EXAMPLE
-sed 10q
+$ echo "The quick, brown fox jumped over the lazy dog." > fox.txt
+$ tr -cs A-Za-z '\n' < fox.txt
+...
+$ tr -cs A-Za-z '\n' < fox.txt | tr A-Z a-z
+...
 #+END_EXAMPLE
+
+Notice when I add the next stage onto the pipeline I don't change
+where the ~< fox.txt~ redirection occurs, still in the first
+stage. The order looks a little confusing if we are trying to follow
+data flow from left to right, and since ~bash~ is setting up the
+redirections before it executes the command (we'll see how it does
+this in a few weeks) we can put the redirection syntax on the left of
+the command as well:
+
+#+BEGIN_EXAMPLE
+$ < fox.txt tr -cs A-Za-z '\n' | tr A-Z a-z
+#+END_EXAMPLE
+
+And now we have a nice left-to-right flow of data starting with the original contents of ~fox.txt~.  Note, we could also do
+
+#+BEGIN_EXAMPLE
+$ cat fox.txt | tr -cs A-Za-z '\n' | ...
+#+END_EXAMPLE
+
+But be forewarned, this is considered a [[http://partmaps.org/era/unix/award.html][useless use of cat]].
+
+Use ~man~ to investigate what each line does to its input.  Add a
+comment (in bash comments start with a '#' character) to each line
+with a brief description of what it is doing. The ~sed~ command is
+pretty powerful, and as such, there is a lot going on in the ~man~
+page.  The ~${1}~ notation is a shell variable substitution.  It will
+be replaced by the first command line argument given to the program
+when run from the command line. So if the command is run with ~10~ as
+its argument, the ~sed~ command would expand to
+
+#+BEGIN_SRC shell
+sed 10q # pass-through lines unaltered, quit after 10. 
+#+END_SRC
 
 which tells ~sed~ to quit when it reaches the 10th line of input. Until
 it quits it will pass each line of standard input to standard output
@@ -211,7 +251,67 @@ the place of ~sed~ in this script. Which is it?
 What change(s) could you make so that the script gave the N /least/
 frequency used words?
 
-## Footnotes
+** Pipeline Challenges
+1. Write a command that outputs lines 21 through 28 of input.  Using ~moby.txt~ as input, the ouput should produce
+#+BEGIN_EXAMPLE
+MOBY DICK; OR THE WHALE
+
+By Herman Melville
+
+
+Original Transcriber's Notes:
+
+This text is a combination of etexts, one from the now-defunct ERIS project at Virginia Tech and one from Project Gutenberg's archives. The proofreaders of this version are indebted to The University of Adelaide Library for preserving the Virginia Tech version. The resulting etext was compared with a public domain hard copy version of the text.
+#+END_EXAMPLE
+
+2. As we discussed, ~strace~ prints its output to /standard error/,
+   but the pipe operator ~|~ redirects a command's standard out to the
+   input of the proceeding command.  What if we wanted to process the
+   output of ~strace~, say to count the number of calls to ~mmap~?
+
+#+BEGIN_EXAMPLE
+strace ./hello_puts | # ... rest of the pipeline
+#+END_EXAMPLE
+
+won't work because only what is sent to /standard out/ will be
+directed to the rest of the pipeline. We will need to redirect
+/standard error/ to /standard out/.  We know we can redirect both to
+the same place by using
+
+#+BEGIN_EXAMPLE
+strace ./hello_puts 2>&1
+#+END_EXAMPLE
+
+which will make file descriptor ~2~ point to the same location that
+file descriptor ~1~ is pointing to. But let's also say we don't want
+the normal output of the ~./hello_puts~ to be sent down the pipeline,
+instead, we want it to print to standard error.  We would like to swap
+the behavior of /standard out/ and /standard error/, how would you do that?  
+
+*Hint*: Just like when swapping the value between two variables, 
+
+#+BEGIN_SRC c
+int a = 42;
+int b = 13;
+//swap the values of a and b
+int temp = b;
+b = a;
+a = temp;
+#+END_SRC
+
+you will need a temporary variable to store data.
+
+#+BEGIN_EXAMPLE
+$ strace ./hello_puts 3>&1
+#+END_EXAMPLE
+
+will create a new file descriptor '3' that will point to the same
+device or file that file descriptor '1' is pointing to. This is your
+temporary variable. Add two more redirections to complete the swap,
+then pipe the result to the rest of the pipeline to count the number
+of calls 'mmap'.
+
+** Footnotes
 [fn:1] Like most components of a Unix-like system the manual pages are
 an optional install.  In most cases the manual pages for the basic
 commands are installed out of the box, and manual pages for new
