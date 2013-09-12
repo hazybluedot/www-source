@@ -1,0 +1,19 @@
+---
+title: Code Peeker
+---
+
+* Code Peeker
+
+** Input/Output
+
+Text on /standard input/ will be lines of the form
+
+#+BEGIN_EXAMPLE
+filename.c:10:7: unmatched '('
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+filename.c:10:7: unmatched '('
+if (true
+   ^
+#+END_EXAMPLE

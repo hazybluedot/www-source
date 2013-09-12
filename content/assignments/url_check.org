@@ -1,0 +1,8 @@
+---
+title: Url Checker
+---
+
+** Input/Output
+Input will be a list of urls on /standard input/
+Output will be a url followed by a space, followed by an [[http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html][HTTP status code]]
+If the ~-h~ option is used then following the status code a human readable message describing the status code will be displayed.
