@@ -1,0 +1,10 @@
+---
+title: Process Queue
+---
+
+Read the process control section of [[http://cm.bell-labs.com/who/dmr/hist.html][The Evolution of the Unix
+Time-sharing System]] to learn the steps that the shell takes to execute
+a command.  Write a C program that reads commands from standard input,
+executing each in turn and waiting until the current command is done
+before executing the next. You do not need to handle any I/O
+redirection.
