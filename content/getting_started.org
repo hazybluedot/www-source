@@ -238,6 +238,19 @@ have any preference then consider setting up an account at
 
 ** Install Software
    While many distributions come with a graphical application to manage installing and removing software, we will use the command line (the graphicall tools simply call the command line utilities anyway).  Open a terminal and run the following commands (you will have to run each with 'sudo' in front of it).
+*** manual pages
+    Most systems will come with manual pages already installed for the
+    commands we will be using, but many don't automatically include
+    the pages for development libraries. To install them manually:
+    - Fedora
+      #+BEGIN_EXAMPLE
+      $ yum install man-pages
+      #+END_EXAMPLE
+
+    - Ubuntu
+      #+BEGIN_EXAMPLE
+      $ apt-get install manpages manpages-devel
+      #+END_EXAMPLE
 *** git
     Fedora
 #+BEGIN_EXAMPLE
