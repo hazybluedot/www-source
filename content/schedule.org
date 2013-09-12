@@ -85,3 +85,5 @@ title: Schedule
         and how do they shape how you interact with the system and
         write code for it?
 	
+** By Monday, September 16 at 10:10am
+   1. Work through section 8 and 9 of The Linux Command Line
