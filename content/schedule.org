@@ -85,3 +85,17 @@ title: Schedule
         and how do they shape how you interact with the system and
         write code for it?
 	
+** By Monday, September 16 at 10:10am
+   1. Work through section 8 of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
+   2. Search the web for examples of shell command pipelines
+      (http://www.commandlinefu.com/ is a good resource, The commands
+      listed in section 6 of The Linux Command Line are often used in
+      pipelines, try searching for those commands on
+      commandlinefu.com, or use the keyword links on the right side
+      panel, for good pipeline examples.  You may find some pipelines
+      that use commands you do not have installed on your system. Try
+      using ~apt-get~ or ~yum~ to install them in that case.  Pick one
+      command that you like and learn what each part does. Come to
+      class prepared to share it with others.
+*** In Class
+   Command Show and Tell
