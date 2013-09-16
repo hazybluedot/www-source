@@ -29,7 +29,7 @@ out the [[http://git-scm.com/videos][Git Basics videos]], starting with "What is
       command and work through enough to be able to insert text and
       save a file. Alternatively you could set your systems' default editor to ~nano~:
       #+BEGIN_EXAMPLE
-      echo '$EDITOR=nano' >> ~/.profile
+      echo 'EDITOR=nano' >> ~/.profile
       #+END_EXAMPLE
       
       You will have to open a new terminal window for the changes to take effect, or run

@@ -1,0 +1,57 @@
+---
+title: Text Editor Crash Course
+---
+
+* Text Editors 101
+** Notation
+When you see =C-x=, that means press =Ctrl= and =x= at the same
+time. =C-x C-f= means press =Ctrl= and =x= at the same time, and then
+=Ctrl= and =f= at the same time.
+
+** =nano=
+
+Start =nano= with a file =test.c= loaded. The file will be created if it does not already exist:
+
+#+BEGIN_EXAMPLE
+$ nano test.c
+#+END_EXAMPLE
+
+Your navigation and editing keys will work as you expect.
+
+- Press =C-o= to write the file to disk without closing.
+- Press =C-x= to exit out of =nano=. It will prompt you to save the
+  file if there are any changes. To save press =y= and then press
+  =ENTER= to accept the default name (unless you want to change it).
+
+** =vim=
+
+Start =vim= with a file =test.c= loaded. The file will be created if it does not already exist:
+
+#+BEGIN_EXAMPLE
+$ vim test.c
+#+END_EXAMPLE
+
+The editor will start up in command mode, different letter keys have
+special command meanings and so typing letter keys won't put those
+letters in the file.  Press =i= to change to =insert= mode. Now letter
+keys you press will enter those letters into the file.
+
+Press =ESC= to switch back to command mode.
+- Type =:w= followed by =ENTER= to write changes to the file without closing =vim=
+- Type =:wq= followed by =ENTER= to write changes to the file and close =vim=
+- Type =:q!= to quit =vim= without saving changes to the file.
+
+See Section 12 of [[/assets/TLCL-13.07.pdf][The Linux Command Line]] for a more detailed introduction.
+
+** =emacs=
+
+Start =emacs= with a file =test.c= loaded. The file will be created if it does not already exist:
+
+#+BEGIN_EXAMPLE
+$ emacs test.c
+#+END_EXAMPLE
+
+Your navigation and letter keys will work as expected. Edit the file.
+
+- Press =C-x C-s= to save changes to the file without exiting =emacs=
+- Press =C-x C-x= to exit =emacs=, prompting you to save any changes. Press =y= to save changes and exit.

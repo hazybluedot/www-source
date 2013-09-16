@@ -98,7 +98,12 @@ title: Schedule
       ~apt-get~ or ~yum~ to install them in that case.  Pick one
       command that you like and learn what each part does. Come to
       class prepared to share it with others.
-*** In Class
-    Command Show and Tell
+** In Class
+   [[/activities/showandtell/index.html][Command Show and Tell]]
 ** By Wednesday, September 18 at 10:10am
-   1. Work through section 9 of [[http://ece2524.ece.vt.edu/assets/TLCL-13.07.pdf][The Linux Command Line]]
+   1. Work through section 9 of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
+   2. Familiarize yourself with the ~NAME~, ~SYNOPSIS~ and
+      ~DESCRIPTION~ sections of the ~man~ pages for ~open(2)~,
+      ~dup(2)~ and ~close(2)~. Focus on how those system
+      calls manipulate file descriptors.
+*** In Class

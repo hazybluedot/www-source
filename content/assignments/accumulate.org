@@ -1,0 +1,13 @@
+---
+title: Accumulate
+---
+
+* Accumulate
+
+You are asked to write a program that will calculate the total number
+of lines of code accross a set of source files.
+
+#+BEGIN_EXAMPLE
+$ wc -l some_source.c
+8
+#+END_EXAMPLE
