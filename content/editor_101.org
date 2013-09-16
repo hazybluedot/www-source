@@ -41,6 +41,8 @@ Press =ESC= to switch back to command mode.
 - Type =:wq= followed by =ENTER= to write changes to the file and close =vim=
 - Type =:q!= to quit =vim= without saving changes to the file.
 
+See Section 12 of [[/assets/TLCL-13.07.pdf][The Linux Command Line]] for a more detailed introduction.
+
 ** =emacs=
 
 Start =emacs= with a file =test.c= loaded. The file will be created if it does not already exist:
