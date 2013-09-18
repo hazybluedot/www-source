@@ -52,6 +52,7 @@ total 0
 lrwx------. 1 dmaczka dmaczka 64 Sep 17 20:46 0 -> /dev/pts/6
 lrwx------. 1 dmaczka dmaczka 64 Sep 17 20:46 1 -> /dev/pts/6
 lrwx------. 1 dmaczka dmaczka 64 Sep 17 20:46 2 -> /dev/pts/6
+lr-x------. 1 dmaczka dmaczka 64 Sep 17 20:46 3 -> /proc/16563/fd
 #+END_EXAMPLE
 
 In this case, the running process is the shell itself.  Remember from
@@ -61,6 +62,9 @@ these correspond to file descriptors ~0~, ~1~ and ~2~, respectively.
 By looking at the contents of ~/proc/self/fd~ we see that each of
 these descriptors points to the same file ~/dev/pts/6~, which we have
 already seen is the name of my current terminal.
+
+*Bonus question*: What is file descriptor ~3~ for? Can you use
+~strace~ to help figure it out?
 
 - *dup* / *dup2* : duplicate a file descriptor
 
