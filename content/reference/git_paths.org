@@ -1,0 +1,34 @@
+---
+title: Git path reference
+---
+
+* Git and gitolite
+We are using git to manage our software projects.  To help manage the
+multi-user controll access on our class server I am using gitolite.
+The user running ~gitolite~ is ~ece2524git~, and so all remote git
+transactions will use a url starting with
+~ece2524git@ece2524.ece.vt.edu:~ what you put after the ~:~ will
+determine which repository you are accessing. You will often see a
+trailing ~.git~ in repo URLS.  This is a convention used to indicate a
+server-based "bare" repository: one without a working directory.  If
+you leave the ~.git~ off of the URL everything will stil work, but
+it's good to keep it there just to follow convention.  It is important
+to remember that while ~.git~ is part of the URL, it is not part of a
+repository's name. The repository named ~rflowers/iotest~ will have
+path component ~rflowers/iotest.git~. This is important in the few
+cases where you need to refer to repository by name, not by URL, for
+instance when using the ~fork~ command.
+
+*Note:* In the reference paths below always replace ~USER~ with the
+username you set when copying your public key to the server. In most
+cases this is the same as your CVL account user name.
+
+** iotest
+- path: ~USER/iotest.git~
+- results: ~result/USER/iotest.git~
+
+** fdtest
+- skeleton repo: ~skel/fdtest~
+- fork command: ~ssh ece2524git@ece2524.ece.vt.edu fork skel/fdtest USER/fdtest~
+- user repo path: ~USER/fdtest.git~
+- results repo: ~results/USER/fdtest.git~
