@@ -1,0 +1,20 @@
+---
+title: Command Show and Tell
+---
+
+* Command Show and Tell
+** Discuss and Share
+1. In groups of two or three share a command pipeline that you
+   found. Make sure each person understands what each stage of the
+   pipeline is doing to the data. As questions if something seems
+   unclear or confusing.
+** Show and Explain
+1. ~ssh~ into ~ece2524.ece.vt.edu~
+2. Connect to the container ~showandtell~ with username ~shared~ and password ~2524~
+   #+BEGIN_EXAMPLE
+   $ ssh shared@showandtell
+   #+END_EXAMPLE
+   Run ~wemux~ to connect to the shared ~tmux~ session
+   #+BEGIN_EXAMPLE
+   $ wemux
+   #+END_EXAMPLE
