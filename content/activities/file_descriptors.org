@@ -71,7 +71,7 @@ are working locally you may want to install it on your system. Note, I
 have *not* tested it on a 32 bit system yet.
 
 #+BEGIN_EXAMPLE
-$ git clone git@github.com:hazybluedot/fdtrace.git
+$ git clone https://github.com/hazybluedot/fdtrace.git
 $ cd fdtrace
 $ make
 $ sudo make install
@@ -152,7 +152,7 @@ desired output of ~fdtrace~
 *** Redirect standard out and standard error, then swap where each one points
 Modify ~redirect4.c~ so that file descriptors are manipulated to implement the redirection
 #+BEGIN_EXAMPLE
->log.stdout 2>log.stderr 3>&2 2>&1 1>&3 3>&-
+>>log.stdout 2>>log.stderr 3>&2 2>&1 1>&3 3>&-
 #+END_EXAMPLE
 
 desired output of ~fdtrace~
