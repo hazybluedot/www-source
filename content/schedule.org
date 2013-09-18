@@ -107,3 +107,4 @@ title: Schedule
       ~dup(2)~ and ~close(2)~. Focus on how those system
       calls manipulate file descriptors.
 *** In Class
+    [[/activities/file_descriptors/index.html][Playing with File Descriptor]]

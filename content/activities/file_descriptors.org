@@ -1,0 +1,170 @@
+---
+title: Working with File Descriptors
+---
+
+* Working with File Descriptors
+** Introduction
+We have seen that /file descriptors/ can be thought of as pointers to
+files.  They are a mechanism used by the kernel to encapsulate the
+details of accessing a file, just like a class encapsulates data and
+functions in an object oriented programming framework. The kernel
+provides a number of system calls that work with file descriptors,
+some of which map nicely to common operations we already associate
+with files:
+
+- *open* : open and possibly create a file, returning the next available file descriptor in numerical order.
+- *close* : close an open file descriptor. Once closed the numerical value of the file descriptor is no longer in use.
+- *read* / *write* : read/write data to a file referenced by a file descriptor
+
+Because "everything is a file" on Unix-like systems these few system
+calls cover nearly everything we need to read and write data. Even the
+console is a file:
+
+#+BEGIN_EXAMPLE
+$ ls -l $(tty)
+crw--w----. 1 rflowers tty 136, 6 Sep 17 20:26 /dev/pts/6
+#+END_EXAMPLE
+
+Remember, the ~$()~ is notation for command substitution.  The output
+of ~tty~ will be substituted in place of ~$(tty)~ in the command.
+After substitution the command is the same as
+
+#+BEGIN_EXAMPLE
+$ ls -l /dev/pts/6
+#+END_EXAMPLE
+
+From the output of the above command we see that my current terminal
+window can be accessed as the file ~/dev/pts/6~ and my user ~rflowers~
+has read and write access to it. In this case "reading" usually means
+getting data from the user typing on the keyboard and "writing" means
+displaying something on the screen, but those details are taken care
+of by the shell and kernel so to the application "reading" is just
+reading data from a file descriptor and "writing" is just writing data
+to a file descriptor.
+
+On a system that has a ~/proc~ files system (Plan9, OpenBSD, Linux,
+but not OS X) we can easily inspect the file descriptors associated
+with a running process:
+
+#+BEGIN_EXAMPLE
+$ ls -l /proc/self/fd
+total 0
+lrwx------. 1 dmaczka dmaczka 64 Sep 17 20:46 0 -> /dev/pts/6
+lrwx------. 1 dmaczka dmaczka 64 Sep 17 20:46 1 -> /dev/pts/6
+lrwx------. 1 dmaczka dmaczka 64 Sep 17 20:46 2 -> /dev/pts/6
+#+END_EXAMPLE
+
+In this case, the running process is the shell itself.  Remember from
+the C specification a program will open 3 file streams on start up:
+/standard in/, /standard out/ and /standard error/.  On a POSIX system
+these correspond to file descriptors ~0~, ~1~ and ~2~, respectively.
+By looking at the contents of ~/proc/self/fd~ we see that each of
+these descriptors points to the same file ~/dev/pts/6~, which we have
+already seen is the name of my current terminal.
+
+- *dup* / *dup2* : duplicate a file descriptor
+
+** fdtrace
+I wrote a simple utility called ~fdtrace~ to help inspect file
+descriptor links. It is installed on ~ece2524.ece.vt.edu~, but if you
+are working locally you may want to install it on your system. Note, I
+have *not* tested it on a 32 bit system yet.
+
+#+BEGIN_EXAMPLE
+$ git clone git@github.com:hazybluedot/fdtrace.git
+$ cd fdtrace
+$ make
+$ sudo make install
+#+END_EXAMPLE
+
+** using open
+Open a file ~output.txt~, creating it if necessary, and truncating the file if it already exists.
+#+BEGIN_SRC c
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int fd = open("output.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+#+END_SRC
+
+The 'or'ed value in argument 3 will grant owner of the new file read/write access. 
+The same, except move write pointer to end of file (results in appending data to existing file);
+
+#+BEGIN_SRC c
+int fd = open("output.txt", O_WRONLY |O_CREAT | O_APPEND, S_IRUSR | S_IWUSR);
+#+END_SRC
+
+** Fork the skeleton files
+I have created a set of skeleton source files. First, fork them to your own repository
+#+BEGIN_EXAMPLE
+$ ssh ece2524git@ece2524.ece.vt.edu fork skel/fdtest USER/fdtest
+#+END_EXAMPLE
+
+Now clone a local copy
+#+BEGIN_EXAMPLE
+$ git clone ece2524git@ece2524.ece.vt.edu:USER/fdtest ~/ece2524/fdtest
+$ cd ~/ece2524/fdtest
+#+END_EXAMPLE
+
+- replace ~USER~ with your own user name.
+- since you cloned a repo you do *not* need to run a ~git remote add~ command, the remote is already set.
+
+** Exercises
+*** Redirect standard out to a file, truncating existing file
+Modify ~redirect1.c~ so that file descriptors are manipulated to implement the redirection
+#+BEGIN_EXAMPLE
+>log.stdout
+#+END_EXAMPLE
+
+desired output of ~fdtrace~
+#+BEGIN_EXAMPLE
+0 -> /dev/pts/6
+1 -> /home/your/directory/log.stdout
+2 -> /dev/pts/6
+#+END_EXAMPLE
+
+*** Redirect standard out to a file, appending data if the file already exists
+Modify ~redirect2.c~ so that file descriptors are manipulated to implement the redirection
+#+BEGIN_EXAMPLE
+>>log.stdout
+#+END_EXAMPLE
+
+desired output of ~fdtrace~
+#+BEGIN_EXAMPLE
+0 -> /dev/pts/6
+1 -> /home/your/directory/log.stdout
+2 -> /dev/pts/6
+#+END_EXAMPLE
+
+*** Redirect both standard out and standard error
+Modify ~redirect3.c~ so that file descriptors are manipulated to implement the redirection
+#+BEGIN_EXAMPLE
+2>log.stderr >log.stdout
+#+END_EXAMPLE
+
+desired output of ~fdtrace~
+#+BEGIN_EXAMPLE
+0 -> /dev/pts/6
+1 -> /home/your/directory/log.stdout
+2 -> /home/your/directory/log.stderr
+#+END_EXAMPLE
+
+*** Redirect standard out and standard error, then swap where each one points
+Modify ~redirect4.c~ so that file descriptors are manipulated to implement the redirection
+#+BEGIN_EXAMPLE
+>log.stdout 2>log.stderr 3>&2 2>&1 1>&3 3>&-
+#+END_EXAMPLE
+
+desired output of ~fdtrace~
+#+BEGIN_EXAMPLE
+0 -> /dev/pts/6
+1 -> /home/your/directory/log.stdout
+2 -> /home/your/directory/log.stderr
+write(32...
+write(34...
+0 -> /dev/pts/6
+1 -> /home/your/directory/log.stderr
+2 -> /home/your/directory/log.stdout
+write(32...
+write(34...
+#+END_EXAMPLE

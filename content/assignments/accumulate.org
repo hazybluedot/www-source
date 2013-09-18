@@ -11,3 +11,12 @@ of lines of code accross a set of source files.
 $ wc -l some_source.c
 8
 #+END_EXAMPLE
+** Synopsis
+   #+BEGIN_EXAMPLE
+   accumulate
+   #+END_EXAMPLE
+** Description
+   *accumulate* reads lines from /standard input/. Each line is
+   interpreted as a single floating point value 
+** Submission
+   push url: ece2524git@ece2524.ece.vt.edu:USERNAME/accumulate.git
