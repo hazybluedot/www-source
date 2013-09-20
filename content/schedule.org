@@ -108,3 +108,15 @@ title: Schedule
       calls manipulate file descriptors.
 *** In Class
     [[/activities/file_descriptors/index.html][Playing with File Descriptor]]
+
+** By Monday, September 23 at 10:10am
+   1. Submit (~git push~) your ~fdtest~ repo. Make sure the tests pass with 100%. If you can't access the test results or are unsure why some are failing send me an email.
+   2. Check your grade for 'iotest part 1' in Gradebook on [[https://scholar.vt.edu][Scholar]].
+      If it is a '0' it probably means I couldn't find a submission
+      for you, or you didn't ~git push~ your ~iotest~ repo.  Contact
+      me to figure out how to fix it. If it is less than 100 then
+      check the test results by running ~git push~ in your ~iotest~
+      directory. If there is a discrepancy between the test results
+      and the score on scholar, or you aren't sure how to interpret
+      the test results, let me know.
+   3. Work through section 10, Processes of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
