@@ -120,3 +120,6 @@ title: Schedule
       and the score on scholar, or you aren't sure how to interpret
       the test results, let me know.
    3. Work through section 10, Processes of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
+
+*** In Class
+    [[/activities/redirect_algorithm/index.html][Redirect Algorithm]]
