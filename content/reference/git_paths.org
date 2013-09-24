@@ -23,6 +23,19 @@ instance when using the ~fork~ command.
 username you set when copying your public key to the server. In most
 cases this is the same as your CVL account user name.
 
+** Troubleshooting
+- asked for the ~ece2524git~ password
+if you are ever asked for the 'ece2524git' password it means something is wrong with your ssh key (this is the file that was created when you ran ssh-keygen). The three most common problems are
+
+1. you created your key locally and are now trying to run git comands while connected to the ece2524 server (or the reverse scenario).
+2. you overwrote or remade your keys (for instance, you reinstalled your system, or created a new virtual machine, and had to run ssh-keygen again) but haven't copied the new keys to the server
+3. you are using multiple machines (maybe a laptop and a desktop, or a real machine and a virtual machine), created ssh keys on both but only installed one on the server, or attempted to install both but when installing one inadvertently overwrote the other.
+
+Solutions:
+1. check that you are running your git commands from the same system as the one you created your keys on.  If you run 'ls ~/.ssh' you should see at least two files there, ~id_rsa~ and ~id_rsa.pub~. See [[getting_started_ssh/][Working with SSH Keys]]. 
+2. If you had to recreate your keys for some reason you will have to be sure to copy the new ones to the server.  See "Install Your Key" at [[/getting_started_ssh/][Working with SSH Keys]].
+3. If you are working from multiple machines reinstall your keys from each of them being sure to follow the instructions for "Advanced Users: Multiple Keys" at [[/getting_started_ssh/][Working with SSH Keys]].
+
 ** iotest
 - path: ~USER/iotest.git~
 - results: ~result/USER/iotest.git~
