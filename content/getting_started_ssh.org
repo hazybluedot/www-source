@@ -112,7 +112,7 @@ Replace ~USERNAME~ with your CVL account username.
     for more information.
 
 ** Forward your SSH Agent
-   Create a file ~\~/.ssh/config~ and in it write
+   Create a file ~.ssh/config~ in your home directory and in it write
    #+BEGIN_EXAMPLE
    Host ece2524.ece.vt.edu
        ForwardAgent yes
