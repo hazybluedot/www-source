@@ -111,6 +111,28 @@ Replace ~USERNAME~ with your CVL account username.
     server. See [[http://gitolite.com/gitolite/users.html#multi-key][multiple keys per user]] in the gitolite documentation
     for more information.
 
+** Forward your SSH Agent
+   Create a file ~\~/.ssh/config~ and in it write
+   #+BEGIN_EXAMPLE
+   Host ece2524.ece.vt.edu
+       ForwardAgent yes
+   #+END_EXAMPLE
+   to it.  You can easily do this from the command line by running the following command:
+
+   #+BEGIN_EXAMPLE
+   $ echo -e "Host ece2524.ece.vt.edu\n    ForwardAgent yes" >> ~/.ssh/config
+   #+END_EXAMPLE
+
+   Now, if you connect to your shell account using ~ssh~ you
+   should still be able to authenticate with the git server. On many
+   distros and environments including Ubuntu with Unity and Fedora
+   with Gnome, this is all you will have to do because these
+   environments automatically start a program called an SSH Agent when
+   you log in.  If you add this file, and you find that authenticating
+   with the git server is not working when you connect to your shell
+   account then it could be that an SSH Agent isn't running for some
+   reason. Stop by office hours and we'll get it sorted out.
+
 ** Test
 If your key was installed successfully you should now have access to the git server. Try running the following command:
 #+BEGIN_EXAMPLE
