@@ -132,10 +132,10 @@ Confirm that you can build the skeleton project before making any modifications:
 #+BEGIN_EXAMPLE
 $ make
 ...
-$ ./dupoutput
+$ ./retest
 This is written to stdout
 This is written to stderr
-$ fdtrace ./dupoutput
+$ fdtrace ./retest
 0 -> /dev/pts/5
 1 -> /dev/pts/5
 2 -> /dev/pts/5
@@ -155,3 +155,59 @@ You will be completing the implementation of ~do_redirect~ in
  to a single call to ~dup2~, start with those. Try to get
  ~r_duplicating_output~ implemented today, finish the other three by
  Wednesday morning.
+
+** Testing
+Make sure you pull in the latest changes from the set of skeleton files, from your ~redir~ directory
+
+#+BEGIN_EXAMPLE
+$ git pull ece2524git@ece2524.ece.vt.edu:skel/redir
+...
+#+END_EXAMPLE
+
+Your default editor will open the same way it does when git prompts
+you for a commit message. You should see a message about a merge. You
+can just accept it as is, save the file and close your editor as if
+you were accepting a commit message.
+
+There is a sorce file named ~test/retest.c~ which contains a ~main~
+function that constructs a suitable ~REDIRECT~ struct given command
+line arguments and then pass it to your ~do_reirect~ function.  Run
+~make~ to compile everything, if it completes without errors you
+should have a ~retest~ executable in the current directory. It takes 3 optional arguments
+
+#+BEGIN_EXAMPLE
+$ fdtrace ./retest -n 1 -m output.txt
+0 -> /dev/pts/13
+1 -> /home/rflowers/ece2524/redir/output.txt
+2 -> /dev/pts/13
+write(26, -1, 26)
+This is written to stderr
+write(26, -1, 26)
+#+END_EXAMPLE
+
+There is a ~-v~ option to ~retest~ for 'verbose' which will cause it
+to print a message with the effective redirect instruction it builds
+before passing it to the ~do_redirect~ function.  This can be helpful
+if you get ~-n~ and ~-m~ mixed up, which I do all the time:
+
+#+BEGIN_EXAMPLE
+$ ./retest -v
+performing 3>&1
+This is written to stdout
+This is written to stderr
+$ ./retest -v -n 4 -m output.txt
+performing 4>output.txt
+This is written to stdout
+This is written to stderr
+$ ./retest -v -n 1 -m output.txt
+performing 1>output.txt
+This is written to stderr
+$ ./retest -v -n 2 -m 5
+performing 1>&5
+This is written to stdout
+This is written to stderr
+#+END_EXAMPLE
+
+Using ~fdtrace~ run the ~retest~ command with several different
+argument configurations to test your own implementation of
+~do_redirect~.
