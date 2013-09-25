@@ -130,3 +130,19 @@ title: Schedule
       with them)
    2. I have transferred scores as of Monday evening from the ~fdtest~ assignment to Scholar, these should *not* be viewed as final grades for that assignment, but instead as a sanity check and to identify problem areas (either with understanding the ~fdtest~ assignment, or the test scripts that run your code!).  If the score on Scholar does not match what you see when you run ~git push~ from your ~fdtest~ directory, let me know (and keep that if you have made changes to your repository since yesterday then that could be the reason for the mis-match).  If you received a 0 for ~fdtest~ then it means I was unable to access your ~fdtest~ repository (perhaps you never forked it in the first place?).
    3. Some testing is implemented for the ~redir~ activity.  Push your changes to see test results.
+   4. An ece2524 alum just alerted me to [[http://explainshell.com/][explainshell.com]]. Check it out, it is super cool.
+*** In Class
+    1. Explain your ~fdtest~ and/or ~redir~ implementation to a
+       colleague.  If you ran into snags along the way, mention what
+       they were and how you moved around them.  Were there any
+       techniques that you found helpful while working through these
+       two activities?
+    2. Discuss what the connection may be between the linked list
+       implementations you worked with in ECE2574 and what we are
+       currently working on with the ~redir~ activity.  If we wanted
+       to make our ~do_redirect~ function more powerful and operate on
+       a list of redirect instructions, what are some ways we could do
+       that? What is the fewest lines of code we could add to
+       accomplish that goal?
+
+    3. continue [[/activities/redirect_algorithm/index.html][Redirect Algorithm]]
