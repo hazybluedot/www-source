@@ -82,7 +82,7 @@ $ sudo make install
 #+END_EXAMPLE
 
 ** using open
-Open a file ~output.txt~, creating it if necessary, and truncating the file if it already exists.
+The following is an example of using the ~open~ system call. 
 #+BEGIN_SRC c
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -91,6 +91,7 @@ Open a file ~output.txt~, creating it if necessary, and truncating the file if i
 int fd = open("output.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
 #+END_SRC
 
+This will open a file ~output.txt~, creating it if necessary, and truncating the file if it already exists.
 The 'or'ed value in argument 3 will grant owner of the new file read/write access. 
 The same, except move write pointer to end of file (results in appending data to existing file);
 
