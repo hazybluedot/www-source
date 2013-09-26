@@ -69,6 +69,10 @@ data_sources:
     type: static
     items_root: /assets/
 
+  - 
+    type: feeds
+    items_root: /
+
 deploy:
   public:
     kind: rsync

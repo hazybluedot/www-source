@@ -5,6 +5,7 @@ description 'Read list of feed URLs and update local links'
 require 'feedzirra'
 require 'uri'
 require 'stringex'
+require 'typhoeus'
 
 class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
   def run
@@ -16,24 +17,55 @@ class RefreshFeeds < Nanoc::CLI::Commands::CreateItem
     Feedzirra::Feed.add_common_feed_entry_element('dc:creator', :as => :creator)
 
     arguments.each do |file_name|
-      if File.readable?(file_name)
-        File.open(file_name).each do |uri|
-          feed = Feedzirra::Feed.fetch_and_parse(uri)
-          if feed
-            begin
-              puts feed.title
-              read_entries(feed)
-            rescue Exception => e
-              $stderr.puts 'Error: ' + uri
-              $stderr.puts e.message
-            end
-          else
+      concurrent_fetch(file_name)
+    end
+  end
+  
+  def old_fetch(file_name)
+    if File.readable?(file_name)
+      File.open(file_name).each do |uri|
+        feed = Feedzirra::Feed.fetch_and_parse(uri)
+        if feed
+          begin
+            puts feed.title
+            read_entries(feed)
+          rescue Exception => e
+            $stderr.puts 'Error: ' + uri
+            $stderr.puts e.message
+          end
+        else
+          $stderr.puts 'Error: ' + uri
+        end
+      end
+    else
+      $stderr.puts file_name+': Could not open file'
+    end
+  end
+
+  def concurrent_fetch(file_name)
+    hydra = Typhoeus::Hydra.new
+    feeds = {}
+    if File.readable?(file_name)
+      File.open(file_name).each do |uri|
+        r = Typhoeus::Request.new(uri, followlocation: true)
+        r.on_complete do |response|
+          begin
+            #feeds[r.url] = Feedzirra::Feed.parse(response.body)
+            feed_url = URI(r.url)
+            file_path = File.dirname(File.join(Dir.pwd, "feeds", feed_url.host.gsub('.','_'), feed_url.path))
+            Dir.exists?(file_path) ? nil : FileUtils.mkdir_p(file_path)
+            file_path = File.realpath(file_path)
+            file_path = File.join(file_path, 'feed.xml')
+            File.open(file_path, 'w+') { |file| file.write(response.body) }
+          rescue Feedzirra::NoParserAvailable => e
             $stderr.puts 'Error: ' + uri
           end
         end
-      else
-        $stderr.puts file_name+': Could not open file'
+        hydra.queue r
       end
+      hydra.run
+    else
+      $stderr.puts file_name+': Could not open file'
     end
   end
 
