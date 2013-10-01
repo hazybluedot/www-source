@@ -70,9 +70,11 @@ already seen is the name of my current terminal.
 
 ** fdtrace
 I wrote a simple utility called ~fdtrace~ to help inspect file
-descriptor links. It is installed on ~ece2524.ece.vt.edu~, but if you
-are working locally you may want to install it on your system. Note, I
-have *not* tested it on a 32 bit system yet.
+descriptor links. *It is installed on ~ece2524.ece.vt.edu~*, but if
+you are working locally you may want to install it on your
+system. Note, I have *not* tested it on a 32 bit system yet, and the
+system call argument display isn't working correctly on 64bit
+systems. Extra credit for the first person to fix that bug!
 
 #+BEGIN_EXAMPLE
 $ git clone https://github.com/hazybluedot/fdtrace.git
@@ -88,7 +90,7 @@ The following is an example of using the ~open~ system call.
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int fd = open("output.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+int fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 #+END_SRC
 
 This will open a file ~output.txt~, creating it if necessary, and truncating the file if it already exists.
@@ -96,7 +98,7 @@ The 'or'ed value in argument 3 will grant owner of the new file read/write acces
 The same, except move write pointer to end of file (results in appending data to existing file);
 
 #+BEGIN_SRC c
-int fd = open("output.txt", O_WRONLY |O_CREAT | O_APPEND, S_IRUSR | S_IWUSR);
+int fd = open("output.txt", O_WRONLY | O_CREAT | O_APPEND, S_IRUSR | S_IWUSR);
 #+END_SRC
 
 ** Fork the skeleton files
