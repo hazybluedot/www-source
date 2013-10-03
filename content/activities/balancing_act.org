@@ -1,0 +1,41 @@
+---
+title: Balancing Act
+feature: features/balanced
+kind: activity
+---
+
+*
+Let's design our first full Unix-style command line utility.  
+
+** Types of balancing errors
+** Data Structures and Algorithms
+   
+** Program Behavior
+   1. What type of input should our program accept
+   2. What output will it give and how will it be formatted?
+   3. What kind of errors might be encountered.
+      a. How will our program detect them?
+      b. How will our program handle and report them?
+
+** Getting Started
+Once we have decided how our program should work and have written up
+some test cases we can start coding.  For your convenience I have
+provided two skeleton repositories: ~skel/cstdio~ and ~skel/cxxstdio~
+containing a generic ~main~ function and ~Makefile~ for a Unix-style C
+and C++ program, respectively.  Fork whichever you prefer:
+
+#+BEGIN_EXAMPLE
+$ ssh <%= config[:git_url]%>:skel/cstdio USER/balance
+#+END_EXAMPLE
+
+or
+
+#+BEGIN_EXAMPLE
+$ ssh <%= config[:git_url]%>:skel/cppstdio USER/balance
+#+END_EXAMPLE
+
+and then clone a local copy
+
+#+BEGIN_EXAMPLE
+$ git clone <%= config[:git_url]%>:USER/balance ~/ece2524/balance
+#+END_EXAMPLE
