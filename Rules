@@ -19,6 +19,10 @@ sass_options = Compass.sass_engine_options
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+preprocess do
+  config[:git_url] = config[:gl_user] + "@" + config[:gl_host]
+end
+
 compile '/assets/*' do
   #don't filter
 end
@@ -54,9 +58,15 @@ compile '*' do
       when 'haml' 
         filter :haml
       when 'org'
+        filter :erb
 	filter :orgmode
     end
-    layout 'default'
+    case item[:kind]
+    when 'activity'
+      layout 'activity'
+    else
+      layout 'default'
+    end
   end
 end
 
