@@ -146,3 +146,37 @@ title: Schedule
        accomplish that goal?
 
     3. continue [[/activities/redirect_algorithm/index.html][Redirect Algorithm]]
+** By Monday, September 30 at 10:10am
+   1. Read [[http://www.catb.org/esr/writings/taoup/html/ch15s04.html][make: Automating Your Recipes]] from TAOUP
+   2. Read [[http://www.gnu.org/software/make/manual/html_node/Makefile-Contents.html#Makefile-Contents][What Makefiles Contain]] from the GNU make manual
+      a. Follow the link for and read [[http://www.gnu.org/software/make/manual/html_node/Rules.html#Rules][Writing Rules]] also reading at least the [[http://www.gnu.org/software/make/manual/html_node/Rule-Syntax.html#Rule-Syntax][Rule Syntax]] and [[http://www.gnu.org/software/make/manual/html_node/Rule-Example.html#Rule-Example][Rule Example]] sections.
+   3. Study the ~Makefile~ in your ~fdtest~ and ~redir~ repositories (included when you forked the skeleton repos)
+
+*** In Class
+    1. let's take a short break from the code behind ~redir~ and look
+       at the build process. What happens when you run ~make~?
+    2. [[/activities/make_cxxtest/index.html][Makefile for a CxxTest project]].
+** By Wednesday, October 2 at 10:10am
+   1. Have the [[/activities/make_cxxtest/index.html][CxxTest Makefile]] activity completed.
+   2. Re-read [[http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878742][Rule of Generation]] from TAOUP. How does this rule relate
+      to the CxxTest example (this has more to do with the role
+      ~cxxtestgen~ has than the Makefile itself. If you hadn't seen
+      the CxxTest framework before this compare notes with someone who
+      has at the start of class)?
+*** In Class
+    [[/activities/lex_and_make/index.html][Scan, Parse and Build, oh my]].
+** By Monday, October 7 at 10:10am
+   1. Double check that you have everything pushed for 
+      a. ~iotest~ 
+      b. ~fdtest~
+      c. ~redir~
+      d. ~cxxstack~
+      These are the four activities that should have been submitted
+      thus far. There is no late penalty for any of them, just make
+      sure you have a good enough understanding to get 100 on each of
+      them. They will provide the foundation for what is to come.
+
+   2. Review any assignments from previous classes relevant to balanced parenthesis checking.
+   3. Read description of the activity for Monday, think about what questions are asked and start thinking about how you would answer them.
+*** In Class
+    Design a Balanced Parenthesis Checker
