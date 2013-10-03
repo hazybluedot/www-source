@@ -1,0 +1,223 @@
+---
+title: Final Pieces to Redirection
+---
+
+*
+** Last Pieces of the ~redir~ Puzzle
+
+We know that if we can map a redirection instruction like ~N>&M~ or ~N>FILE~
+to a data structure like:
+
+#+BEGIN_SRC c
+/* Structure describing a redirection.  If REDIRECTOR is negative, the parser
+   (or translator in redir.c) encountered an out-of-range file descriptor. */
+typedef struct redirect {
+  struct redirect *next;	/* Next element, or NULL. */
+  REDIRECTEE redirector;	/* Descriptor or varname to be redirected. */
+  int rflags;			/* Private flags for this redirection */
+  int flags;			/* Flag value for `open'. */
+  enum r_instruction  instruction; /* What to do with the information. */
+  REDIRECTEE redirectee;	/* File descriptor or filename */
+  char *here_doc_eof;		/* The word that appeared in <<foo. */
+} REDIRECT;
+#+END_SRC
+
+then we can transform the data structure into a sequence of system
+calls that performs the requested redirection. If we create a list of
+several redirection instructions, each one easy to understand, we can
+perform more complex operations, such as swapping two file descriptors
+(a sequence of 3 small redirects). How is this related to the [[http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878263][Rule of
+Representation]]?
+
+#+BEGIN_HTML
+<iframe height="350" width="500" src="/assets/images/parse_chain.svg"></iframe> <br/>
+<a href="/assets/images/parse_chain.svg">Full Screen</a>
+#+END_HTML
+
+But how do we get from a string like ~>log.stdout 2>log.stderr 3>&2
+2>&1 1>&3 3>&'~ to a linked list of ~REDIRECT~ structs?
+
+This problem is the same one faced by a compiler: how to read in a
+string of characters and transform it into a binary representation the
+computer can more easily work with and manipulate?
+
+** Scan and Parse
+In the Unix tradition, this task is split into two separate steps:
+1. [[http://en.wikipedia.org/wiki/Lexical_analysis][lexical analysis]]: transform a string of characters into a set of tokens
+2. [[http://en.wikipedia.org/wiki/Semantic_analysis_%2528compilers%2529#Front_end][semantic parsing]]: parse a set of tokens to generate a representation of the data in memory
+
+The details of both these steps are beyond the scope of this course,
+the important thing is that there is data transformation going on, and
+it can be represented like this:
+
+Generate the scanner source code from a list of lexical rules:
+
+#+BEGIN_SRC lex 
+%%
+[ \t]                 ;
+[a-zA-Z][-a-zA-Z0-9_\.]* SAVE_WORD; return WORD;
+">"                     return '>';
+">>"                    return GREATER_GREATER;
+">&"                    return GREATER_AND;
+">>&"                   return GREATER_GREATER_AND;
+"<"                     return '<';
+"<&"                    return LESS_AND;
+"-"                     return '-';
+[0-9]+                  SAVE_NUMBER; return NUMBER;
+\n                      return '\n';
+%%
+#+END_SRC
+
+#+BEGIN_SRC console
+$ flex -o tokens.tab.c tokens.l
+#+END_SRC
+
+Generate the parser source code from a list of grammar rules (see
+~parser.y~ in ~skel/redir~)
+#+BEGIN_SRC console
+$ bison -d -o parser.tab.c parser.y
+#+END_SRC
+
+Be sure you have pulled the latest changes from the upstream ~skel/redir~ repository:
+
+#+BEGIN_SRC console
+$ cd ~/ece2524/redir
+$ git pull <%= config[:git_url] %>:skel/redir
+#+END_SRC
+
+If you haven't modified files other than ~redir.c~ then the ~git~
+should be able to merge in my updates with yours without any
+conflict. If this is the case it will bring up your default editor
+(usually ~vim~ unless you set it to something different) with a
+message about a "Merge". Just accept it by saving the file and exiting
+the editor, as you would for any other commit.
+
+** Add parsing functionality
+
+#+BEGIN_SRC c
+#include <stdio.h>
+//other #include lines
+
+extern REDIRECT *redirect;
+extern int yyparse();
+
+static REDIRECTEE source;
+static REDIRECTEE redir;
+
+//helper functions
+
+int main(int argc, char *argv[]) {
+
+    source.dest = -1;
+    redir.dest = -1;
+
+    //parse command line arguments with getopt
+
+    if (source.dest >=0)
+        redirect = make_redirection(source, ri, redir,0);
+    else
+        yyparse();
+ 
+    if (f_verbose)
+        fprint_redirect(stdout, redirect);
+    do_redirect(redirect);
+
+    execlp("./sample", "sample", NULL);
+    perror("execlp:");
+    return -1;
+}
+#+END_SRC
+
+Edit the ~Makefile~ to 
+1. add ~parser.tab.o~ and ~tokens.yy.o~ as prerequisites to build
+   ~retest~
+2. add a rule to build ~parser.tab.c~ from ~parser.y~ using ~bison~
+   and another to build ~tokens.yy.c~ from ~tokens.l~ using ~flex~
+
+As you are writing your rule definitions keep in mind the DRY
+principle, and how some of ~make~'s [[http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html][automatic variables]] be used to
+only write file names in one place:
+
+- ~$@~ expands to the file name of the target
+- ~$^~ expands to the names of all prerequisites 
+
+#+BEGIN_SRC console
+$ ./retest -v
+>log.stdout >log.stderr
+...
+#+END_SRC
+
+#+BEGIN_SRC console
+$ ./retest -v
+>log.stdout >log.stderr 3>&2 2>&1 1>&3 3>&-
+...
+#+END_SRC
+
+Think about it. You added implementation to a single function,
+~do_redirect~, that takes a pointer to a data structure as an
+argument.  That single function performs a single task: make the
+system calls necessary to perform a output/input redirection.  With
+knowledge that the ~REDIRECT~ struct has a ~next~ pointer, and is used
+as the node of a linked list, we just need to make a small change to
+~do_redirect~ to perform a list of redirection instructions.
+
+The files I provided: ~parser.y~ and ~tokens.l~ can be used to
+generate a parser using the ~lex~ and ~yacc~ (~flex~ and ~bison~ on
+GNU systems) utilities.  These utilities generate source code
+(~cxxtestgen~ also generates source code).  We like this because of
+the [[http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878742][Rule of Generation]].  Both ~tokens.l~ and ~parser.y~ are written at
+a higher level of abstraction than C code, a level suited for their
+particular tasks of defining a list of lexical rules and a list of
+grammar rules.
+
+We can use ~make~ to automate the task of generating the code, and
+compiling it into a runnable program that reads in a string and
+interprets it as a list of redirection instructions and then performs
+them.  The ~Makefile~ may look complex, but it is just a series of individually simple rules that tell ~make~ how to build a particular file (the 'target') given a set of 'prerequisites' according to some 'recipe'.
+
+#+BEGIN_SRC make
+target : prerequisite
+    recipe
+#+END_SRC
+
+
+By writing a few simple rules out you can define an arbitrarily
+complex build process involving source code you write (~redir.c~)
+along with source code that is generated by utilities like ~lex~ and
+~yacc~.
+
+#+BEGIN_SRC make
+CC ?= cc
+CFLAGS ?= -Wall -std=c99 -g
+
+pedandic: CFLAGS += -Wextra -pedantic -D_XOPEN_SOURCE=700
+
+all: tests
+pedantic: tests
+
+tests: retest sample
+
+sample: test/sample.o
+        $(CC) $(LDFLAGS) $^ -o $@
+
+retest: test/retest.o redir.o make_cmd.o parser.tab.o tokens.yy.o
+        $(CC) $(LDFLAGS) $^ -o $@
+
+#add rules for parser.tab.c and tokens.yy.c                                                                                                                          
+parser.tab.c parser.tab.h: parser.y
+        bison -d -o $@ $^
+
+tokens.yy.c: tokens.l
+        flex -o $@ $^
+
+%.o: %.c
+        $(CC) $(CFLAGS) -c $^ -o $@
+        @cp $*.d $*.P; \
+        sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
+        -e '/^$$/ d' -e 's/$$/ :/' < $*.d >> $*.P; \
+        rm -f $*.d
+
+.PHONY: clean
+clean:
+        rm -f *.o test/*.o *.d *.tab.* *.yy.* retest sample
+#+END_SRC
