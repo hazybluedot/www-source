@@ -167,10 +167,10 @@ title: Schedule
     [[/activities/lex_and_make/index.html][Scan, Parse and Build, oh my]].
 ** By Monday, October 7 at 10:10am
    1. Double check that you have everything pushed for 
-      a. ~iotest~ 
-      b. ~fdtest~
-      c. ~redir~
-      d. ~cxxstack~
+      - ~iotest~ 
+      - ~fdtest~
+      - ~redir~
+      - ~cxxstack~
       These are the four activities that should have been submitted
       thus far. There is no late penalty for any of them, just make
       sure you have a good enough understanding to get 100 on each of
