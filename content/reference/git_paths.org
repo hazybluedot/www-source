@@ -23,6 +23,52 @@ instance when using the ~fork~ command.
 username you set when copying your public key to the server. In most
 cases this is the same as your CVL account user name.
 
+** Helpful Settings
+   Since we do an aweful lot of typing ~ece2524git@ece2524.ece.vt.edu~
+   it will be useful to add some lines to our ~.ssh/config~ file so
+   that we can type less.
+
+   #+BEGIN_EXAMPLE
+   Host ece2524
+       HostName ece2524.ece.vt.edu
+       User ece2524git
+       ForwardAgent yes
+   #+END_EXAMPLE
+
+   Make sure to set appropriate permissions on the ~config~ file or else ~ssh~ will complain:
+   #+BEGIN_EXAMPLE
+   chmod 600 ~/.ssh/config
+   #+END_EXAMPLE
+
+   This names our host ~ece2524~ and uses a default user of ~ece2524git~, so now all of the ~git clone~ and ~fork~ commands can be shortened. For instance, to ~fork~ the ~skel/redir~ repository to ~rflowers/redir~:
+   
+   #+BEGIN_EXAMPLE
+   ssh ece2524 fork skel/redir rflowers/redir
+   #+END_EXAMPLE
+
+   and to clone the newly created fork
+
+   #+BEGIN_EXAMPLE
+   git clone ece2524:rflowers/redir
+   #+END_EXAMPLE
+
+   Of course, replace ~rflowers~ with your own username (and be aware
+   if you ahve already forked the ~skel/redir~ repository you will get
+   an error message stating that the destination repository already
+   exists if you try running the ~fork~ command again).
+
+   You can still ~ssh~ into your shell account with your cvl user name
+
+   #+BEGIN_EXAMPLE
+   ssh your_cvl_user@ece2524
+   #+END_EXAMPLE
+
+   If you want to use your ssh keys for shell account authentication as well the run the command
+   #+BEGIN_EXAMPLE
+   ssh-copy-id your_cvl_user@ece2524.ece.vt.edu
+   #+END_EXAMPLE
+
+   After that, if all goes well
 ** Troubleshooting
 - asked for the ~ece2524git~ password
 if you are ever asked for the 'ece2524git' password it means something is wrong with your ssh key (this is the file that was created when you ran ssh-keygen). The three most common problems are

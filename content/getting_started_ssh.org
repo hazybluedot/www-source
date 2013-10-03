@@ -133,6 +133,45 @@ Replace ~USERNAME~ with your CVL account username.
    account then it could be that an SSH Agent isn't running for some
    reason. Stop by office hours and we'll get it sorted out.
 
+** More ~.ssh/config~ tricks
+   We are going to be typing ~ece2524git@ece2524.ece.vt.edu~ a lot
+   when we start using ~git~ to manage our coding projects.  The
+   ~ece2524git~ is the user name and ~ece2524.ece.vt.edu~ is the host
+   name.  We can set these as parameters in our ~.ssh/config~ to save some typing:
+   
+   #+BEGIN_EXAMPLE
+   Host ece2524
+       HostName ece2524.ece.vt.edu
+       User ece2524git
+       ForwardAgent yes
+   #+END_EXAMPLE
+   
+   Make sure to set appropriate permissions on the ~config~ file or else ~ssh~ will complain:
+   #+BEGIN_EXAMPLE
+   $ chmod 600 ~/.ssh/config
+   #+END_EXAMPLE
+
+   Now wherever you would use ~ece2524git@ece2524.ece.vt.edu~ in a ~git~ or ~ssh~ command you can use ~ece2524~ instead
+   
+   1. Fork a repo
+      #+BEGIN_EXAMPLE
+      ssh ece2524 fork skel/redir USER/redir
+      #+END_EXAMPLE
+      
+   2. Clone a repo
+      #+BEGIN_EXAMPLE
+      git clone ece2524:test
+      #+END_EXAMPLE
+
+   3. Connect to your shell account
+      #+BEGIN_EXAMPLE
+      ssh your_cvl_username@ece2524
+      #+END_EXAMPLE
+
+   To avoid confusion I will continue to use the full url in my
+   examples. Just know that if you created that ~config~ file then you
+   can get away with a lot less typing.
+ 
 ** Test
 If your key was installed successfully you should now have access to the git server. Try running the following command:
 #+BEGIN_EXAMPLE
