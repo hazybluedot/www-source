@@ -1,5 +1,8 @@
 ---
 title: Arguments and Paradigms
+test_type: bonair
+feature: features/redir
+kind: activity
 ---
 
 ** Discussion 
