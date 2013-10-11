@@ -211,7 +211,7 @@ tokens.yy.c: tokens.l
         flex -o $@ $^
 
 %.o: %.c
-        $(CC) $(CFLAGS) -c $^ -o $@
+        $(CC) -MMD $(CFLAGS) -c $^ -o $@
         @cp $*.d $*.P; \
         sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
         -e '/^$$/ d' -e 's/$$/ :/' < $*.d >> $*.P; \

@@ -1,41 +1,135 @@
 ---
 title: Balancing Act
 feature: features/balanced
+fork: skel/balanced
 kind: activity
 ---
 
-*
-Let's design our first full Unix-style command line utility.  
+#+OPTIONS: f:t
+
+* 
+Let's design our first full Unix-style command line utility. Since a
+large number of you have had some experience with checking a string
+for balanced parenthesis. 
 
 ** Types of balancing errors
+   1. What are the different types of balancing errors that can occur?
+    
 ** Data Structures and Algorithms
-   
+   How would you keep track of the necessary data and what algorithm
+   would you use if you wanted to
+   1. Detect balancing errors for only one kind of brace (e.g. ~()~ is
+      balanced but ~(()~ and ~())~ are not)
+   2. Detect balancing errors for multiple kinds of braces (e.g. ~{ (
+      [] ) }~ is balanced, ~{ ([)] }~ is not)
+   3. Detect balancing errors and keep track of what line and column
+      number the problem occurred.
+
 ** Program Behavior
-   1. What type of input should our program accept
+   1. What type of input should our program accept?
    2. What output will it give and how will it be formatted?
-   3. What kind of errors might be encountered.
-      a. How will our program detect them?
-      b. How will our program handle and report them?
+   3. What kind of errors might be encountered?
+      1. How will our program detect them?
+      2. How will our program handle and report them?
 
 ** Getting Started
-Once we have decided how our program should work and have written up
-some test cases we can start coding.  For your convenience I have
-provided two skeleton repositories: ~skel/cstdio~ and ~skel/cxxstdio~
-containing a generic ~main~ function and ~Makefile~ for a Unix-style C
-and C++ program, respectively.  Fork whichever you prefer:
+   Once we have decided how our program should work and have written
+up some test cases we can start coding. You may choose to use write in C or
+C++[fn:1]
 
-#+BEGIN_EXAMPLE
-$ ssh <%= config[:git_url]%>:skel/cstdio USER/balance
-#+END_EXAMPLE
+*** Initialize a new git repository
+    The past few activities we have forked and cloned existing
+    repositories. Let's initialize a new one for this activity.
+    #+BEGIN_SRC console
+    $ git init ~/ece2524/balanced
+    $ cd ~/ece2524/balanced
+    #+END_SRC
+    If your current working directory is already the one in which you
+    want to initilize as a git repository, then just run ~git init~
+    without the destination argument.
+*** Add the remote
+    Since we created a new git repository with ~git init~ it does not
+    have any remotes set. Let's add one now.
+    #+BEGIN_SRC console
+    $ git remote add <%= config[:git_url]%>:USER/balanced.git
+    #+END_SRC
+*** Add a submodule
+    This is something new.  We would like to include the ~features~
+    directory in our repository containing the ~cucumber~ test files,
+    but they are managed in another repository.  We could copy the
+    directory into our source tree but then we would lose the ability
+    to easily pull updates from the upstream repository (e.g. in the
+    event I change the test files).  git has a tool called [[http://git-scm.com/book/en/Git-Tools-Submodules][submodules]]
+    that handles this situation nicely.
 
-or
+    #+BEGIN_SRC console
+    $ git submodule add <%= config[:git_url]%>:features/balanced.git features
+    $ git commit -m "add features submodule"
+    #+END_SRC
 
-#+BEGIN_EXAMPLE
-$ ssh <%= config[:git_url]%>:skel/cppstdio USER/balance
-#+END_EXAMPLE
+    Now you can run ~git submodule update~ in the future to pull in
+    any changes to the features submodule.
 
-and then clone a local copy
+*** Start Coding
+1. Start simple. Write an empty ~main()~ function and compile it.
+2. Write a simple ~Makefile~ that will compile your program when you
+   run ~make~
+3. Get in the habit of working in short code/compile cycles. Using
+   ~make~ it is easy to quickly build a project and check for
+   errors. It is usually easier to find and fix compile errors soon
+   after they were introduced into the code rather than waiting until
+   even more lines and potentially more errors are introduced.
+4. commit often.  git makes commits cheap and easy. Use them
+   judiciously. As a rule of thumb, make a commit each time you make a
+   change that results in a successfully compiling project. 
 
-#+BEGIN_EXAMPLE
-$ git clone <%= config[:git_url]%>:USER/balance ~/ece2524/balance
-#+END_EXAMPLE
+*** Useful libraries and macros
+Remember, when listing library calls that have man page entries I will use the format ~function(N)~ where ~N~ is an integer cooresponding to the manual section the function is defined in.  To view the manual page for ~fopen(3)~ you would run ~man 3 fopen~
+
+- C++
+  - Data structures
+    
+    check out the [[http://www.cplusplus.com/reference/stl/][standard containers]] provided by the STL.
+  - files streams 
+
+    [[http://www.cplusplus.com/reference/fstream/][<fstream>]] provides [[http://www.cplusplus.com/reference/fstream/ifstream/][ifstream]] and [[http://www.cplusplus.com/reference/fstream/ofstream/][ofstream]] for input/output file
+    streams, respectively.  [[http://www.cplusplus.com/reference/iostream/cin/][std::cin]], [[http://www.cplusplus.com/reference/iostream/cout][std::cout]] and [[http://www.cplusplus.com/reference/iostream/cerr/][std::cerr]] are the
+    streams provided for standard input, standard output and standard
+    error.
+
+    The [[http://www.cplusplus.com/reference/istream/istream/get/][std::istream::get]] method can be used to extract the next
+    character from an input stream.
+
+- C
+  - Data structures
+    
+    you may find the ~queue(3)~ macros useful for implementing lists/stacks
+  - file streams
+
+    See the manual pages for ~fopen(3)~, ~fclose(3)~, ~fgetc(3)~
+
+*** Tips
+- If you have trouble understanding how ~argc~ and ~argv~ are used,
+  try writing a simple program that simply prints out the arguments
+  provided on the command line:
+  #+BEGIN_SRC c
+  #include <stdio.h>
+
+  int main(int argc, char* argv[])
+  {
+        int n;
+
+        for(n=0; n < argc; ++n)
+        {
+                printf("argv[%d]: %s\n", n, argv[n]);
+        }
+        return 0;
+  }
+  #+END_SRC
+
+  compile it and run it with a few different arguments to see how the
+  argv array works.
+
+[fn:1] if you have a compelling reason to write in something other
+than C/C++ let me know well in advance so I can get the necessary
+build tools on the server.
