@@ -98,7 +98,7 @@ title: Schedule
       ~apt-get~ or ~yum~ to install them in that case.  Pick one
       command that you like and learn what each part does. Come to
       class prepared to share it with others.
-** In Class
+*** In Class
    [[/activities/showandtell/index.html][Command Show and Tell]]
 ** By Wednesday, September 18 at 10:10am
    1. Work through section 9 of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
@@ -176,7 +176,42 @@ title: Schedule
       sure you have a good enough understanding to get 100 on each of
       them. They will provide the foundation for what is to come.
 
-   2. Review any assignments from previous classes relevant to balanced parenthesis checking.
-   3. Read description of the activity for Monday, think about what questions are asked and start thinking about how you would answer them.
+   2. Review any assignments from previous classes relevant to
+      balanced parenthesis checking. Make sure you have a sound
+      technical understanding of how one might check for balanced
+      parenthasis. First think about the problem of just checking for
+      one kind (e.g. ~(~ and ~)~). What would need to change to check
+      for multiple types (e.g. ~([])~, ~{ ([]) }~). If you have the
+      "Walls & Mirrors" Data Structures and Algorithms book by Carrano, it
+      covers one algorithm for dealing with this problem starting on
+      page 292.
+   3. Read description of the activity for Monday, think about what
+      questions are asked and start thinking about how you would
+      answer them.
 *** In Class
-    Design a Balanced Parenthesis Checker
+    [[/activities/balancing_act/index.html][Design a Balanced Parenthesis Checke]]r
+    
+** By Wednesday, October 9 at 10:10am
+   1. [[/activities/balanced_features/index.html][Balanced Brace Checker Features]]
+** By Monday, October 14 at 10:10am
+   1. Read the first 3 sections (introduction, Encapsulation and
+      Optimal Module Size and Compactness and Orthogonality) of
+      [[http://www.catb.org/esr/writings/taoup/html/modularitychapter.html][Chapter 4. Modularity]] from TAOUP. While reading, think about
+      - how is the optimal module size related to our own human constraints/abilities?
+      - how does modularity affect other types of designed, not just software?
+      - how do the tools we have available to us affect the modularity of our designs?
+      - what are some techniques we can use to help write good, modular code?
+      - how do these ideas of modularity apply to the balanced brace checker program?
+   2. Have the first version of your balanced brace checker completed. It should
+      - correctly detect and report balancing errors for curly braces
+        (~{~, ~}~)
+      - correctly report program/user errors like supplying
+        non-existent file names on the command line.
+   3. Review the code you wrote for the balanced brace checker.
+      - Is it modular?
+      - Are the functions/classes/methods [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#orthogonality][orthogonal]]?
+      - Does it obey the [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#spot_rule][SPOT rule]]?
+      - Does the design center around a [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#id2895445][String Single Center]]?
+*** In Class
+    1. Code Review and Critique
+    2. If necessary, refactor your code in response to feedback
