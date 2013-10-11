@@ -1,0 +1,124 @@
+---
+title: Features of a Balanced Brace Checker
+feature: features/balanced
+kind: activity
+---
+
+* 
+You have seen cucumber feature files before for other activities. They
+have been used to specify the input/output tests that are run to check
+for proper functionality of our programs. In this activity you will
+complete a features file for the balanced brace checker program to
+test for a few usage scenarios.
+
+** Get the skeleton files
+   Fork the features repository that I have started
+   #+BEGIN_SRC console
+   $ ssh <%= config[:git_url]%> fork features/balanced USER/features/balanced
+   #+END_SRC
+   And clone a local copy
+   #+BEGIN_SRC console
+   $ git clone <%= config[:git_url]%>:USER/features/balanced ~/ece2524/features/balanced
+   $ cd ~/ece2524/features/balanced
+   $ ls
+   simple.feature support
+   #+END_SRC
+
+   Open up the ~simple.feature~ in your favorite text editor.  You
+   will note that the file is fairly easy to read, though it is still
+   structured in a specific way.  It is written in the [[https://github.com/cucumber/cucumber/wiki/Gherkin][gherkin]]
+   language.  You should be able to deduce how to write a limited set
+   of valid gerkin based what is already provided for you in
+   ~simple.features~ and by looking at feature files for previous
+   activities (some examples are provided towards the end of this
+   document).
+
+   You will see several 'Scenario' sections. The name of each scenario
+   should give and idea of what that scenario is testing for.  Each
+   scenario consists of a series of steps, the first of which runs the
+   command to be tested. The remaining steps serve to check for
+   expected output conditions.  For example, look at the steps for the
+   'Balanced Braces' scenario:
+
+   #+BEGIN_SRC gherkin
+   Scenario: Balanced Braces
+      When I run the command `./balanced good.c`
+      Then the output should contain exactly 0 lines
+   #+END_SRC
+
+   In this scenario the input file is ~good.c~ which is given in the
+   'Background' section of the feature.  As you can see, all braces
+   are balanced, so we expect our program to exit quietly without
+   printing anything to the output.  The step 'Then the output should
+   contain exactly 0 lines' checks for this condition.
+
+   Look at some of the feature files used for previous activities to
+   get an idea of how the steps are written. For instance, the file
+   ~dupoutput.feature~ in the ~features/redir~ repository contains the
+   scenario
+
+   #+BEGIN_SRC gherkin
+   Scenario: Duplicate standard out to 3
+     When I run the shell command "fdtrace ./retest -n 3 -m 1 >output.txt"
+     Then the output should contain a line matching /^3 -> .*output.txt/
+   #+END_SRC
+
+   In this case the first step is ~When I run the shell command~
+   instead of ~When I run the command~.  This is necessary because of
+   the way cucumber executes commands, the ~When I run the command~
+   step would not process shell redirections, such as the
+   ~>output.txt~ that we use here. The ~When I run the shell command~
+   step executes the command in a shell so that the redirection works
+   as expected.  The second step tests that the output of the command
+   contains a line that looks something like
+
+   #+BEGIN_EXAMPLE
+   3 -> /some/path/to/output.txt
+   #+END_EXAMPLE
+
+   If we also wanted to check that the output contains ONLY one line,
+   we could add another step so that the full scenario was
+
+   #+BEGIN_SRC gherkin
+   Scenario: Duplicate standard out to 3
+     When I run the shell command "fdtrace ./retest -n 3 -m 1 >output.txt"
+     Then the output should contain exactly 1 line
+     And the output should contain a line matching /^3 -> .*output.txt/
+   #+END_SRC
+
+
+   Your task is to finish adding steps to ~simple.feature~ to the
+   scenarios that I've started.  Based on your understanding of the
+   balanced brace checker we are writing, what should the output of
+   our program be given the command in each scenario?  Add steps to
+   check the output contains the expected number of lines, and that
+   the lines match some expected expression.  Note that the matching
+   expression given in between the ~/../~ symbols is a [[http://en.wikipedia.org/wiki/Regular_expression][regular
+   expression]] which we haven't officially introduced (though they've
+   popped up a number of times already). The only thing you need to
+   know for now is that a literal string is a valid regular
+   expression, so if you expect the output of your program to write a
+   line like
+
+   #+BEGIN_EXAMPLE
+   file1.c:42:7: some matching error occured
+   #+END_EXAMPLE
+
+   then the step could be written
+
+   #+BEGIN_SRC gherkin
+   Then the output should contain a line matching /file1.c:42:7: some matching error occured/
+   #+END_SRC
+
+   If you wanted to check that the file, line and column numbers were
+   exact, but wanted to accept arbitrary text after that, you could
+   write the step as
+
+   #+BEGIN_SRC gherkin
+   Then the output should contain a line matching /file1.c:42:7: .*/   
+   #+END_SRC
+
+   As you add the steps to ~simple.feature~ remove the comment lines
+   (text preceded by the ~#~ character).  Once you have added steps to
+   check for expected output for each of the listed scenarios
+   add/commit your changes and push them back to the server.
