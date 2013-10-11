@@ -66,12 +66,16 @@ module Nanoc::DataSources
           :published => true
         }
 
-        items << Nanoc::Item.new(
-                        entry.content,
-                        meta,
-                        identifier,
-                        :binary => false
-                        )
+        begin
+          items << Nanoc::Item.new(
+                                   entry.content,
+                                   meta,
+                                   identifier,
+                                   :binary => false
+                                   )
+        rescue RuntimeError => e
+            $stderr.puts identifier + ":" + e.to_s
+        end
       end
       items
     end
