@@ -51,7 +51,7 @@ C++[fn:1]
     Since we created a new git repository with ~git init~ it does not
     have any remotes set. Let's add one now.
     #+BEGIN_SRC console
-    $ git remote add <%= config[:git_url]%>:USER/balanced.git
+    $ git remote add origin <%= config[:git_url]%>:USER/balanced.git
     #+END_SRC
 *** Add a submodule
     This is something new.  We would like to include the ~features~
