@@ -1,0 +1,36 @@
+---
+title: 'Code Swap: Balanced Brace Checker'
+for_date: 'October 14, 2013 10:10am'
+type: 'inclass'
+repos: 
+  - user: 'USER/balanced'
+requires: 
+  - activity: balancing_act
+---
+
+* 
+** Terminology
+~REVIEWER~ : the person or username reviewing the code
+~AUTHOR~ : the username of the original author, or the author of the code being reviewed.
+During the course of today everyone will work both in the context of being the ~AUTHOR~ and the ~REVIEWER~
+** Prepare your code for sharing
+- Make sure all your changes are added and committed to the ~master~
+  branch of your repo.
+- push your changes to the server
+** No Network?
+   If you are unable to connect to the network then clone your repo to
+   a USB flash drive or other removable media.
+
+   
+   #+BEGIN_SRC console
+   $ mount | grep sdb
+   #+END_SRC
+
+** As a REVIEWER
+   Fork a copy of the AUTHOR's code to your own repository, and then clone a local copy
+   
+   #+BEGIN_SRC console
+   $ ssh <%= config[:git_url]%> fork AUTHOR/balanced REVIEWER/forks/AUTHOR/balanced
+   $ git clone <%= config[:git_url]%>:AUTHOR/balanced.git ~/ece2524/review/AUTHOR/balanced
+   $ cd ~/ece2524/review/AUTHOR/balanced
+   #+END_SRC

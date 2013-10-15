@@ -213,5 +213,5 @@ title: Schedule
       - Does it obey the [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#spot_rule][SPOT rule]]?
       - Does the design center around a [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#id2895445][Strong Single Center]]?
 *** In Class
-    1. Code Review and Critique
+    1. [[/activities/balanced_code_swap/index.html][Code Review and Critique]]
     2. If necessary, refactor your code in response to feedback
