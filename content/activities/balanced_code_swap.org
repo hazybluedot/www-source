@@ -19,18 +19,102 @@ During the course of today everyone will work both in the context of being the ~
 - push your changes to the server
 ** No Network?
    If you are unable to connect to the network then clone your repo to
-   a USB flash drive or other removable media.
+   a USB flash drive or other removable media.  To determine the mount
+   point of your USB drive, insert it and then run
 
-   
    #+BEGIN_SRC console
-   $ mount | grep sdb
+   $ mount | grep sd[b-f]
+   /dev/sdb1 on /meda/KINGSTON type ...
+   #+END_SRC
+
+   The ~grep~ command will filter all lines matching the regex
+   ~sd[b-f]~ which can be read as "the letter 's', follwed by 'd'
+   followed by one character from the range 'b-f'.  Usually your
+   harddrive will be at ~/dev/sda~ and the next physical drive at
+   ~/dev/sdb~.  If you have more than one hard drive, or have
+   additional disks connected, your usb device may be at ~/dev/sdc~ or
+   ~/dev/sde~.  If this command gives multiple lines of ouput look for
+   the line that contains the lable name of your USB drive (in the
+   example, my drive has disk lable 'KINGSTON'). If all else fails,
+   remove the drive, run the ~mount~ command again filtered through
+   ~grep~ and notice which entry is no longer there, then re-insert
+   the USB drive and run the ~mount~ command again. The entry that
+   wasn't there before is the one cooresponding to your USB drive. The
+   mount point is the path immediately following 'on'.  In the
+   example, the mount point is ~/media/KINGSTON/~
+
+   Clone a copy of your repo to the USB drive
+
+   #+BEGIN_SRC console
+   $ git clone ~/ece2524/balanced /media/KINGSTON/AUTHOR/balanced
    #+END_SRC
 
 ** As a REVIEWER
-   Fork a copy of the AUTHOR's code to your own repository, and then clone a local copy
+1. Fork a copy of the AUTHOR's code to your own repository, and then clone a local copy
+   - From the network
    
-   #+BEGIN_SRC console
+      #+BEGIN_SRC console
    $ ssh <%= config[:git_url]%> fork AUTHOR/balanced REVIEWER/forks/AUTHOR/balanced
-   $ git clone <%= config[:git_url]%>:AUTHOR/balanced.git ~/ece2524/review/AUTHOR/balanced
+   $ git clone <%= config[:git_url]%>:REVIEWER/forks/AUTHOR/balanced.git ~/ece2524/review/AUTHOR/balanced
    $ cd ~/ece2524/review/AUTHOR/balanced
    #+END_SRC
+
+   - From a USB drive
+     
+     Determin the mount point of the USB drive, I will use
+    ~/media/KINGSTON~ in my examples.  Clone a copy of the repository
+    stored on the USB drive to your hard drive:
+
+    #+BEGIN_SRC console
+    $ git clone /media/KINGSTON/AUTHOR/balanced ~/ece2524/forks/AUTHOR/balanced
+    $ cd ~/ece2524/forks/AUTHOR/balaned
+    #+END_SRC
+2. Review AUTHOR's code, asking the same questions you asked about your own:
+    
+    - Is it modular?
+    - Are the functions/classes/methods [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#orthogonality][orthogonal]]?
+    - Does it obey the [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#spot_rule][SPOT rule]]?
+    - Does the design center around a [[http://www.catb.org/esr/writings/taoup/html/ch04s02.html#id2895445][Strong Single Center]]?
+
+   Another test for modularity is to think how many lines of code
+   would you need to change to use AUTHOR's algorithm with your own
+   interface, or vice versa. If your code and AUTHOR's code is
+   modular, you should be able to interchange the interface
+   implementation and algorithm with little effort.
+3. As you are reviewing, make comments in the code to point out
+   problem areas or suggestions. If you notice small changes that you
+   can fix easily yourself, make them. add and commit your changes,
+   and push them back to your own remote.
+   
+   #+BEGIN_SRC console
+   $ git commit -a
+   $ git push origin master
+   #+END_SRC
+
+** As an AUTHOR
+1. Create a new branch to hold any modified code that your REVIEWER returns:
+   #+BEGIN_SRC console
+   $ cd ~/ece2524/balanced
+   $ git checkout -b REVIEWER
+   #+END_SRC
+
+   This will create a new branch named 'REVIEWER', use the actual user
+   name of your reviewer in that place. Now pull in the modified code
+   from your REVIEWER's fork:
+
+   #+BEGIN_SRC console
+   $ git pull <%= config[:git_url]%>:REVIEWER/forks/AUTHOR/balanced.git%> master
+   $ git log
+   #+END_SRC
+
+   The output of ~git log~ should contain at least one commit made by 'REVIEWER'
+2. Review comments and changes made by REVIEWER. Make any changes
+   necessary. Test them and add/commit them to the current branch.
+   Then merge them back into your 'master' branch.
+
+   #+BEGIN_SRC console
+   $ git checkout master
+   $ git merge REVIEWER
+   #+END_SRC
+   
+   
