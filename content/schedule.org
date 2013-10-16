@@ -215,3 +215,7 @@ title: Schedule
 *** In Class
     1. [[/activities/balanced_code_swap/index.html][Code Review and Critique]]
     2. If necessary, refactor your code in response to feedback
+** By Wednesday, October 16 at 10:10am
+*** In Class
+    1. [[/activities/balanced_review_report/index.html][Balanced Code Review Report]]
+    2. [[/activities/balanced_review_merge/index.html][Balanced Code Review Merge]]
