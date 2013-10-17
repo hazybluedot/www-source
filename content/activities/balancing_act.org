@@ -1,5 +1,6 @@
 ---
 title: Balancing Act
+test_type: bonair
 feature: features/balanced
 fork: skel/balanced
 kind: activity
@@ -14,7 +15,12 @@ for balanced parenthesis.
 
 ** Types of balancing errors
    1. What are the different types of balancing errors that can occur?
-    
+      If we are concerned with only one type of brace, for example ~{ }~ then there are only two types of balancing errors:
+      - unmatched opening brace: e.g. ~{ a b c { e f } g~ is missing a closing ~}~
+      - unmatched closing brace: e.g. ~{ a b c { e f } g } }~  has an extra closing brace.
+      If we also consider other types of braced, like ~( )~ and ~[ ]~ then we have an additional unbalaned condition:
+      - mismatched braces/bad nesting: e.g. ~{ ( [ ) ] }~
+
 ** Data Structures and Algorithms
    How would you keep track of the necessary data and what algorithm
    would you use if you wanted to
@@ -27,7 +33,19 @@ for balanced parenthesis.
 
 ** Program Behavior
    1. What type of input should our program accept?
+      A list of files given on the command line, or if no files are given, then read from /standard input/. See ~grep~ as an example.
+
    2. What output will it give and how will it be formatted?
+      The C and C++ compiler provides a good example to follow: print the output in an easily parsed, structured formate that contains all the information available:
+      #+BEGIN_EXAMPLE
+      file_name:line_number:column_number: description of error
+      #+END_EXAMPLE
+      for example
+      #+BEGIN_EXAMPLE
+      test1.c:7:1: unmatched closing brace
+      #+END_EXAMPLE
+      
+      If there are *no* balancing errors then the program should not produce any output. [[http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878450][Silence is Golden]].
    3. What kind of errors might be encountered?
       1. How will our program detect them?
       2. How will our program handle and report them?
