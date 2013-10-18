@@ -16,6 +16,10 @@
             Feature repo path: 
             %code
               = feature_repo(item)
+          - if item[:compile_to]
+            %p
+              Expecting a binary named 
+              %code #{item[:compile_to]}
           %p
             The following features will be tested using cucumber:
           - features(item).each do |feature|
