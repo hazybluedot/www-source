@@ -3,6 +3,8 @@ title: Balancing Act
 test_type: bonair
 feature: features/balanced
 fork: skel/balanced
+user_repo: CREATOR/balanced
+compile_to: balanced
 kind: activity
 ---
 
@@ -90,8 +92,8 @@ C++[fn:1]
 
 *** Start Coding
 1. Start simple. Write an empty ~main()~ function and compile it.
-2. Write a simple ~Makefile~ that will compile your program when you
-   run ~make~
+2. Write a simple ~Makefile~ that will compile a program named
+   ~balanced~ when ~make~ is run.
 3. Get in the habit of working in short code/compile cycles. Using
    ~make~ it is easy to quickly build a project and check for
    errors. It is usually easier to find and fix compile errors soon
