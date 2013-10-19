@@ -153,3 +153,10 @@ Remember, when listing library calls that have man page entries I will use the f
 [fn:1] if you have a compelling reason to write in something other
 than C/C++ let me know well in advance so I can get the necessary
 build tools on the server.
+** Submitting
+    You will submit your code by pushing your git repository to the remote server just like other activities we have done.  Because this time we initialized a new repo (instead of forking and cloning like we have the past few times) the first time you push you will have to run
+    #+BEGIN_SRC console
+    $ git push -u origin master
+    #+END_SRC
+
+    to tell ~git~ to push to the ~master~ branch on the remote named ~origin~.  The next time you need to push changes you can just run ~git push~.
