@@ -195,37 +195,5 @@ $ cd results/fdtest
 $ git pull
 #+END_EXAMPLE
 
-** Running tests locally
-The instant feedback and auto-running of tests is still a work in progress. As I am working to squash bugs (and even after), you may find it convenient to run tests locally.
-
-*** Tool Setup
-[[http://cukes.info/][Cucumber]] is a ruby application that executes automated tests written in a human readable format called [[https://github.com/cucumber/cucumber/wiki/Gherkin][Gherkin]]. Originally written to implement Behavior Driven Development (BDD) for web applications, the [[https://github.com/cucumber/aruba][aruba]] extension adds support for testing command line applications as well. To install ~aruba~ you will first need a working ~ruby~ and ~rubygems~ install. Usually the easiest way to go about this is to use [[https://rvm.io/rvm/install][rvm]]. In the past, the Ubuntu packages associated with ~ruby~ have been riddled with version compatibility issues.  See [[http://blog.coolaj86.com/articles/installing-ruby-on-ubuntu-12-04.html][How to install Ruby (and RVM) on Ubuntu]] if you are having trouble getting this to work on Ubuntu, especially version 12.04 or earlier. Once that is done (~ruby -v~ should return a version >= 1.9.3) you can install the ~aruba~ gem:
-
-#+BEGIN_EXAMPLE
-$ gem install aruba
-#+END_EXAMPLE
-
-*** Running tests
-Once you have ~aruba~ installed you will need to grab the features description for the current project, in this case ~fdtest~
-
-#+BEGIN_EXAMPLE
-$ cd ~/ece2524/fdtest # or wherever you put your fdtest repo
-$ git clone ece2524git@ece2524.ece.vt.edu:features/fdtest.git features
-#+END_EXAMPLE
-
-you should now have a directory named ~features~ as a subdirectory of
-your ~fdtest~ project directory.  Now you can run ~cucumber~:
-
-#+BEGIN_EXAMPLE
-$ cucumber
-#+END_EXAMPLE
-
-*Note:* Especially early on the test description may change as bugs
-are reported to me. You may want to periodically ~pull~ in updates to
-the features directory to make sure you are running the most
-up-to-date tests:
-
-#+BEGIN_EXAMPLE
-$ cd ~/ece2524/fdtest/features
-$ git pull
-#+END_EXAMPLE
+** Running the tests locally
+   See [[/resources/cucumber/index.html][BDD with Cucumber]].

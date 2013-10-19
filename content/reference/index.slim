@@ -1,0 +1,12 @@
+---
+title: Reference
+---
+
+h1 References
+
+ul
+  - @items.select { |i| i.identifier =~ /\/reference\/_\w+./ }.each do |item|
+    li #{{link_to(item[:title], item)}}
+
+
+  
