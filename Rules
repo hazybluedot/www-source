@@ -60,6 +60,8 @@ compile '*' do
       when 'org'
         filter :erb
 	filter :orgmode
+      when 'slim'
+        filter :slim
     end
     case item[:kind]
     when 'activity'
