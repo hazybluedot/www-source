@@ -219,3 +219,25 @@ title: Schedule
 *** In Class
     1. [[/activities/balanced_review_report/index.html][Balanced Code Review Report]]
     2. [[/activities/balanced_review_merge/index.html][Balanced Code Review Merge]]
+** By Monday, October 21 at 10:10am
+*** In Class
+    - [[/midterm_topics/index.html][Midterm Topic List]]
+    - Work in teams to continue [[/activities/balanced_code_swap/index.html][reviewing]] and fixing [[/activities/balancing_act/index.html][balanced brace checker]] assignment.
+      - good separation of algorithm and interface (at least two separate functions: ~main~ and the one implementing the algorithm)
+      - standard input stream should be treated no differently than streams created by opening a file
+      - Makefile should use variables to stay DRY, have an 'all' and 'clean' target and build program in two steps: compile and link
+** By Monday, October 23 at 10:10am
+   - Read Section 19 (Regular Expressions) of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
+   - Visit [[https://www.debuggex.com/][Debuggex]] and try out some of the regex examples from the reading in the visualizer.
+   - Check your ~/usr/shar/dict/~ directory for a file named ~words~
+     or something similar.  If no files exist in that directory then
+     install a words file:
+     - Fedora
+       #+BEGIN_EXAMPLE
+       # yum install words
+       #+END_EXAMPLE
+     - Ubuntu
+       #+BEGIN_EXAMPLE
+       # apt-get install wamerican
+       #+END_EXAMPLE
+       or [[http://packages.ubuntu.com/lucid/wordlist][another dictionary]].
