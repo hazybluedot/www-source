@@ -241,3 +241,12 @@ title: Schedule
        # apt-get install wamerican
        #+END_EXAMPLE
        or [[http://packages.ubuntu.com/lucid/wordlist][another dictionary]].
+*** In Class
+    [[/activities/regex/index.html][Regex Exercise]]
+** By Monday, October 28 at 10:10am
+   1. Review [[/midterm_topics/index.html][Midterm Topic List]], come to class with any questions.
+*** In Class
+    1. Practice midterm
+       - fork the ~midterm/practice~ repo to ~USER/midterm/practiceN~ where N is a number (1 or more digits between 0 and 9).
+       - clone the repo you just forked
+       - open ~README.md~ and follow instructions.
