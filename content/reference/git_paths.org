@@ -1,0 +1,93 @@
+---
+title: Git path reference
+---
+
+* Git and gitolite
+We are using git to manage our software projects.  To help manage the
+multi-user controll access on our class server I am using gitolite.
+The user running ~gitolite~ is ~ece2524git~, and so all remote git
+transactions will use a url starting with
+~ece2524git@ece2524.ece.vt.edu:~ what you put after the ~:~ will
+determine which repository you are accessing. You will often see a
+trailing ~.git~ in repo URLS.  This is a convention used to indicate a
+server-based "bare" repository: one without a working directory.  If
+you leave the ~.git~ off of the URL everything will stil work, but
+it's good to keep it there just to follow convention.  It is important
+to remember that while ~.git~ is part of the URL, it is not part of a
+repository's name. The repository named ~rflowers/iotest~ will have
+path component ~rflowers/iotest.git~. This is important in the few
+cases where you need to refer to repository by name, not by URL, for
+instance when using the ~fork~ command.
+
+*Note:* In the reference paths below always replace ~USER~ with the
+username you set when copying your public key to the server. In most
+cases this is the same as your CVL account user name.
+
+** Helpful Settings
+   Since we do an aweful lot of typing ~ece2524git@ece2524.ece.vt.edu~
+   it will be useful to add some lines to our ~.ssh/config~ file so
+   that we can type less.
+
+   #+BEGIN_EXAMPLE
+   Host ece2524
+       HostName ece2524.ece.vt.edu
+       User ece2524git
+       ForwardAgent yes
+   #+END_EXAMPLE
+
+   Make sure to set appropriate permissions on the ~config~ file or else ~ssh~ will complain:
+   #+BEGIN_EXAMPLE
+   chmod 600 ~/.ssh/config
+   #+END_EXAMPLE
+
+   This names our host ~ece2524~ and uses a default user of ~ece2524git~, so now all of the ~git clone~ and ~fork~ commands can be shortened. For instance, to ~fork~ the ~skel/redir~ repository to ~rflowers/redir~:
+   
+   #+BEGIN_EXAMPLE
+   ssh ece2524 fork skel/redir rflowers/redir
+   #+END_EXAMPLE
+
+   and to clone the newly created fork
+
+   #+BEGIN_EXAMPLE
+   git clone ece2524:rflowers/redir
+   #+END_EXAMPLE
+
+   Of course, replace ~rflowers~ with your own username (and be aware
+   if you ahve already forked the ~skel/redir~ repository you will get
+   an error message stating that the destination repository already
+   exists if you try running the ~fork~ command again).
+
+   You can still ~ssh~ into your shell account with your cvl user name
+
+   #+BEGIN_EXAMPLE
+   ssh your_cvl_user@ece2524
+   #+END_EXAMPLE
+
+   If you want to use your ssh keys for shell account authentication as well the run the command
+   #+BEGIN_EXAMPLE
+   ssh-copy-id your_cvl_user@ece2524.ece.vt.edu
+   #+END_EXAMPLE
+
+   After that, if all goes well
+** Troubleshooting
+- asked for the ~ece2524git~ password
+if you are ever asked for the 'ece2524git' password it means something is wrong with your ssh key (this is the file that was created when you ran ssh-keygen). The three most common problems are
+
+1. you created your key locally and are now trying to run git comands while connected to the ece2524 server (or the reverse scenario).
+2. you overwrote or remade your keys (for instance, you reinstalled your system, or created a new virtual machine, and had to run ssh-keygen again) but haven't copied the new keys to the server
+3. you are using multiple machines (maybe a laptop and a desktop, or a real machine and a virtual machine), created ssh keys on both but only installed one on the server, or attempted to install both but when installing one inadvertently overwrote the other.
+
+Solutions:
+1. check that you are running your git commands from the same system as the one you created your keys on.  If you run 'ls ~/.ssh' you should see at least two files there, ~id_rsa~ and ~id_rsa.pub~. See [[getting_started_ssh/][Working with SSH Keys]]. 
+2. If you had to recreate your keys for some reason you will have to be sure to copy the new ones to the server.  See "Install Your Key" at [[/getting_started_ssh/][Working with SSH Keys]].
+3. If you are working from multiple machines reinstall your keys from each of them being sure to follow the instructions for "Advanced Users: Multiple Keys" at [[/getting_started_ssh/][Working with SSH Keys]].
+
+** iotest
+- path: ~USER/iotest.git~
+- results: ~result/USER/iotest.git~
+
+** fdtest
+- skeleton repo: ~skel/fdtest~
+- fork command: ~ssh ece2524git@ece2524.ece.vt.edu fork skel/fdtest USER/fdtest~
+- user repo path: ~USER/fdtest.git~
+- results repo: ~results/USER/fdtest.git~
