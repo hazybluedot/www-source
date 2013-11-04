@@ -115,4 +115,5 @@ route '*' do
   end
 end
 
+layout 'activities', :slim
 layout '*', :haml
