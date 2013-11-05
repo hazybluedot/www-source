@@ -1,0 +1,26 @@
+- render 'default' do
+  article
+    header
+      h1 #{item[:title]}
+      /-# p
+        Published
+        time pubdate datetime=#{get_pub_datetime(item)}
+          = get_pretty_date(item)
+    section
+      == yield
+    - if has_tests(item)
+      section
+        header
+          h1 Testing
+          p 
+            - feature_repos(item).each do |f|
+              Feature repo path: 
+              code
+                = f[:feature]
+              p
+                The following features will be tested using cucumber:
+              - features(f).each do |feature|
+                pre
+                  code
+                    == Pygments.highlight(feature, :lexer => 'gherkin')
+  footer
