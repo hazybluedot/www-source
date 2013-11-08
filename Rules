@@ -54,7 +54,8 @@ compile '*' do
   else 
     case item[:extension]
       when 'md'
-        filter :kramdown
+        filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
+        filter :colorize_syntax, :default_colorizer => :pygmentsrb
       when 'haml' 
         filter :haml
       when 'org'
@@ -115,5 +116,5 @@ route '*' do
   end
 end
 
-layout 'activities', :slim
+layout 'activity', :slim
 layout '*', :haml
