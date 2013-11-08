@@ -1,11 +1,13 @@
 ---
 title: Balancing Act
-test_type: bonair
-feature: features/balanced
-fork: skel/balanced
-user_repo: CREATOR/balanced
-compile_to: balanced
 kind: activity
+tests:
+  - type: bonair
+    feature: features/balanced
+    tags: [ part1 ]
+repos: 
+    - user: CREATOR/balanced
+compile_to: balanced
 ---
 
 #+OPTIONS: f:t
@@ -13,7 +15,8 @@ kind: activity
 * 
 Let's design our first full Unix-style command line utility. Since a
 large number of you have had some experience with checking a string
-for balanced parenthesis. 
+for balanced parenthesis or curly braces we will use that idea as a
+starting point.
 
 ** Types of balancing errors
    1. What are the different types of balancing errors that can occur?
