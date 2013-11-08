@@ -1,7 +1,8 @@
 ---
 title: Make a CxxTest project with Make
-test_type: bonair
-feature: features/cxxstack
+tests:
+- type: bonair
+  feature: features/cxxstack
 kind: activity
 ---
 
