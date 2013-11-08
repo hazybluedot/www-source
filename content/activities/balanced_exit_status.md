@@ -4,7 +4,7 @@ kind: activity
 tests:
   - type: bonair
     feature: features/balanced
-    tags: [ part3 ]
+    tags: [ part2 ]
 requires:
   - background: ipc/exit_status
 provides:
