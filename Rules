@@ -1,9 +1,13 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-require 'compass'
 
-Compass.add_project_configuration 'config.rb'
+unless defined? LOADED_DEFAULT_CONFIG
+  LOADED_DEFAULT_CONFIG = true
+  require 'compass'
+  Compass.add_project_configuration 'config.rb' 
+end
+
 sass_options = Compass.sass_engine_options
 
 # A few helpful tips about the Rules file:
@@ -102,7 +106,7 @@ route '/stylesheets/*' do
   item.identifier.chop + '.css'
 end
 
-route '/assets/*/' do
+route '/assets/*' do
   item.identifier.chop
 end
 
