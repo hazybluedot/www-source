@@ -251,7 +251,7 @@ title: Schedule
        - clone the repo you just forked
        - open ~README.md~ and follow instructions.
 ** By Monday, November 4 at 10:10am
-   Read sections 24 and 27 of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
+   Read [[/assets/TLCL-13.07.pdf#page%3D378][sections 24]] [[/assets/TLCL-13.07.pdf#page%3D405][and 27]] of [[/assets/TLCL-13.07.pdf][The Linux Command Line]]
 
    Be sure to run the commands to get a feel for what is going on,
    especially the meaning of the ~$?~ shell variable.
@@ -266,3 +266,23 @@ title: Schedule
    2. [[/reading/cla_basics/index.html][Basics of CLA parsing and optget]]
 *** In Class
     [[/activities/balanced_cli_options/index.html][Add CLA parsing to 'balanced']]
+** By Monday, November 11 at 10:10am
+   1. Balanced Brace Checker, [[/activities/balanced_exit_status/][@part2]] and [[/activities/balanced_cli_options/][@part3]]
+      
+   *Due date extended until Nov. 11 at 11:59pm* due to cucumber bug.
+      
+*** In Class
+    1. Discuss Final Projects
+    2. Explore [[/projects_past/index.html][Projects of Semesters Past]]
+    3. Brainstorm
+
+** By Wednesday, November 13 at 10:10am
+   1. Review the manual page for [[http://www.manpagez.com/man/1/test/][test(1)]]
+      
+      Practice using the ~test~ utility in shell conditional statements:
+      - branch *if* a particular file does (not) exist
+      - branch *if* a string is (not) empty
+      - branch *if* FILE1 is newer/older than FILE2
+   2. Read section [[/assets/TLCL-13.07.pdf#page%3D433][29 - Flow Control: Looping with while/until]] in [[/assets/TLCL-13.07.pdf][TLCL]]
+   3. Continue to brainstorm about [[/project_guidelines/index.html][final project ideas]]
+
