@@ -286,3 +286,7 @@ title: Schedule
    2. Read section [[/assets/TLCL-13.07.pdf#page%3D433][29 - Flow Control: Looping with while/until]] in [[/assets/TLCL-13.07.pdf][TLCL]]
    3. Continue to brainstorm about [[/project_guidelines/index.html][final project ideas]]
 
+** By Monday, November 18 at 10:10am
+   1. Read and complete exercises in [[http://www.diveinto.org/python3/your-first-python-program.html][Chapter 1]] of Dive into Python. If
+      you have trouble with your own Python installation, use your
+      ece2524 shell account.
