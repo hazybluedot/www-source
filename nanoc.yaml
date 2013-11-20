@@ -9,8 +9,6 @@ site_subtitle: 'Introduction to Unix for Engineers'
 author_name: 'Darren Maczka'
 author_uri: 'http://hazyblue.me'
 
-snippet_path: '~/ece2524/playground'
-
 gl_user: 'ece2524git'
 gl_host: 'ece2524.ece.vt.edu'
 
