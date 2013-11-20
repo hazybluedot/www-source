@@ -40,6 +40,10 @@ body {
     #container {
         @include container($total-columns, $tablet, $desktop);
         //@include susy-grid-background; 
+        @include at-breakpoint($tablet)
+        {
+            @include container($tablet);
+        }
         @include at-breakpoint($desktop)
         {
             @include container($desktop);
@@ -50,6 +54,10 @@ body {
 
     >header, >footer {
         @include span-columns($total-columns);
+        @include at-breakpoint($tablet) {
+	    $content-columns: ceil(3 * $tablet / $column-divizor);
+	    @include span-columns($content-columns, $tablet);
+        }
         @include at-breakpoint($desktop) {
 	    $content-columns: ceil(3 * $desktop / $column-divizor);
 	    @include span-columns($content-columns, $desktop);
@@ -60,6 +68,10 @@ body {
         }
 	hgroup, nav {
             @include span-columns($total-columns);
+            @include at-breakpoint($tablet) {
+		$content-columns: ceil(3 * $tablet / $column-divizor);
+		@include span-columns($content-columns omega, $tablet);  
+            }
             @include at-breakpoint($desktop) {
 		$content-columns: ceil(3 * $desktop / $column-divizor);
 		@include span-columns($content-columns omega, $desktop);  
@@ -82,6 +94,11 @@ body {
 
     #content {
         @include span-columns($total-columns);
+        @include at-breakpoint($tablet) {
+            $content-columns: ceil(3 * $tablet / $column-divizor);
+            @include span-columns($content-columns omega, $tablet);  
+            @include pad(1,1);
+        }
         @include at-breakpoint($desktop) {
             $content-columns: ceil(3 * $desktop / $column-divizor);
             @include span-columns($content-columns omega, $desktop);  
