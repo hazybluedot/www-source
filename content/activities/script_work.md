@@ -26,10 +26,12 @@ key3:value3
 ~~~
 
 1. Write a shell scrip named `types.sh` that reads data in this format from *standard input* and prints lines to *standard output*
-   - translate the `:` to a space character and then utilize the
+    - the [shebang](http://en.wikipedia.org/wiki/Shebang_(Unix)) line should be `#!/bin/sh`
+    - translate the `:` to a space character and then utilize the
      `read` utility's ability to split words into separate variables
 2. Write a Python script named `types.py` that reads data in this format from *standard
 input* and prints lines to *standard output*
+    - the [shebang](http://en.wikipedia.org/wiki/Shebang_(Unix)) line should be `#!/usr/bin/env python3`
 
 See the [Testing](#testing) section for expected output formatting.
 

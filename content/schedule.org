@@ -290,3 +290,5 @@ title: Schedule
    1. Read and complete exercises in [[http://www.diveinto.org/python3/your-first-python-program.html][Chapter 1]] of Dive into Python. If
       you have trouble with your own Python installation, use your
       ece2524 shell account.
+*** In Class
+   1. [[/activities/script_work/index.html][Script Work]]
