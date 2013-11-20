@@ -6,7 +6,7 @@ tests:
     feature: features/balanced
     tags: [ part1 ]
 repos: 
-    - user: CREATOR/balanced
+    - user: USER/balanced
 compile_to: balanced
 ---
 
