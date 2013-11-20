@@ -25,6 +25,7 @@ sass_options = Compass.sass_engine_options
 
 preprocess do
   config[:git_url] = config[:gl_user] + "@" + config[:gl_host]
+  @items.delete_if { |i| i.identifier.chop =~ /.*\/\#/ }
 end
 
 compile '/assets/*' do
