@@ -78,6 +78,9 @@ data_sources:
     type: feeds
     items_root: /
 
+  - type: snippets
+    items_root: /snippets/
+
 deploy:
   public:
     kind: rsync

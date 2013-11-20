@@ -31,6 +31,10 @@ compile '/assets/*' do
   #don't filter
 end
 
+compile '/snippets/*' do
+  #don't filter
+end
+
 compile '/stylesheets/_*/' do
   # don’t filter or layout
 end
@@ -108,6 +112,10 @@ route '/stylesheets/*' do
 end
 
 route '/assets/*' do
+  item.identifier.chop
+end
+
+route '/snippets/*' do
   item.identifier.chop
 end
 

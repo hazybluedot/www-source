@@ -4,18 +4,26 @@ module Nanoc::DataSources
   class Snippets < Nanoc::DataSource
     identifier :snippets
 
-    def up
-      @prefix = config[:prefix] || 'snippets'
-    end
-
     def items
-      Nanoc::Extra::FilesystemTools.all_files_in(@prefix).map do |filename|
+      prefix = config[:prefix] || 'snippets'
+      self.all_files_in(prefix).map do |filename|
         meta = {
           :mime_type => `file -ib #{filename}`.gsub(/\n/,""),
         }
-        Nanoc::Item.new(Fiele.open(filename, 'r') { |io| io.read() }
+        identifier = filename[(prefix.length+1)..-1] + '/'
+        Nanoc::Item.new(File.open(filename, 'r') { |io| io.read() },
+                        meta,
+                        identifier
+                        )
       end
     end
+    
+    protected
+    
+    def all_files_in(dir_name)
+      Nanoc::Extra::FilesystemTools.all_files_in(dir_name)
+    end
+  end
 end
 
 module SnippetHelper
@@ -29,19 +37,13 @@ module SnippetHelper
   end
 
   def code_snippet(fname)
-    file_path = File.join(File.expand_path(@config[:snippet_path]), fname)
-    snippet = ""
-    if File.exists?(file_path)
-      mime_type = `file -ib #{file_path}`.gsub(/\n/,"")
-      snippet = include_src(fname)
-    end
-    render 'snippet', :code=>snippet, :mime_type => mime_type, :file_name => fname
-  end
-
-  def include_src(fname)
-    file_path = File.join(File.expand_path(@config[:snippet_path]), fname)
-    if File.exists?(file_path)
-      File.open(file_path, 'r') { |io| io.read() }
+    prefix = config[:prefix] || 'snippets'
+    item_id = '/' + File.join(prefix,fname) + '/'
+    snippet = @site.items.find{ |item| item.identifier == item_id }
+    if snippet
+      render 'snippet', :code=>snippet.compiled_content, :mime_type => snippet[:mime_type], :file_name => fname, :snippet => snippet
+    else
+      $stderr.puts fname + ": could not find snippet"
     end
   end
 end
