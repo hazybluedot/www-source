@@ -1,0 +1,7 @@
+section class="snippet"
+  head
+    | source file: #{@file_name}
+
+  pre
+    code
+      == Pygments.highlight(@code, :lexer => lexer_for_mime(@mime_type))
