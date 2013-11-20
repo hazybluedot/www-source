@@ -7,6 +7,15 @@ module ActivityHelper
     return ( item[:tests] && item[:tests].any?  )
   end
   
+  def has_user_repo(item)
+    return ( item[:repos] && item[:repos].select{ |r| r[:user]}.any? )
+  end
+
+  def user_repo(item)
+    # $stderr.puts "Adding user repo for " + item.identifier
+    item[:repos].select{ |r| r[:user]}.first[:user]
+  end
+
   def features(f)
     if f[:type] == 'bonair'
       collect_features(f[:feature], f[:tags] ? f[:tags] : nil)
@@ -22,7 +31,7 @@ module ActivityHelper
     features = []
     feature_base = File.expand_path('~/ece2524/')
     feature_path = File.join(feature_base, repo)
-    $stderr.puts "Adding features in " + feature_path
+    # $stderr.puts "Adding features in " + feature_path
     if Dir.exists?(feature_path)
       features.concat(all_files_in(feature_path).select{ |file|  File.extname(file) == '.feature'}.map do |feature|
                         File.open(feature, 'r') do |io|
@@ -30,7 +39,7 @@ module ActivityHelper
                         end
                       end)
       if tags
-        $stderr.puts "Checking for tags: " + tags.map { |tag| Regexp.new('@' + tag) }.inspect
+        # $stderr.puts "Checking for tags: " + tags.map { |tag| Regexp.new('@' + tag) }.inspect
         tags = tags.map { |tag| Regexp.new('@' + tag) }
         features = features.select{ |feature| tags.map{ |tag| feature =~ tag }.any? }
       end
