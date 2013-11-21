@@ -83,7 +83,7 @@ deploy:
   public:
     kind: rsync
     dst: "dmaczka@ece2524.ece.vt.edu:/var/www/ece2524.ece.vt.edu/public_html"
-    options: [ '-aP', '--delete-after', '-O' ]
+    options: [ '-aP', '--no-o', '--no-g', '--delete-after', '-O' ]
 
   local:
     kind: rsync
