@@ -184,3 +184,7 @@ blockquote {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+.footnotes:before {
+    content: "Footnotes";
+}
