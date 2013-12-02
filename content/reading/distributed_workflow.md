@@ -3,13 +3,20 @@ title: Distributed Workflow
 ---
 
 ## Background
+{:.no_toc}
 - [Distributed Git - Distributed Workflows](http://git-scm.com/book/en/Distributed-Git-Distributed-Workflows)
 
-## Server Names
+### Server Names
 I will be using our ECE2524 server as the remote server here,
 but the same steps work for any remote serve. For instance, GitHub
 makes it very easy to fork a repo and issue pull requests back to
 the original owner [^linus_pullrequest]
+
+## Contents
+{:.no_toc}
+
+* Table of Contents
+{:toc}
 
 ## Centralized Workflow
 
@@ -17,13 +24,14 @@ For small groups the centralized workflow may work well.  There is
 only a single publically accessible repository and each member of the
 team has push access.
 
+### Add Writers
 To add two additional writers, `user1` and `user2` to your gitolite
 hosted repo (on the ece2524 server), e.g. `rflowers/scriptwork` you
 can run
 
 ~~~~ console
-ssh ece2524 perms rflowers/scriptwork + WRITERS user1
-ssh ece2524 perms rflowers/scriptwork + WRITERS user2
+ssh <%= config[:git_url]%> perms rflowers/scriptwork + WRITERS user1
+ssh <%= config[:git_url]%> perms rflowers/scriptwork + WRITERS user2
 ~~~~
 
 Check the permission list for the same repo with
@@ -38,7 +46,7 @@ not list the read/write access of the owner since that is implied.
 Now other memebers of your team can clone, pull and push from that
 repo URL. 
 
-### Github
+### Add Collaborators to Github Repo
 
 To add additional contributors to your [github](https://github.com/) repo
 
