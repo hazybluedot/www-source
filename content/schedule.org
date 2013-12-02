@@ -3,6 +3,27 @@ title: Schedule
 ---
 
 * Schedule
+** By Friday, November 11 at 11:59pm
+   1. Submit a [[/activities/project_proposal][project proposal]]
+** By Monday, December 2 at 10:10am
+   1. Read [[http://git-scm.com/book/en/Distributed-Git-Distributed-Workflows][Distributed Git - Distributed Workflows]] 
+   1. Read and complete exercises in [[http://www.diveintopython3.net/native-datatypes.html][Chapter 2]] of Dive into Python
+      - skim most sections, depending on your familiarity with each data type in other languages
+      - pay closer attention to [[http://www.diveintopython3.net/native-datatypes.html#numbers][lists]], [[http://www.diveintopython3.net/native-datatypes.html#tuples][tuples]], [[http://www.diveintopython3.net/native-datatypes.html#sets][sets]], [[http://www.diveintopython3.net/native-datatypes.html#dictionaries][dictionaries]] and [[http://www.diveintopython3.net/native-datatypes.html#none][None]]
+*** In Class
+    - [[/activities/collaboration/][Planetary Collaboration]]
+
+** By Wednesday, December 4 at 10:10am
+   1. Read and complete exercises in Chapter 3 of Dive into Python #TODO: possibly skip to list comprehension
+      - list comprehension
+   python generators vs. C++ iterators
+   python list comprehension vs. C++ STL algorithms
+
+** By Monday, December 9 at 10:10am
+   
+** By Wednesday, December 11 at 10:10am
+
+* Older
 ** By Wednesday August 28 at 10:10am
    Read [[/syllabus/][the syllabus]] for this class as well as the [[/getting_started/][getting started]]
    documentation. Please bring any concerns or questions to my
@@ -292,3 +313,4 @@ title: Schedule
       ece2524 shell account.
 *** In Class
    1. [[/activities/script_work/index.html][Script Work]]
+
