@@ -8,8 +8,11 @@ title: Activities
       - [Code Swap](/activities/balanced_code_swap)
       - [Code Review Report](/activities/balanced_review_report/)
    3. [Planetary Collaboration](/activities/collaboration/)
+   4. [Get on the IRC channel](/reading/weechat/)
+   
 2. Assignments
    1. [iotest](/activities/io_test/)
+   1. [fdtest](/activities/file_descriptors/)
    2. [redir](/activities/redirect_algorithm/)
    3. [cxxtest Makefile](/activities/make_cxxtest/)
    4. Balanced Brace Checker

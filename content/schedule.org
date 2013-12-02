@@ -14,6 +14,7 @@ title: Schedule
     - [[/activities/collaboration/][Planetary Collaboration]]
 
 ** By Wednesday, December 4 at 10:10am
+   1. [[/reading/weechat/][Get on the IRC channel]]
    1. Read and complete exercises in Chapter 3 of Dive into Python #TODO: possibly skip to list comprehension
       - list comprehension
    python generators vs. C++ iterators
