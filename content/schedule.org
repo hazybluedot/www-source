@@ -17,12 +17,44 @@ title: Schedule
    1. [[/reading/weechat/][Get on the IRC channel]]
    1. Read and complete exercises in Chapter 3 of Dive into Python #TODO: possibly skip to list comprehension
       - list comprehension
-   python generators vs. C++ iterators
-   python list comprehension vs. C++ STL algorithms
+   1. think about 
+      - python generators vs. C++ iterators
+      - python list comprehension vs. C++ STL algorithms
+   1. Check out [[http://www.quora.com/Linux/How-many-lines-of-code-if-any-from-Linux-1-0-are-still-in-the-modern-Linux-kernel-and-what-is-it/answer/Anders-Kaseorg][this Quora question and answer]]
 
 ** By Monday, December 9 at 10:10am
-   
+   - Coming soon. Be excited.
+
 ** By Wednesday, December 11 at 10:10am
+   1. Have a working version of your project published on github
+      - email me a link to the github page for your project
+      - announce your project's github page in [[/reading/weechat/][the IRC channel]]
+*** In Class
+    - Start peer review process
+** By Thursday, December 19 at 5pm
+   1. Push final changes to your project's github repo.
+   2. Enjoy your break!
+
+** Next Semester
+   1. Feel free to stay in [[/reading/weechat/][the IRC Channel]] to help out folks in next
+      semester's class!
+   2. Consider keeping up with the blogging. I can not overstate the
+      benefit of getting in the habit of writing something each week.
+      You will be pleasantly surprised when you have to write a term
+      paper for another class, or a cover letter for a job application
+      after you have been practicing the art of reflection and writing
+      for a while. This is important for everyone, of course, but
+      especially so for us engineers since we have relatively few
+      writing assignments built into the curriculum.
+   3. If you do keep up with the blogging, I am especially interested
+      in how you think (or don't think) the material we have covered
+      in this class relates to other classes, or anything you
+      experience in interviews, internships and jobs. I will try to at
+      least glance at headlines as they come in, but if you do write a
+      post that is specifically about this class tag it with 'ece2524'
+      (look for something about tags in the sidebar of your blog's
+      edit window. Note that tags are different than 'categories' used
+      by some blogging systems, like WordPress)
 
 * Older
 ** By Wednesday August 28 at 10:10am

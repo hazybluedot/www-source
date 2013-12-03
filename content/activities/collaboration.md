@@ -59,13 +59,13 @@ Each user will have their own remote named `USER/collab2`.
   git push -u origin master
   ~~~~
 
-- The CONTRIBUTOR shall fork `MAINTAINER/collab2` to `CONTRIBUTOR/collab2`
+- The CONTRIBUTOR shall [fork](/reference/_gitolite_commands/#fork-a-repo) `MAINTAINER/collab2` to `CONTRIBUTOR/collab2`
 
   ~~~~ console
   ssh <%= config[:git_url]%> fork MAINTAINER/collab2 CONTRIBUTOR/collab2
   ~~~~
   
-- The CONTRIBUTOR shall clone a local copy of `CONTRIBUTOR/collab2`
+- The CONTRIBUTOR shall [clone](/reference/_gitolite_commands/#clone-a-repo) a local copy of `CONTRIBUTOR/collab2`
 - The CONTRIBUTOR shall add a remote `upstream` with the url `<%=
   config[:git_url]%>:MAINTAINER/collab2`
 - The CONTRIBUTOR shall add and commit local changes and then push to `origin`

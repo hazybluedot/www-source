@@ -139,7 +139,7 @@ pre {
   .gi     { color: $base1 !important; background-color: mix($solar-green, $base03, 20%) !important; display: inline-block; }               /* Generic.Inserted */
   .gi .x  { color: $base1 !important; background-color: mix($solar-green, $base03, 40%) !important; display: inline-block; }               /* Generic.Inserted.Specific */
   //.go     { color: #888888 }                                          /* Generic.Output */
-  //.gp     { color: #555555 }                                          /* Generic.Prompt */
+  .gp     { color: #555555 }                                          /* Generic.Prompt */
   .gs     { color: $base1 !important; font-weight: bold !important; }                                       /* Generic.Strong */
   .gu     { color: $solar-violet !important; }                                          /* Generic.Subheading */
   //.gt     { color: #aa0000 }                                          /* Generic.Traceback */
