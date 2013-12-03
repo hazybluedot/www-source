@@ -29,6 +29,10 @@ preprocess do
   @items << index_item_for(/^\/reference\/\w+/, '/references/', "References")
 end
 
+compile '/references/' do
+  layout 'index_page'
+end
+
 compile '/assets/*' do
   #don't filter
 end
