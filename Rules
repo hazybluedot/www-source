@@ -26,7 +26,7 @@ sass_options = Compass.sass_engine_options
 preprocess do
   config[:git_url] = config[:gl_user] + "@" + config[:gl_host]
   @items.delete_if { |i| i.identifier.chop =~ /.*\/\#/ }
-  @items << index_item_for(/^\/reference\/\w+/, title="References")
+  @items << index_item_for(/^\/reference\/\w+/, '/references/', "References")
 end
 
 compile '/assets/*' do
