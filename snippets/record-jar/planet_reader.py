@@ -3,13 +3,15 @@
 def planet_reader(flo):
 	planet = {}
 	for line in flo:
-		try:
-			key, value = line.split(':')
-			planet[key.strip()] = value.strip()
-		except ValueError as e:
-			if line.strip() == '%%':
-				yield planet
-				planet = {}
+		if line.strip() == '%%':
+			yield planet
+			planet = {}
+		else:
+			try:
+				key, value = line.split(':')
+				planet[key.strip()] = value.strip()
+			except ValueError as e:
+				pass #TODO: decide what we want to do on an 
 	yield planet
 
 def print_planet_info(planet):
