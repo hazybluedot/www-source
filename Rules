@@ -29,7 +29,7 @@ preprocess do
   @items << index_item_for(/^\/reference\/\w+/, '/references/', "References")
 end
 
-compile '/references/' do
+compile '/indexes/*/' do
   layout 'index_page'
 end
 

@@ -12,7 +12,7 @@ module IndexHelper
 
   def index_item_for(path, identifier, title=title_string(path))
     $stderr.puts "Generating index page for " + title
-    Nanoc::Item.new("", {:title => title, :items => @items.select { |i| i.identifier =~ regexp(path) }}, identifier )
+    Nanoc::Item.new("", {:title => title, :items => @items.select { |i| i.identifier =~ regexp(path) }}, File.join('/indexes/', identifier) )
   end
 end
 
