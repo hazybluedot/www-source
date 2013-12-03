@@ -5,7 +5,7 @@ from sys import stderr
 def record_reader(flo):
 	record = {}
 	for line in flo:
-		if line.strip() == '%%':
+		if line.startswith('%%'):
 			yield record
 			record = {}
 		else:
