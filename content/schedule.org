@@ -21,6 +21,8 @@ title: Schedule
       - python generators vs. C++ iterators
       - python list comprehension vs. C++ STL algorithms
    1. Check out [[http://www.quora.com/Linux/How-many-lines-of-code-if-any-from-Linux-1-0-are-still-in-the-modern-Linux-kernel-and-what-is-it/answer/Anders-Kaseorg][this Quora question and answer]]
+*** In Class
+    - [[/activities/collaboration_part2/][Planetary Collaboration - Part 2]]
 
 ** By Monday, December 9 at 10:10am
    - Coming soon. Be excited.

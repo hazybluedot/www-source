@@ -8,6 +8,7 @@ title: Activities
       - [Code Swap](/activities/balanced_code_swap)
       - [Code Review Report](/activities/balanced_review_report/)
    3. [Planetary Collaboration](/activities/collaboration/)
+      - [Part 2](/activities/collaboration_part2/)
    4. [Get on the IRC channel](/reading/weechat/)
    
 2. Assignments
