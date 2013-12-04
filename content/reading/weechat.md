@@ -110,3 +110,12 @@ asking questions and getting people's attention.
   to get someone's attention or find out if a particular user is
   around by 'pinging' them. For instance, to see if I'm actually
   around, send "dkm: ping" to the channel.
+
+## Register your nick
+
+nicks on IRC are uniq to the network and are assigned on a
+first-come-first-serv bases. Because of this, it's possible that
+someone other than you may use your preferred nick once you log off,
+preventing you from using it the next time you log on. To avoid this,
+and ensure that only you are able to use your preferred nick you can
+[register it with the NickServ service](http://www.oftc.net/Services/#register-your-account).
