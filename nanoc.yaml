@@ -78,6 +78,9 @@ data_sources:
 
   - type: snippets
     items_root: /snippets/
+    
+  - type: projects
+    items_root: /projects/
 
 deploy:
   public:
