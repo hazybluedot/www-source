@@ -16,6 +16,11 @@ Project Title
 contributors: astudent, rflowers, spilgrim
 url: https://github.com/rflowers/super_cool_project
 
+Summary of project, just a few sentances. This will be displayed on
+the project index page.
+
+<!-- more -->
+
 Description of the project. Be sure to explain how you plan to use
 elements of Unix design philosophy to implement the project.
 ~~~~

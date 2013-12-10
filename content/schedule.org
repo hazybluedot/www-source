@@ -3,7 +3,7 @@ title: Schedule
 ---
 
 * Schedule
-** By Friday, November 11 at 11:59pm
+** By Friday, November 22 at 11:59pm
    1. Submit a [[/activities/project_proposal][project proposal]]
 ** By Monday, December 2 at 10:10am
    1. Read [[http://git-scm.com/book/en/Distributed-Git-Distributed-Workflows][Distributed Git - Distributed Workflows]] 
@@ -25,14 +25,31 @@ title: Schedule
     - [[/activities/collaboration_part2/][Planetary Collaboration - Part 2]]
 
 ** By Monday, December 9 at 10:10am
-   - Coming soon. Be excited.
-
+   - Summarize strengths of Python
+     - List Comprehension 
+     - High level libraries (search [[https://pypi.python.org/pypi][PyP]]I to find modules for your specific need)
+       - scientific computing with [[http://scipy.org/][scipy]]
+       - data visualization with [[http://matplotlib.org/][matplotlib]]
+       - 
+   - High Level algorithms in C++
+     - [[http://www.cplusplus.com/reference/algorithm/][#include <algorithm>]]
+   - Project work day.  
+     - Ensure that your project ~README~ is up to date and formatted
+       correctly.  I made changes to the tests to check for at least
+       two contributors, and that the contributors were listed as pids
+       or git usernames.
+     
 ** By Wednesday, December 11 at 10:10am
    1. Have a working version of your project published on github
-      - email me a link to the github page for your project
-      - announce your project's github page in [[/reading/weechat/][the IRC channel]]
+   2. make sure that the ~url~ field in your ~project/README~ hosted
+        on ece2524.ece.vt.edu points to the github page of your
+        "blessed" repo, i.e. the one new users and/or developers
+        should pull from to get the most up-to-date code.
+   3. announce your project's github page in [[/reading/weechat/][the IRC channel]]
+
 *** In Class
     - Start peer review process
+      
 ** By Thursday, December 19 at 5pm
    1. Push final changes to your project's github repo.
    2. Enjoy your break!
