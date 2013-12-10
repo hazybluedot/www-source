@@ -1,0 +1,18 @@
+---
+title: Projects
+---
+
+h1 Spring 2013
+
+- grouped_projects.each do |p|
+  section class="project"
+    header
+      h1 #{{p[:title]}}
+      ul class="contributors"
+        - contributors_for(p).each do |c|
+          li class="contributor" 
+            #{{byline_for(c)}}
+      - if homepage_for(p)
+        p 
+          | Links: #{{homepage_for(p)}}
+    p #{{description_summary(p)}}

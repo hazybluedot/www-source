@@ -1,0 +1,28 @@
+section.project {
+    @include trailer(2);
+    > header {
+        h1 {
+            @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
+        }
+        @include trailer;
+    }
+    p {
+        margin: 0px 5px;
+    }
+}
+
+ul.contributors {
+    @include inline-block-list;
+    > li {
+        background-color: $base2;
+        color: $base02;
+        padding: 0px 5px;
+        border: 1px solid $base02;
+        margin: 0px 5px;
+        @include adjust-font-size-to($base-font-size * 0.80);
+        @include border-radius(4px, 4px);
+        a {
+            color: $solar-orange;
+        }
+    }
+}
