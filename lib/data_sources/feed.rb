@@ -1,7 +1,14 @@
+module Feedzirra::Parser
+  class RSS
+    element :'atom:link', :value => :href, :as => :feed_url
+  end
+end
+
 module Nanoc::DataSources
   Feedzirra::Feed.add_common_feed_entry_element('dc:creator', :as => :creator)
   Feedzirra::Feed.add_common_feed_entry_element('slash:comments', :as => :comment_count)
 
+  
   class Feeds < Nanoc::DataSource
     identifier :feeds
     
@@ -47,6 +54,8 @@ module Nanoc::DataSources
     def read_entries(feed)
       items = []
       
+      warn "No feed_url for #{feed.url}" if feed.feed_url.nil?
+
       feed.entries.select { |e| (e.published > @syndicate_since) && !((e.content || '') =~ /This is your first post\./) }.each do |entry|
         #entry.sanitize!
         entry_url = URI(entry.url)
@@ -56,6 +65,7 @@ module Nanoc::DataSources
 
         meta = {
           :title => entry.title,
+          :feed_url => feed.feed_url,
           :entry_url => entry.url,
           :kind => 'syndicate',
           :created_at => entry.published,
