@@ -2,7 +2,7 @@ doctype 5
 html lang='en' 
   head
     meta charset="utf-8" 
-    title # @config[:site_title]} - #{@item[:title] 
+    title # @config[:site_title]} - #{@item[:title]}
     link rel='stylesheet' type='text/css' href='/stylesheets/screen.css' media='screen,projection' 
     /%link{:rel => 'stylesheet', :type => 'text/css', :href => 'http://fonts.googleapis.com/css?family=Average+Sans'}
     link rel='stylesheet' type='text/css' href='/stylesheets/print.css' media='print' 
@@ -43,12 +43,10 @@ html lang='en'
         = link_to('Syllabus', '/syllabus/')
         = link_to('Schedule', '/schedule/')
         = link_to('Projects', '/projects/')
-        /= link_to('Getting Started', '/getting_started/')
-        /= link_to('History', '/assets/images/history_of_nix.svg')
         = link_to('Reference', '/indexes/references/index.html')
     #container
       #content
-        = find_and_preserve(yield)
+        == yield
       footer
         p
           | Copyright 2013, Darren Maczka. Some rights reserved.
