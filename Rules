@@ -148,8 +148,4 @@ route '*' do
   end
 end
 
-layout 'index_page', :slim
-layout 'project_review', :slim
-layout 'activity', :slim
-layout 'snippet', :slim
-layout '*', :haml
+layout '*', :slim
