@@ -75,12 +75,18 @@ data_sources:
   - 
     type: feeds
     items_root: /
+    feeds_root: /feeds/
+    feeds_source: /user-data/feeds
 
   - type: snippets
     items_root: /snippets/
     
   - type: projects
     items_root: /projects/
+
+  - type: project_reviews
+    items_root: /reviews/
+    repos_root: repos
 
 deploy:
   public:

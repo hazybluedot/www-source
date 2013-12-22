@@ -4,8 +4,8 @@ title: Projects
 
 h1 Spring 2013
 
-- grouped_projects.each do |p|
-  section class="project"
+- sorted_projects.each do |p|
+  article class="project"
     header
       h1 #{{p[:title]}}
       ul class="contributors"
@@ -15,4 +15,19 @@ h1 Spring 2013
       - if homepage_for(p)
         p 
           | Links: #{{homepage_for(p)}}
-    p #{{description_summary(p)}}
+      p 
+        | Tag: 
+        code #{{project_tag_for(p)}}
+        
+    section class="summary"
+      p #{{description_summary(p)}}
+
+      
+    section class="reviews"
+    - if reviews_for(p).any?
+      header
+        h1 Reviews
+      - reviews_for(p).each do |r|
+        #{{link_to(r[:title], r)}} -- #{{review_author(r)}} 
+    - if reviews_for(p).empty?
+      | Be the first to #{{link_to('write a review', '/activities/project_review/')}}!

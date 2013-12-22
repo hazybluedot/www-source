@@ -10,6 +10,7 @@ title: Activities
    3. [Planetary Collaboration](/activities/collaboration/)
       - [Part 2](/activities/collaboration_part2/)
    4. [Get on the IRC channel](/reading/weechat/)
+   5. [Project Review](/activities/project_review/) (*Dec 16, 11:59pm*)
    
 2. Assignments
    1. [iotest](/activities/io_test/)

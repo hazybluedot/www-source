@@ -5,6 +5,7 @@ module Feedzirra::Parser
 end
 
 module Nanoc::DataSources
+  Feedzirra::Feed.add_common_feed_entry_element('category', :as => :category)
   Feedzirra::Feed.add_common_feed_entry_element('dc:creator', :as => :creator)
   Feedzirra::Feed.add_common_feed_entry_element('slash:comments', :as => :comment_count)
 
@@ -27,12 +28,21 @@ module Nanoc::DataSources
       items
     end
     
+    def sync
+      require 'uri'
+      require 'stringex'
+      require 'typhoeus'
+
+      feeds_source = File.join(Dir.pwd, config[:feeds_source])
+      concurrent_fetch(read_urls feeds_source)
+    end
+
     def comments
       #prefix = config[:prefix] || 'feeds'
       Feedzirra::Feed.add_common_feed_entry_element('wfw:commentRss', :as => :comment_feed)
-      get_feeds(@prefix).each do |feed|
-        
-      end
+      #get_feeds(@prefix).each do |feed|
+      #  
+      #end
     end
 
     protected
@@ -63,6 +73,8 @@ module Nanoc::DataSources
         entry.creator = path_parts[1] unless entry.creator
         identifier = "/syndicated/" + entry_url.host.gsub('.','_') + "/" + entry.creator + "/" + path_parts[2..-1].join("-").gsub('.','_') + "/"
 
+        $stderr.puts "Found category: #{feed.category}" if entry.category
+
         meta = {
           :title => entry.title,
           :feed_url => feed.feed_url,
@@ -84,16 +96,42 @@ module Nanoc::DataSources
                                    :binary => false
                                    )
         rescue RuntimeError => e
-            $stderr.puts identifier + ":" + e.to_s
+          $stderr.puts identifier + ":" + e.to_s
         end
       end
       items
     end
     
+    def concurrent_fetch(uris)
+      hydra = Typhoeus::Hydra.new
+      feeds = {}
+      uris.each do |uri|
+        r = Typhoeus::Request.new(uri, followlocation: true)
+        r.on_complete do |response|
+          $stderr.puts "Fetched #{r.url}"
+          feed_url = URI(r.url)
+          feed_dir = File.dirname(File.join(Dir.pwd, config[:feeds_root], feed_url.host.gsub('.','_'), feed_url.path))
+          Dir.exists?(feed_dir) ? nil : FileUtils.mkdir_p(feed_dir)
+          file_path = File.join(File.realpath(feed_dir), 'feed.xml')
+          File.open(file_path, 'w+') { |file| file.write(response.body) }
+        end
+        hydra.queue r
+      end
+      hydra.run
+    end
+
+    def read_urls(file_name)
+      if File.readable?(file_name)
+        File.open(file_name).collect { |line| (line).slice(URI.regexp) }.select { |uri| uri }
+      else
+        []
+      end
+    end
+
     def all_files_in(dir_name)
       Nanoc::Extra::FilesystemTools.all_files_in(dir_name)
     end
-      
+    
   end
   
 end

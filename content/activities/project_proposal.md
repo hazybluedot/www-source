@@ -16,7 +16,7 @@ Project Title
 contributors: astudent, rflowers, spilgrim
 url: https://github.com/rflowers/super_cool_project
 
-Summary of project, just a few sentances. This will be displayed on
+Summary of project, just a few sentences. This will be displayed on
 the project index page. If you format your file with [markdown](http://daringfireball.net/projects/markdown/),
 then name it `README.md`
 

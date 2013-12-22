@@ -38,7 +38,6 @@ $column-divizor: 4;
 
 body {
     #container {
-        @include container($total-columns, $tablet, $desktop);
         //@include susy-grid-background; 
         @include at-breakpoint($tablet)
         {
@@ -49,7 +48,6 @@ body {
             @include container($desktop);
             //@include susy-grid-background; 
         }
-
     }
 
     >header, >footer {
@@ -93,6 +91,11 @@ body {
     }
 
     #content {
+        > h1 {
+            @include leader;
+        }
+
+        @include container($total-columns, $tablet, $desktop);
         @include span-columns($total-columns);
         @include at-breakpoint($tablet) {
             $content-columns: ceil(3 * $tablet / $column-divizor);

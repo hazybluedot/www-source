@@ -46,9 +46,11 @@ title: Schedule
         "blessed" repo, i.e. the one new users and/or developers
         should pull from to get the most up-to-date code.
    3. announce your project's github page in [[/reading/weechat/][the IRC channel]]
-
 *** In Class
-    - Start peer review process
+    - Review the [[/projects/][Project List]]. Make sure the information for your
+      project is correct.  Make changes to your [[/activities/project_proposal/][project README]] file
+      if necessary.
+    - Start [[/activities/project_review/][peer review process]].  *Due Monday, December 16 at 11:59pm* 
       
 ** By Thursday, December 19 at 5pm
    1. Push final changes to your project's github repo.

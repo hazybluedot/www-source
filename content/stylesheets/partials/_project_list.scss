@@ -1,14 +1,22 @@
-section.project {
-    @include trailer(2);
+article.project {
     > header {
         h1 {
-            @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
+            @include adjust-font-size-to($base-font-size * 1.75, $lines:1);
         }
         @include trailer;
     }
-    p {
-        margin: 0px 5px;
+    section {
+        > header {
+            h1 {
+                @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
+            }
+        }
+        p {
+            margin: 0px 5px;
+        }
     }
+
+    border-bottom: 1px solid $base02;
 }
 
 ul.contributors {
@@ -16,9 +24,9 @@ ul.contributors {
     > li {
         background-color: $base2;
         color: $base02;
-        padding: 0px 5px;
+        padding: 0px 5px 0px 0px;
         border: 1px solid $base02;
-        margin: 0px 5px;
+        margin: 0px 5px 0px 0px;
         @include adjust-font-size-to($base-font-size * 0.80);
         @include border-radius(4px, 4px);
         a {

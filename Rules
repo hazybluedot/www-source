@@ -62,6 +62,19 @@ compile '/stylesheets/*/' do
   filter :relativize_paths, :type => :css
 end
 
+compile '/projects/*/' do
+  filter :kramdown, :fenced_code_blogs => true
+end
+
+compile '/reviews/*' do
+  case item[:extension]
+  when 'md'
+    filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
+    filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  end
+  layout 'project_review'
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -136,6 +149,7 @@ route '*' do
 end
 
 layout 'index_page', :slim
+layout 'project_review', :slim
 layout 'activity', :slim
 layout 'snippet', :slim
 layout '*', :haml

@@ -86,7 +86,7 @@ article h2, article h3, article header h1{
   font-weight: normal;
 }
 
-p, blockquote, ul, ol { margin-bottom: 1.5em; }
+//p, blockquote, ul, ol { margin-bottom: 1.5em; }
 
 ul { list-style-type: disc;
   ul { list-style-type: circle; margin-bottom: 0px;
@@ -187,4 +187,15 @@ blockquote {
 
 .footnotes:before {
     content: "Footnotes";
+}
+
+section,article {
+    > header {
+        @include trailer;
+    }
+    h1,h2 {
+        @include leader;
+    }
+    @include leader;
+    @include trailer;
 }

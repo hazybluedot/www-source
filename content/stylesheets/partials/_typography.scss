@@ -23,12 +23,14 @@ body {
     font-family: $blueprint-font-family;
 }
 
-
 #content {
     @include rebase-headings(3,2);
 }
 
 article,section {
+    &:first-child {
+      @include leader;  
+    }
     @include rebase-headings(3,2);
     sub, sup {
         /* Specified in % so that the sup/sup is the

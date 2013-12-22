@@ -6,12 +6,12 @@ require 'set'
 
 module Nanoc::Helpers
   module ProjectHelper 
-    def tag_for(string)
-      string.downcase.gsub(' ', '_').tr('^a-z0-9_', '')
-    end
-    
+
+    include ::ECE2524::Projects
+
     def record_for(pid)
-      @site.roster.records.select { |r| r.pid == pid }
+      @site.roster.find(pid)
+      #@site.roster.records.select { |r| r.pid == pid }
     end
     
     def name_of(pid)
@@ -35,9 +35,37 @@ module Nanoc::Helpers
       blog ? link_to(name, blog) : name
     end
 
+    def no_description
+      "Please add a summary paragraph. See #{link_to('formatting instructions', '/activities/project_proposal/')}</a>."
+    end
+
+    def project_tag_for(p)
+      tag_for(p[:title])
+    end
+
+    def project_link(tag_or_project)
+      project = Nanoc::Item === tag_or_project ? tag_or_project : grouped_projects.find { |p| p[:tag] == tag_or_project }
+      project ?  homepage_for(project, project[:title]) : nil
+    end
+
+    def reviews
+      @items.select { |i| %r!^/reviews/! =~ i.identifier }
+    end
+
+    def reviews_for(p)
+      reviews.select{ |i| i[:tag] == p[:tag] }
+    end
+
+    def review_author(r)
+      pid = r.identifier.split('/')[2]
+      #$stderr.puts "review #{r.identifier} author is #{pid}"
+      byline_for(pid)
+    end
+
     def description_summary(post)
       content = post.compiled_content
-      content =~ /\s<!-- more -->\s/ ? content.partition('<!-- more -->').first : "Please add a summary paragraph"
+      $stderr.puts "Found a summary for #{post[:title]}" if /^\s*<!-- more -->\s*/ =~ content
+      content =~ /^\s*<!-- more -->\s*/ ? content.partition(/^\s*<!-- more -->\s*/).first : no_description
     end
 
     def contributors_for(p)
@@ -54,14 +82,26 @@ module Nanoc::Helpers
       end
     end
 
-    def homepage_for(p)
-      p[:url] ? link_to('Homepage', p[:url]) : nil
+    def sorted_projects
+      grouped_projects.sort_by { |p| reviews_for(p).count }
+    end
+
+    def homepage_for(p, title=nil)
+      p[:url] ? link_to(title ? title : 'Homepage', p[:url]) : nil
+    end
+
+    def grep_count(expression, multiline)
+      count = multiline.split('\n').collect do |line|
+        expression =~ line
+      end.count
+      #$stderr.puts "Found #{count} lines matching more thing"
+      count
     end
 
     def grouped_projects
       blk = lambda do
         #projects.group_by { |p| p[:title] }
-        projects.group_by { |p| Set.new(p[:contributors]) }.collect { |contribs,ps| ps.first }
+        projects.select { |p| p[:contributors].any? }.group_by { |p| Set.new(p[:contributors]) }.collect { |contribs,ps| ps.sort_by{ |p| grep_count(/^\s*<!-- more -->\s*/, p.raw_content) }.first }
       end
 
       if @items.frozen?
