@@ -35,15 +35,15 @@ html lang='en'
     header
       hgroup
         h1
-          = link_to(@config[:site_title],'/')
+          == link_to(@config[:site_title],'/')
         h2
-          = link_to(@config[:site_subtitle], '/')
+          == link_to(@config[:site_subtitle], '/')
     nav
-      = link_to('Activities', '/activities/')
-      = link_to('Syllabus', '/syllabus/')
-      = link_to('Schedule', '/schedule/')
-      = link_to('Projects', '/projects/')
-      = link_to('Reference', '/indexes/references/index.html')
+      == link_to('Activities', '/activities/')
+      == link_to('Syllabus', '/syllabus/')
+      == link_to('Schedule', '/schedule/')
+      == link_to('Projects', '/projects/')
+      == link_to('Reference', '/indexes/references/index.html')
     section id="content"
       header
         h1 #{@item[:title]}
