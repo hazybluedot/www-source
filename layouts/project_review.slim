@@ -1,0 +1,8 @@
+- render 'default' do
+  article
+    header
+      h1 #{item[:title]}
+      p class="byline" 
+        | Review of #{{project_link(item[:tag])}} by #{{review_author(item)}}
+    section  
+      == yield

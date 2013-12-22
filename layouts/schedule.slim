@@ -1,0 +1,21 @@
+---
+title: Schedule
+---
+
+- sorted_schedule_items.each do |item|
+  article class="#{past?(item) ? 'past' : 'future'}"
+    - if past?(item)
+      header
+        h1 #{{link_to(item[:for_date].to_s,item.identifier)}}
+    - else
+      header
+        h1 #{item[:for_date].to_s}
+      == item.compiled_content
+      - act = activities_for(item[:for_date]) 
+      - if act.any?
+        section
+          header
+            h1 In Class
+          ol
+            - act.each do |a|
+              li #{{ link_to(a[:title], a.identifier) }}
