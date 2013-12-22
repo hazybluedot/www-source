@@ -1,0 +1,34 @@
+---
+reference: TLCL
+title: Exit Status
+section: [ 27 ]
+privides:
+  - background: [ exit_status ]
+  - component_of: [ shell_script ]
+---
+
+* 
+** 
+** Real Live Example
+
+As you may know, I am using the ~gitolite~ utility to manage the
+multi-user git repostory hosted on ~ece2524.ece.vt.edu~.  By itself,
+~git~ doesn't worry about access control. Any user who has permission
+to modify the filesystem can modify a ~git~ managed project stored on
+that file system.  When you connect to ~<%= config['git_url']%>~ you
+are connecting as the ~<%= config['gl_user']%>~ user and that user has
+read/write access to all files in its home directory, including *all*
+repositories hosted there.  So how does ~gitolite~ control access to
+individual repositories?
+
+#+BEGIN_EXAMPLE
+$ gitolite access $repo $gl_user 'R' 
+#+END_EXAMPLE
+
+will print the access rights for the repository given. In addition, the exit status is set depending on access, '0' if the queried user has access of the mode requested for hte given repo, non-zero otherwise.  Using the ~-q~ option will supress normal output making the command suitable for shell scripting
+
+#+BEGIN_SRC shell-script
+if gitolite access -q $repo $gl_user 'W'; then
+    show_results $reop
+fi
+#+END_SRC
