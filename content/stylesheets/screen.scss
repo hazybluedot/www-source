@@ -4,18 +4,52 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass";
-//@import "compass/reset";
-@include global-reset;
-@include reset-html5;
+@import "compass/reset";
+@import "susy_defaults";
 
-//@import "custom/colors";
-//@import "custom/fonts";
-//@import "custom/layout";
-@import "base";
-@import "partials";
-//@import "custom/styles";
+$tablet    : 9;
+$desktop   : 12;
 
-footer {
-    font-size: 75%;
-    color: #aaa;
+@mixin susy-grid-background {
+  @include grid-background($total-cols, $col-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
+}
+
+// establish your vertical baseline grid.
+@include establish-baseline;
+
+
+// extend this class to show your grid.
+.grid {
+  @include susy-grid-background;
+}
+
+
+body {
+    > header {
+        @include container;
+    }
+    > nav {
+        @include container;
+    }
+    > footer {
+        @include container;
+    }
+}
+
+section#content {
+  // calling susy's container mixin will apply the grid to that element.
+    @include container;
+}
+
+@include at-breakpoint($tablet) {
+    pre { @include squish(1,1,$tablet) }
+}
+
+@import "base/theme";
+@import "typography";
+@import "partials/project_list";
+
+section#content {
+  // calling susy's container mixin will apply the grid to that element.
+    @extend .grid;
 }

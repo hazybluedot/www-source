@@ -1,28 +1,30 @@
+@import "base/solarized";
+
 //$img-border: inline-image('dotted-border.png');
 
 // Main Link Colors
-$link-color: #3464a4 !default;
+$link-color: $solar-blue !default;
 $link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
 $link-color-visited: $link-color;
 $link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
 
 // Main Section Colors
-$main-bg: #f2f2f2 !default;
-$page-bg: #262C33 !default;
-$article-border: #eeeeee !default;
-$content-bg: #F8F8F8;
+$main-bg: $base01 !default;
+$page-bg: $base3 !default;
+$article-border: $base03 !default;
+$content-bg: $base3;
 
 $header-bg: darken($main-bg, 15) !default;
 $header-border: lighten($header-bg, 15) !default;
-$title-color: #222 !default;
-$subtitle-color: #aaa !default;
+$title-color: $solar-red !default;
+$subtitle-color: $solar-orange !default;
 
-$text-color: #222 !default;
-$text-color-light: #aaa !default;
-$type-border: #ddd !default;
+$text-color: $base01 !default;
+$text-color-light: $base00 !default;
+$type-border: $base0 !default;
 
 /* Navigation */
-$nav-bg: #ccc !default;
+$nav-bg: $header-bg !default;
 $nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
 $nav-color: darken($nav-bg, 38) !default;
 $nav-color-hover: darken($nav-color, 25) !default;
@@ -45,8 +47,8 @@ $sidebar-link-color-subdued: lighten($sidebar-color, 20) !default;
 $sidebar-link-color-subdued-hover: $sidebar-link-color-hover !default;
 $twitter-status-link: lighten($sidebar-link-color-subdued, 15) !default;
 
-$footer-color: #888 !default;
-$footer-bg: #ccc !default;
+$footer-color: $base1 !default;
+$footer-bg: $base2 !default;
 $footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11)) !default;
 $footer-color: darken($footer-bg, 38) !default;
 $footer-color-hover: darken($footer-color, 10) !default;
@@ -56,91 +58,98 @@ $footer-link-color: darken($footer-bg, 38) !default;
 $footer-link-color-hover: darken($footer-color, 25) !default;
 $page-border-bottom: darken($footer-bg, 5) !default;
 
+@mixin button($bgcolor, $color) {
+    background-color: $bgcolor;
+    color: $color;
+    padding-left: $gutter-width;
+    padding-right: $gutter-width;
+    border: 1px solid $base02;
+    margin-right: $gutter-width / 2;
+    @include adjust-font-size-to($base-font-size * 0.80);
+    @include border-radius(4px, 4px);        
+    a {
+	@include link-colors($color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
+	text-decoration: none;
+    }
+
+}
 
 /* Core theme application */
 
 a {
-  @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
-  text-decoration: none;
+    @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
+    text-decoration: none;
 }
 aside.sidebar a {
-  @include link-colors($sidebar-link-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
+    @include link-colors($sidebar-link-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
 }
 a {
-  @include transition(color .3s);
+    @include transition(color .3s);
 }
 
 html {
     background: $page-bg image-url('line-tile.png') top left;
 }
+
 body {
-  > header {
-      //background: $header-bg;
-      h1, h2 {
-	  a {
-	      @include link-colors($title-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
-	      text-decoration: none;
-	  }
-      }
+    > header {
+        background: $header-bg;
+        h1, h2 {
+	    a {
+	        @include link-colors($title-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
+	        text-decoration: none;
+	    }
+        }
+        h1 {
+            @include adjust-font-size-to($base-font-size * 3);
+        }
+        h2 { 
+            @include adjust-font-size-to($base-font-size * 2);
+        }
     }
 
-  #container{
-    background: $main-bg;
-  }
-  #content {
-    background: $content-bg;
-  }
-  > #content {
-    border-bottom: 1px solid $page-border-bottom;
-    > div {
-      border-right: 1px solid $sidebar-border;
+    > nav {
+        background: $nav-bg;
+        @include rhythm(0,1,1,0, 42px);
+        ul {
+            @include inline-block-list;
+            li {
+                @include button($nav-bg,$nav-color);
+            }
+        }
     }
-  }
+    #container{
+        background: $main-bg;
+    }
+    #content {
+        background: $content-bg;
+    }
+    > #content {
+        border-bottom: 1px solid $page-border-bottom;
+        > div {
+            border-right: 1px solid $sidebar-border;
+        }
+    }
+    > footer {
+        background: $footer-bg;
+        color: $footer-color;
+    }
 }
 
 .notfound404 article{
-  margin-left: 0 !important;
+    margin-left: 0 !important;
 }
 
-@media only screen and (min-width: 550px) {
-
-  body > header h2 { padding-left: 3px; }
-
-  body > footer { margin-bottom: 3em; }
+header {
+    p {
+        color: $base1;
+    }
 }
 
-@media only screen and (min-width: 1040px) {
- 
-  body > nav {
-    -moz-border-radius: 0.4em;
-    -webkit-border-radius: 0.4em;
-    border-radius:0.4em;
-    margin-bottom: 2em;
-  }
-
-  body > footer{
-    -moz-border-radius-bottomleft: 0.4em;
-    -moz-border-radius-bottomright: 0.4em;
-    -webkit-border-radius: 0 0 0.4em 0.4em;
-    border-radius: 0 0 0.4em 0.4em;
-  }
-
-  #container{
-    -moz-border-radius-topleft: 0.4em;
-    -moz-border-radius-topright: 0.4em;
-    -webkit-border-radius: 0.4em 0.4em 0 0;
-    border-radius: 0.4em 0.4em 0 0;
-  }
-
-  #content{
-    -moz-border-radius-topleft: 0.4em;
-    -webkit-border-radius: 0.4em 0 0 0;
-    border-radius: 0.4em 0 0 0;
-  }
-
-  #content .blog-index a[rel="full-article"]{
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-  }
+pre {
+    background: $pre-bg;
+    @include border-radius(.4em);
+    color: $pre-color;
 }
+
+@import "partials/pygments";

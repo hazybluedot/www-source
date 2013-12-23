@@ -2,30 +2,30 @@
   article
     header
       h1 #{item[:title]}
-      /-# p
-        Published
-        time pubdate datetime=#{get_pub_datetime(item)}
-          = get_pretty_date(item)
+      p
+        | Last modified 
+        time pubdate="" datetime=("#{get_mod_datetime(item)}")
+          = get_pretty_moddate(item)
     section
       == yield
     - if has_user_repo(item)
       section
         header
           h1 id="submission" Submission
-          p 
-            | Push your git repository to the remote at
-            code
-              | #{config[:git_url]}:#{user_repo(item)} 
-            | where <code>USER</code> is your git user name.
-          p 
-            | If you have initialized a new repo but have not added a remote yet:
-            code
-              | git remote add origin #{config[:git_url]}:#{user_repo(item)}
-          p If you have already added a remote named <code>origin</code>, but the URL is incorrect, replace <code>add</code> with <code>set-url</code> in the above command. You can always check that remotes you have added by running <code>git remote -v</code>.
-  - if has_tests(item)
-    section
-      header
-        h1 id="testing" Testing
+        p 
+          | Push your git repository to the remote at
+          code
+            | #{config[:git_url]}:#{user_repo(item)} 
+          | where <code>USER</code> is your git user name.
+        p 
+          | If you have initialized a new repo but have not added a remote yet:
+          code
+            | git remote add origin #{config[:git_url]}:#{user_repo(item)}
+        p If you have already added a remote named <code>origin</code>, but the URL is incorrect, replace <code>add</code> with <code>set-url</code> in the above command. You can always check that remotes you have added by running <code>git remote -v</code>.
+    - if has_tests(item)
+      section
+        header
+          h1 id="testing" Testing
         p 
           - feature_repos(item).each do |f|
             | Feature repo path: 
@@ -37,4 +37,4 @@
               pre
                 code
                   == Pygments.highlight(feature, :lexer => 'gherkin')
-  footer
+    footer

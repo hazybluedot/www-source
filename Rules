@@ -96,7 +96,7 @@ compile '*' do
     when 'activity'
       layout 'activity'
     else
-      layout 'default'
+      layout 'article'
     end
   end
 end

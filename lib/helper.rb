@@ -12,8 +12,16 @@ module PostHelper
     attribute_to_time(post[:created_at]).strftime('%B %-d, %Y')
   end
 
+  def get_pretty_moddate(post)
+    attribute_to_time(post[:mtime]).strftime('%B %-d, %Y')
+  end
+
   def get_pub_datetime(post)
     DateTime.parse(attribute_to_time(post[:created_at]).strftime('%B %-d, %Y %H:%M %z')).rfc3339
+  end
+
+  def get_mod_datetime(post)
+    DateTime.parse(attribute_to_time(post[:mtime]).strftime('%B %-d, %Y %H:%M %z')).rfc3339
   end
 
   def get_post_raw_start(post)

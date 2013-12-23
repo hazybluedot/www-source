@@ -199,3 +199,10 @@ section,article {
     @include leader;
     @include trailer;
 }
+
+section {
+    pre {
+        @include leader;
+        @include trailer;
+    }
+}

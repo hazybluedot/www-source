@@ -1,29 +1,9 @@
-$base03:          #002b36 !default; //darkest blue
-$base02:          #073642 !default; //dark blue
-$base01:          #586e75 !default; //darkest gray
-$base00:          #657b83 !default; //dark gray
-$base0:           #839496 !default; //medium gray
-$base1:           #93a1a1 !default; //medium light gray
-$base2:           #f2f2f2 !default; //cream
-$base3:           #ffffff !default; //white
-$solar-yellow:    #b58900 !default;
-$solar-orange:    #cb4b16 !default;
-$solar-red:       #dc322f !default;
-$solar-magenta:   #d33682 !default;
-$solar-violet:    #6c71c4 !default;
-$solar-blue:      #268bd2 !default;
-$solar-cyan:      #2aa198 !default;
-$solar-green:     #859900 !default;
-
-
 /* non highlighted code colors */
 $pre-bg: $base03 !default;
 $pre-border: darken($base02, 5) !default;
 $pre-color: $base1 !default;
 
-.highlight {
-  background-color: $base02;
-  color: $base1;
+pre {
   .c      { color: $base01 !important; font-style: italic !important; }                     /* Comment */
   .cm     { color: $base01 !important; font-style: italic !important; }                     /* Comment.Multiline */
   .cp     { color: $base01 !important; font-style: italic !important;  }                     /* Comment.Preproc */
@@ -87,5 +67,5 @@ $pre-color: $base1 !default;
   .s1     { color: $solar-cyan !important; }                                             /* Literal.String.Single */
   .ss     { color: #990073 }                                          /* Literal.String.Symbol */
   .il     { color: #009999 }                                          /* Literal.Number.Integer.Long */
-  div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}
+  //div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}
 }

@@ -1,30 +1,10 @@
-article.project {
-    > header {
-        h1 {
-            @include adjust-font-size-to($base-font-size * 1.75, $lines:1);
-        }
-        @include trailer;
-    }
-    section {
-        > header {
-            h1 {
-                @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
-            }
-        }
-        p {
-            margin: 0px 5px;
-        }
-    }
-
-    border-bottom: 1px solid $base02;
-}
-
 ul.contributors {
     @include inline-block-list;
     > li {
         background-color: $base2;
         color: $base02;
-        padding: 0px 5px 0px 0px;
+        padding-left: $gutter-width;
+        padding-right: $gutter-width;
         border: 1px solid $base02;
         margin: 0px 5px 0px 0px;
         @include adjust-font-size-to($base-font-size * 0.80);

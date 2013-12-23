@@ -14,7 +14,7 @@ repos:
     user: USER/balanced
 ---
 
-## Implement Error Reporting
+# Implement Error Reporting
 
 If you haven't already, add code to your `balanced` program to print a
 message to *standard error* when a file can not be opened, formatted
@@ -56,7 +56,7 @@ Both `warn(3)` and `perror(3)` have manual page entries.
 Once you have added the error message output add and commit your
 changes with an appropriate commit message.
 
-## Implement Exit Status
+# Implement Exit Status
    
    Modify your `balanced` program so that the exit status reflects
    whether or not balancing errors occured
@@ -72,7 +72,7 @@ potential exit status value should take precedence. Add and commit
 your changes with an appropriate commit message.
 
 
-## Test From the Command Line
+# Test From the Command Line
 
 Assuming `good.c` doesn't contain any balancing errors, we expect the
 exit status to be `0`
@@ -98,7 +98,7 @@ the exist status of the following command to be `2`.
    $ echo $?
 ~~~
 
-## A Very Brief Introduction to Shell Scripts
+# A Very Brief Introduction to Shell Scripts
 
    A shell script is nothing more than a text file containing one or
    more shell commands. Anything you have been running from the
@@ -136,7 +136,7 @@ script.  Remember, `Unix` doesn't care about file extensions. It is
 common to use the `.sh` file extension when naming shell scripts just
 as a reminder to the user, but it is not necessary.
    
-## Write a Shell Script
+# Write a Shell Script
 
 Now try writing a simple shell script that makes use of our `balanced`
    program. Because the shell's `if` condition checks for exit status
@@ -189,4 +189,3 @@ Or for a clean way of handling each possible exist status case, try a
    this could be a common use of our utility we may want to add a
    command line option that suppresses normal output, just like
    `grep`'s `-q` option.
-
