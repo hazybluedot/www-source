@@ -1,8 +1,10 @@
 - render 'default' do
-  h1 #{{@item[:title]}}
-  ul
-    - @item[:items].each do |item|
-      li #{{link_to(item[:title], item.identifier)}}
+  article
+    header
+      h1 #{{@item[:title]}}
+    ul
+      - @item[:items].each do |item|
+        li #{{link_to(item[:title], item.identifier)}}
 
 
   
