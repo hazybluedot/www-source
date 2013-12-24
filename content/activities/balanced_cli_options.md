@@ -1,9 +1,10 @@
 ---
 title: "Add CLA parsing to 'balanced'"
 kind: activity
-requires:
-  - understanding: exit_status
-  - background: cla_parsing
+requires: {
+    understanding: exit_status,
+    background: [ cla_parsing ]
+    }
 provides:
   - practice: [ exit_status, cla_parsing ]
 tests:
@@ -15,10 +16,6 @@ repos:
   - fork: skel/balanced
     user: USER/balanced
 ---
-
-## Background Reading
-1. [Motivation for CLA parsing libraries](/reading/cla_intro/index.html)
-2. [Basics of CLA parsing and getopt](/reading/cla_basics/index.html)
 
 ## Implement Command Line Argument Parsing
 
@@ -85,9 +82,3 @@ and the program should exit with status 3.
    there some cases where this would make sense? Are there others
    where it would be best to leave it to the user to redirect output
    to `/dev/null`?
-
-## Additional Reading
-- [Command-Line Options](http://catb.org/~esr/writings/taoup/html/ch10s05.html)
-from TAOUP contains a very nice summary of conventional option usages.
-Whenever it makes sense to, you should follow convention.
-- [CLA Parsing Libraries for different languages](/reading/cla_language_resources/index.html)

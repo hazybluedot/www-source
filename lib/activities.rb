@@ -58,6 +58,29 @@ module ActivityHelper
   def activities_for(for_date)
     activities.select { |i| i[:for_date] && i[:for_date] == for_date }
   end
+
+  def background_provided(item)
+    provided = []
+    $stderr.puts "generating provides list for #{item[:title]}: #{item[:provides]}" unless item[:provides].nil?
+    if ( item[:provides] && Hash === item[:provides] && item[:provides].has_key?(:background) )
+      backgrounds = item[:provides][:background]
+      provided = String === backgrounds ? [ backgrounds ] : backgrounds
+      $stderr.puts "\t#{provided}"
+    end
+    provided
+  end
+
+  def background_items(activity)
+    $stderr.puts "#{activity[:requires]}"
+    items = []
+    if ( activity[:requires]  && Hash === activity[:requires] && activity[:requires].has_key?(:background) )
+      bg_topics = activity[:requires][:background]
+      bg_topics = String === bg_topics ? [ bg_topics ] : bg_topics
+      #$stderr.puts "Finding same items in #{background_provided(i)} and #{bg_topics}"; 
+      items = @items.select { |i| ( background_provided(i) & bg_topics ).any? }
+    end
+    items
+  end
 end
 
 include ActivityHelper

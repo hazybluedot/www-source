@@ -5,6 +5,13 @@
       p
         | Last modified #{{time_tag(item[:mtime])}}
     section
+      header
+        h1 Background
+      ul
+        - background_items(item).each do |b|
+          li #{{link_to(b[:title], b)}}
+      
+    section
       == yield
     - if has_user_repo(item)
       section

@@ -1,7 +1,6 @@
 ---
 title: Ranged Loops
-provides:
- - background: [ ranged_loops ]
+provides: { background: [ ranged_loops ] }
 ---
 
 ## Repetitive Tasks

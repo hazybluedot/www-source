@@ -2,9 +2,10 @@
 title: Exit Status
 reference: TLCL
 section: [ 27 ]
-provides:
-  - background: [ ipc/exit_status ]
-  - component_of: [ shell_script ]
+provides: {
+  background: [ ipc/exit_status ],
+  component_of: [ shell_script ]
+  }
 ---
 
 The *exit status* is an integer value set by a process indicating

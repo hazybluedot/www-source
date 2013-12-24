@@ -1,7 +1,6 @@
 ---
 title: Basics of Command Line Argument Parsing
-provides:
-  - background: cla_parsing
+provides: { background: cla_parsing }
 ---
 
 ## The Basics of command line argument parsing

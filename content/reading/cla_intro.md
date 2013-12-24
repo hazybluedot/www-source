@@ -1,10 +1,9 @@
 ---
 title: Introduction to Command Line Argument Parsing Libraries
-provides:
-  - background: cla_parsing
+provides: { background: cla_parsing }
 ---
 
-## Motivation for Command Line Argument (CLA) parsing libraries
+# Motivation
 
 As you have seen with the commands we have been using, command line
 arguments are a large part of the user interface for command line
@@ -77,5 +76,11 @@ algorithmic way, it probably should be, to avoid the inevitable human
 error that will be introduced by trying to repeat this process over
 and over again for every new command line utility you write.
 
-## Activities
+# Activities
 - [Balanced Brace Checker](/activities/balanced_cli_options/index.html)
+
+# Additional Reading
+- [Command-Line Options](http://catb.org/~esr/writings/taoup/html/ch10s05.html)
+from TAOUP contains a very nice summary of conventional option usages.
+Whenever it makes sense to, you should follow convention.
+- [CLA Parsing Libraries for different languages](/reading/cla_language_resources/index.html)
