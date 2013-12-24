@@ -24,24 +24,25 @@ module Nanoc::DataSources
     end
     
     def items
-      projects = load_projects(@roster.records, @roster.config[:prefix])
+      projects = load_project_groups(@roster.records, @roster.config[:prefix])
       
-      #items = projects.group_by{ |p| Set.new(contributors_for(p)) }.collect do |title,plist| 
       items = projects.collect do |p| 
         meta = {
           :title => p[:title],
           :contributors => contributors_for(p),
           :url => p[:url],
-          :tag => tag_for(p[:title])
+          :tag => tag_for(p[:title]),
+          :mtime => p[:mtime]
         }
         sha1 = Digest::SHA1.hexdigest(meta[:contributors].join(','))
         identifier = "/f13/#{sha1}"
 
         warn "title: #{p[:title]} no descriptin" unless p[:description]
-        p[:description] ? Nanoc::Item.new(p[:description],
-                        meta,
-                        identifier
-                        ) : nil
+        p[:description] ? Nanoc::Item.new(
+                            p[:description],
+                            meta,
+                            identifier
+                            ) : nil
       end.compact
       items
     end
