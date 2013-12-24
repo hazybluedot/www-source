@@ -24,7 +24,7 @@ module Nanoc::DataSources
     end
     
     def items
-      projects = load_projects(@roster.records, @roster.config[:prefix])
+      projects = load_project_groups(@roster.records, @roster.config[:prefix])
       
       items = projects.collect do |p| 
         meta = {

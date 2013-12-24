@@ -90,14 +90,6 @@ module Nanoc::Helpers
       p[:url] ? link_to(title ? title : 'Homepage', p[:url]) : nil
     end
 
-    def grep_count(expression, multiline)
-      count = multiline.split('\n').collect do |line|
-        expression =~ line
-      end.count
-      #$stderr.puts "Found #{count} lines matching more thing"
-      count
-    end
-
     def grouped_projects
       blk = lambda do
         #projects.group_by { |p| p[:title] }
