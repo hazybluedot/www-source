@@ -27,6 +27,7 @@ preprocess do
   config[:git_url] = config[:gl_user] + "@" + config[:gl_host]
   @items.delete_if { |i| i.identifier.chop =~ /.*\/\#/ }
   @items << index_item_for(/^\/reference\/\w+/, '/references/', "References")
+  @items << index_item_for(/^\/reading\/\w+/, '/reading/', "Background Reading")
   @items << recent_posts(0..25, 'Recent Posts', '/')
 end
 
