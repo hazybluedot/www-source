@@ -8,29 +8,32 @@ require 'uri'
 require 'summarize'
 
 module PostHelper
-  def get_pretty_date(post)
-    attribute_to_time(post[:created_at]).strftime('%B %-d, %Y')
+  def rfc_time(time)
+    DateTime.parse(attribute_to_time(time).strftime('%B %-d, %Y %H:%M %z')).rfc3339
+  end
+  
+  def pretty_time(time)
+    attribute_to_time(time).strftime('%B %-d, %Y')
   end
 
-  def get_pretty_moddate(post)
-    attribute_to_time(post[:mtime]).strftime('%B %-d, %Y')
+  def pub_prettydate(post)
+    pretty_time(post[:created_at])
   end
 
-  def get_pub_datetime(post)
-    DateTime.parse(attribute_to_time(post[:created_at]).strftime('%B %-d, %Y %H:%M %z')).rfc3339
+  def mod_prettydate(post)
+    pretty_time(post[:mtime])
   end
 
-  def get_mod_datetime(post)
-    DateTime.parse(attribute_to_time(post[:mtime]).strftime('%B %-d, %Y %H:%M %z')).rfc3339
+  def pub_datetime(post)
+    rfc_time(post[:created_at])
   end
 
-  def get_post_raw_start(post)
-    raw_content = post.raw_content
-    if raw_content =~ /\s<!-- more -->\s/
-      raw_content.partition('<!-- more -->').first
-    else
-      raw_content
-    end
+  def mod_datetime(post)
+    rfc_time(post[:mtime])
+  end
+
+  def time_tag(time)
+    "<time pubtime datetime=\"#{rfc_time(time)}\">#{pretty_time(time)}</time>"
   end
 
   def get_post_topics(post)

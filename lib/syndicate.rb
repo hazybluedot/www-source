@@ -22,6 +22,20 @@ module Nanoc::Helpers
       end.reverse
     end
 
+    def recent_posts(range, title, identifier)
+      Nanoc::Item.new("", {
+                        :title => title, 
+                        :kind => 'article_list', 
+                        :items => sorted_syndicates[range] },
+                        identifier 
+                      )
+    end
+
+    def author_of(post)
+      name = post[:author_name] ? post[:author_name] : "Anonymous"
+      post[:author_uri] ? link_to(name, post[:author_uri]) : name
+    end
+    
   end
 end
 

@@ -3,9 +3,7 @@
     header
       h1 #{item[:title]}
       p
-        | Last modified 
-        time pubdate="" datetime=("#{get_mod_datetime(item)}")
-          = get_pretty_moddate(item)
+        | Last modified #{{time_tag(item[:mtime])}}
     section
       == yield
     - if has_user_repo(item)

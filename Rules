@@ -27,6 +27,7 @@ preprocess do
   config[:git_url] = config[:gl_user] + "@" + config[:gl_host]
   @items.delete_if { |i| i.identifier.chop =~ /.*\/\#/ }
   @items << index_item_for(/^\/reference\/\w+/, '/references/', "References")
+  @items << recent_posts(0..25, 'Recent Posts', '/')
 end
 
 compile '/indexes/*/' do
@@ -95,6 +96,8 @@ compile '*' do
     case item[:kind]
     when 'activity'
       layout 'activity'
+    when 'article_list'
+      layout 'ordered_articles'
     else
       layout 'article'
     end
