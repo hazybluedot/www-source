@@ -59,13 +59,11 @@ module ActivityHelper
     activities.select { |i| i[:for_date] && i[:for_date] == for_date }
   end
 
-  def background_provided(item)
+  def list_for(item, key1, key2)
     provided = []
-    $stderr.puts "generating provides list for #{item[:title]}: #{item[:provides]}" unless item[:provides].nil?
-    if ( item[:provides] && Hash === item[:provides] && item[:provides].has_key?(:background) )
-      backgrounds = item[:provides][:background]
+    if ( item[key1] && Hash === item[key1] && item[key1].has_key?(key2) )
+      backgrounds = item[key1][key2]
       provided = String === backgrounds ? [ backgrounds ] : backgrounds
-      $stderr.puts "\t#{provided}"
     end
     provided
   end
@@ -76,9 +74,15 @@ module ActivityHelper
     if ( activity[:requires]  && Hash === activity[:requires] && activity[:requires].has_key?(:background) )
       bg_topics = activity[:requires][:background]
       bg_topics = String === bg_topics ? [ bg_topics ] : bg_topics
-      #$stderr.puts "Finding same items in #{background_provided(i)} and #{bg_topics}"; 
-      items = @items.select { |i| ( background_provided(i) & bg_topics ).any? }
+      items = @items.select { |i| ( list_for(i, :provides, :background) & bg_topics ).any? }
     end
+    items
+  end
+
+  def items_that_use(item)
+    items = []
+    topics_provided = list_for item, :provides, :background
+    items = @items.select { |i| ( list_for(i, :requires, :background) & topics_provided ).any? }
     items
   end
 end

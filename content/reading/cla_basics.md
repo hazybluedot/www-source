@@ -67,3 +67,5 @@ similar fashion and follow similar usage patterns:
 
 ## Activities
 - [Balanced Brace Checker](/activities/balanced_cli_options/index.html)
+
+<%= items_that_use(@item) %>

@@ -31,7 +31,7 @@ utility accepts a `-n` option to allow for different values of `N`:
 head -n 5
 ~~~~
 
-will write the first 5 lines of input to /standard output/.  Knowing
+will write the first 5 lines of input to *standard output*.  Knowing
 what we do about the `argv` array we can deduce that the contents for
 the above command would look like
 
@@ -51,7 +51,7 @@ the command
 head -n five
 ~~~
 
-we would want to print a message to /standard error/ indicating why
+we would want to print a message to *standard error* indicating why
 the command can't execute what the user requested (try running the
 previous command to see how `head` responds).
 
