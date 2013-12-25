@@ -1,10 +1,6 @@
 - render 'default' do
   h1 #{{@item[:title]}}
-  - @item[:items].each do |post|
-    article
-      header
-        h1 #{{link_to(post[:title], post[:entry_url])}}
-        p class="author"
-          | on #{{time_tag(post[:created_at])}} #{{author_of(post)}} wrote:
-      section class="summary"
-        == get_post_start(post)
+  ol class="article_list"
+    - @item[:items].each do |post|
+      li
+        == render @item[:item_layout], :item => post

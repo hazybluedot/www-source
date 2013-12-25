@@ -69,7 +69,7 @@ module ActivityHelper
   end
 
   def background_items(activity)
-    $stderr.puts "#{activity[:requires]}"
+    #$stderr.puts "#{activity[:requires]}"
     items = []
     if ( activity[:requires]  && Hash === activity[:requires] && activity[:requires].has_key?(:background) )
       bg_topics = activity[:requires][:background]

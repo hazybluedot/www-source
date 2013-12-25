@@ -28,7 +28,8 @@ preprocess do
   @items.delete_if { |i| i.identifier.chop =~ /.*\/\#/ }
   @items << index_item_for(/^\/reference\/\w+/, '/references/', "References")
   @items << index_item_for(/^\/reading\/\w+/, '/reading/', "Background Reading")
-  @items << recent_posts(0..25, 'Recent Posts', '/')
+  @items << recent_posts('Recent Posts', '/', (0..25))
+  @items << syndicated_list('Fall 2013', '/projects/f13/', sorted_projects, item_layout:'project_slug', identifier:'/projects/')
 end
 
 compile '/indexes/*/' do

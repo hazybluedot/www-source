@@ -22,20 +22,25 @@ module Nanoc::Helpers
       end.reverse
     end
 
-    def recent_posts(range, title, identifier)
+    def syndicated_list(title, ident, items, item_layout:'article_slug', identifier:nil)
+      dest_id = identifier ? identifier : ident
       Nanoc::Item.new("", {
-                        :title => title, 
-                        :kind => 'article_list', 
-                        :items => sorted_syndicates[range] },
-                        identifier 
+                      :title => title, 
+                      :kind => 'article_list', 
+                      :items => items,
+                      :item_layout => item_layout },
+                      dest_id
                       )
+    end
+
+    def recent_posts(title, identifier, range=(0..-1))
+      syndicated_list(title, identifier, sorted_syndicates[range], item_layout:'article_slug')
     end
 
     def author_of(post)
       name = post[:author_name] ? post[:author_name] : "Anonymous"
       post[:author_uri] ? link_to(name, post[:author_uri]) : name
-    end
-    
+    end  
   end
 end
 

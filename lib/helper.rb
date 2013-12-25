@@ -36,7 +36,7 @@ module PostHelper
     "<time pubtime datetime=\"#{rfc_time(time)}\">#{pretty_time(time)}</time>"
   end
 
-  def get_post_topics(post)
+  def topics_for(post)
     encoding_options = {
       :invalid           => :replace,  # Replace invalid byte sequences
       :undef             => :replace,  # Replace anything not defined in ASCII
