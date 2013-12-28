@@ -9,12 +9,13 @@ $link-color-visited: $link-color;
 $link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
 
 // Main Section Colors
-$main-bg: $base01 !default;
-$page-bg: $base3 !default;
+$main-bg: $base03 !default;
+$page-bg: $base03 !default;
 $article-border: $base03 !default;
-$content-bg: $base3;
+$content-bg: $base03;
 
-$header-bg: darken($main-bg, 15) !default;
+//$header-bg: darken($main-bg, 15) !default;
+$header-bg: $base2;
 $header-border: lighten($header-bg, 15) !default;
 $title-color: $solar-red !default;
 $subtitle-color: $solar-orange !default;
@@ -25,7 +26,8 @@ $type-border: $base0 !default;
 
 /* Navigation */
 $nav-bg: $header-bg !default;
-$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
+//$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
+$nav-bg-back: $base3;
 $nav-color: darken($nav-bg, 38) !default;
 $nav-color-hover: darken($nav-color, 25) !default;
 $nav-placeholder: desaturate(darken($nav-bg, 10), 15) !default;
@@ -36,7 +38,7 @@ $nav-border-left: darken($nav-bg, 11) !default;
 $nav-border-right: lighten($nav-bg, 7) !default;
 
 /* Sidebar colors */
-$sidebar-bg: #f2f2f2 !default;
+$sidebar-bg: $base2 !default;
 $sidebar-link-color: $link-color !default;
 $sidebar-link-color-hover: $link-color-hover !default;
 $sidebar-link-color-active: $link-color-active !default;
@@ -63,12 +65,13 @@ $page-border-bottom: darken($footer-bg, 5) !default;
     color: $color;
     padding-left: $gutter-width;
     padding-right: $gutter-width;
-    border: 1px solid $base02;
+    border: 1px solid darken($bgcolor, 15);
     margin-right: $gutter-width / 2;
     @include adjust-font-size-to($base-font-size * 0.80);
-    @include border-radius(4px, 4px);        
+    @include border-radius(4px, 4px);
+    $link-hover-color: adjust-color($color, $lightness: 10, $saturation: 25);
     a {
-	@include link-colors($color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
+	@include link-colors($color, $hover: $link-hover-color, $focus: $link-hover-color, $active: $link-hover-color);
 	text-decoration: none;
     }
 
@@ -84,11 +87,11 @@ aside.sidebar a {
     @include link-colors($sidebar-link-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
 }
 a {
-    @include transition(color .3s);
+    //    @include transition(color .3s);
 }
 
 html {
-    background: $page-bg image-url('line-tile.png') top left;
+    //background: $page-bg image-url('line-tile.png') top left;
 }
 
 body {
@@ -114,25 +117,25 @@ body {
         ul {
             @include inline-block-list;
             li {
-                @include button($nav-bg,$nav-color);
+                @include button($nav-bg-back,$link-color);
             }
-        }
-    }
-    #container{
-        background: $main-bg;
-    }
-    #content {
-        background: $content-bg;
-    }
-    > #content {
-        border-bottom: 1px solid $page-border-bottom;
-        > div {
-            border-right: 1px solid $sidebar-border;
         }
     }
     > footer {
         background: $footer-bg;
         color: $footer-color;
+    }
+}
+
+#container{
+    background: $main-bg;
+}
+
+#content {
+    background: $content-bg;
+    border-bottom: 1px solid $page-border-bottom;
+    > div {
+        border-right: 1px solid $sidebar-border;
     }
 }
 

@@ -84,6 +84,16 @@ module PostHelper
     post_url = URI::encode(url_for(post))
     "https://twitter.com/intent/tweet?original_referer=#{post_url}&text=#{post[:title]}&url=#{post_url}&via=hazybluedot"
   end
+  
+  def colorize_filter(content, language)
+    #content
+    args = {}
+    args[:lexer] = 'gherkin'
+    args[:options] = {}
+    args[:options][:encoding] = 'utf-8'
+    args[:options][:nowrap] = 'True'
+    Pygments.highlight(content, args )
+  end
 end
 
 

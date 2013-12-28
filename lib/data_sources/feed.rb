@@ -1,3 +1,5 @@
+require 'feedzirra'
+
 module Feedzirra::Parser
   class RSS
     element :'atom:link', :value => :href, :as => :feed_url
