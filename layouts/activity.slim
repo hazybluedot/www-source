@@ -37,9 +37,7 @@
             code
               = f[:feature]
             p
-              The following features will be tested using cucumber:
+              | The following features will be tested using cucumber:
             - features(f).each do |feature|
-              pre
-                code
-                  == colorize_filter(feature, 'gherkin')
+              == feature.compiled_content
       footer
