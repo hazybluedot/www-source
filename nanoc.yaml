@@ -88,6 +88,10 @@ data_sources:
     items_root: /reviews/
     repos_root: repos
 
+  - type: cuke_features
+    src_root: /features/
+    items_root: /features/
+
 deploy:
   public:
     kind: rsync
