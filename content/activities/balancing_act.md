@@ -5,7 +5,7 @@ requires: { background: [ balanced_brace_algorithm, c/argv ] }
 tests:
   - type: bonair
     feature: features/balanced
-    tags: [ part1 ]
+    tags: [ compile, part1 ]
 repos: 
     - user: USER/balanced
 compile_to: balanced
