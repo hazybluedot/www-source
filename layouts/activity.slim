@@ -18,7 +18,7 @@
         header
           h1 id="submission" Submission
         p 
-          | Push your git repository to the remote at
+          | Push your git repository to the remote at 
           code
             | #{config[:git_url]}:#{user_repo(item)} 
           | where <code>USER</code> is your git user name.
@@ -41,5 +41,5 @@
             - features(f).each do |feature|
               pre
                 code
-                  == Pygments.highlight(feature, :lexer => 'gherkin')
-    footer
+                  == colorize_filter(feature, 'gherkin')
+      footer
