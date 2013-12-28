@@ -80,10 +80,10 @@ page for `fopen(3)` you would run `man 3 fopen`
     check out the [standard containers] provided by the STL.
   - files streams 
 
-    [<fstream>] provides [ifstream] and [ofstream] for input/output
+    The [fstream] header provides [ifstream] and [ofstream] for input/output
     file streams, respectively.  [std::cin], [std::cout] and
-    [std::cerr] are the streams provided for standard input, standard
-    output and standard error.
+    [std::cerr] are the streams provided for *standard input*, *standard
+    output* and *standard error*.
 
     The [std::istream::get] method can be used to extract the next
     character from an input stream.
