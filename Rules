@@ -69,6 +69,11 @@ compile '/projects/*/' do
   filter :kramdown, :fenced_code_blogs => true
 end
 
+compile '/features/*/'do
+  filter :colorize_syntax,:default_colorizer => :pygmentsrb
+  layout 'feature'
+end
+
 compile '/reviews/*' do
   case item[:extension]
   when 'md'

@@ -29,22 +29,11 @@ module ActivityHelper
 
   def collect_features(repo, tags)
     features = []
-    feature_base = File.expand_path('~/ece2524/')
-    feature_path = File.join(feature_base, repo)
-    # $stderr.puts "Adding features in " + feature_path
-    if Dir.exists?(feature_path)
-      features.concat(all_files_in(feature_path).select{ |file|  File.extname(file) == '.feature'}.map do |feature|
-                        File.open(feature, 'r') do |io|
-                          io.read()
-                        end
-                      end)
-      if tags
-        # $stderr.puts "Checking for tags: " + tags.map { |tag| Regexp.new('@' + tag) }.inspect
-        tags = tags.map { |tag| Regexp.new('@' + tag) }
-        features = features.select{ |feature| tags.map{ |tag| feature =~ tag }.any? }
-      end
-    else
-      $stderr.puts feature_path + ": feature path does not exist"
+    features = @items.select { |item| item.identifier =~ /#{repo}/ }
+    if tags
+      # $stderr.puts "Checking for tags: " + tags.map { |tag| Regexp.new('@' + tag) }.inspect
+      tags = tags.collect { |tag| '@' + tag }
+      features = features.select{ |feature| (feature[:tags] & tags).any? }
     end
     features
   end
