@@ -85,13 +85,13 @@ module PostHelper
     "https://twitter.com/intent/tweet?original_referer=#{post_url}&text=#{post[:title]}&url=#{post_url}&via=hazybluedot"
   end
   
-  def colorize_filter(content, language)
+  def colorize_filter(content, language, args = {})
     #content
     args = {}
-    args[:lexer] = 'gherkin'
-    args[:options] = {}
-    args[:options][:encoding] = 'utf-8'
-    args[:options][:nowrap] = 'True'
+    args[:lexer] ||= 'gherkin'
+    args[:options] ||= {}
+    args[:options][:encoding] ||= 'utf-8'
+    args[:options][:nowrap] ||= 'True'
     Pygments.highlight(content, args )
   end
 end
