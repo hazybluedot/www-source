@@ -89,7 +89,7 @@ data_sources:
     repos_root: repos
 
   - type: cuke_features
-    src_root: /features/
+    feature_path: /features/
     items_root: /features/
 
 deploy:
