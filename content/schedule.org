@@ -2,7 +2,7 @@
 title: Schedule
 ---
 
-* Schedule
+* 
 ** By Friday, November 22 at 11:59pm
    1. Submit a [[/activities/project_proposal][project proposal]]
 ** By Monday, December 2 at 10:10am
