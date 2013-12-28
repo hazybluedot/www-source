@@ -51,13 +51,14 @@ html lang='en'
         li
           == link_to('Reference', '/indexes/references/index.html')
     
-    section id="content"
-      == yield
-    footer
-      p
-        | Copyright 2013, Darren Maczka. Some rights reserved.
-      p
-        | Any original material on this site is licensed under the 
-        | #{{link_to('Creative Commons Attribution-NonCommercial-Share-Alike', 'http://creativecommons.org/licenses/by-nc-sa/3.0/')}} license.
-        |  Note that not all material displayed is original: syndicated blog posts are subject to the license, if any, set by the orignal authors.
+    div id="container"
+      section id="content"
+        == yield
+      footer
+        p
+          | Copyright 2013, Darren Maczka. Some rights reserved.
+        p
+          | Any original material on this site is licensed under the 
+          | #{{link_to('Creative Commons Attribution-NonCommercial-Share-Alike', 'http://creativecommons.org/licenses/by-nc-sa/3.0/')}} license.
+          |  Note that not all material displayed is original: syndicated blog posts are subject to the license, if any, set by the orignal authors.
 
