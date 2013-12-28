@@ -1,16 +1,6 @@
 ul.contributors {
     @include inline-block-list;
     > li {
-        background-color: $base2;
-        color: $base02;
-        padding-left: $gutter-width;
-        padding-right: $gutter-width;
-        border: 1px solid $base02;
-        margin: 0px 5px 0px 0px;
-        @include adjust-font-size-to($base-font-size * 0.80);
-        @include border-radius(4px, 4px);
-        a {
-            color: $solar-orange;
-        }
+	@include button($base02, $solar-orange);
     }
 }
