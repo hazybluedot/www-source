@@ -1,6 +1,7 @@
 ---
 title: Balancing Act
 kind: activity
+requires: { background: [ balanced_brace_algorithm, c/argv ] }
 tests:
   - type: bonair
     feature: features/balanced
@@ -10,93 +11,53 @@ repos:
 compile_to: balanced
 ---
 
-#+OPTIONS: f:t
-
-* 
+# Introduction
+ 
 Let's design our first full Unix-style command line utility. Since a
 large number of you have had some experience with checking a string
 for balanced parenthesis or curly braces we will use that idea as a
 starting point.
 
-** Types of balancing errors
-   1. What are the different types of balancing errors that can occur?
-      If we are concerned with only one type of brace, for example ~{ }~ then there are only two types of balancing errors:
-      - unmatched opening brace: e.g. ~{ a b c { e f } g~ is missing a closing ~}~
-      - unmatched closing brace: e.g. ~{ a b c { e f } g } }~  has an extra closing brace.
-      If we also consider other types of braced, like ~( )~ and ~[ ]~ then we have an additional unbalaned condition:
-      - mismatched braces/bad nesting: e.g. ~{ ( [ ) ] }~
+# Program Behavior
+1. What type of input should our program accept?
 
-** Data Structures and Algorithms
-   How would you keep track of the necessary data and what algorithm
-   would you use if you wanted to
-   1. Detect balancing errors for only one kind of brace (e.g. ~()~ is
-      balanced but ~(()~ and ~())~ are not)
-   2. Detect balancing errors for multiple kinds of braces (e.g. ~{ (
-      [] ) }~ is balanced, ~{ ([)] }~ is not)
-   3. Detect balancing errors and keep track of what line and column
-      number the problem occurred.
+   A list of files given on the command line, or if no files are given, then read from /standard input/. See ~grep~ as an example.
 
-** Program Behavior
-   1. What type of input should our program accept?
-      A list of files given on the command line, or if no files are given, then read from /standard input/. See ~grep~ as an example.
+  
+2. What output will it give and how will it be formatted?
 
-   2. What output will it give and how will it be formatted?
-      The C and C++ compiler provides a good example to follow: print the output in an easily parsed, structured formate that contains all the information available:
-      #+BEGIN_EXAMPLE
-      file_name:line_number:column_number: description of error
-      #+END_EXAMPLE
-      for example
-      #+BEGIN_EXAMPLE
-      test1.c:7:1: unmatched closing brace
-      #+END_EXAMPLE
-      
-      If there are *no* balancing errors then the program should not produce any output. [[http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878450][Silence is Golden]].
-   3. What kind of errors might be encountered?
-      1. How will our program detect them?
-      2. How will our program handle and report them?
+   The C and C++ compiler provides a good example to follow: print the output in an easily parsed, structured formate that contains all the information available:
 
-** Getting Started
-   Once we have decided how our program should work and have written
+   ~~~~ text
+   file_name:line_number:column_number: description of error
+   ~~~~
+
+   for example
+
+   ~~~~
+   test1.c:7:1: unmatched closing brace
+   ~~~~
+
+  If there are *no* balancing errors then the program should not produce any output. [[http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878450][Silence is Golden]].
+
+3. What kind of errors might be encountered?
+
+   1. How will our program detect them?
+   2. How will our program handle and report them?
+
+# Getting Started
+Once we have decided how our program should work and have written
 up some test cases we can start coding. You may choose to use write in C or
-C++[fn:1]
+C++[^nonc]
 
-*** Initialize a new git repository
-    The past few activities we have forked and cloned existing
-    repositories. Let's initialize a new one for this activity.
-    #+BEGIN_SRC console
-    $ git init ~/ece2524/balanced
-    $ cd ~/ece2524/balanced
-    #+END_SRC
-    If your current working directory is already the one in which you
-    want to initilize as a git repository, then just run ~git init~
-    without the destination argument.
-*** Add the remote
-    Since we created a new git repository with ~git init~ it does not
-    have any remotes set. Let's add one now.
-    #+BEGIN_SRC console
-    $ git remote add origin <%= config[:git_url]%>:USER/balanced.git
-    #+END_SRC
-*** Add a submodule
-    This is something new.  We would like to include the ~features~
-    directory in our repository containing the ~cucumber~ test files,
-    but they are managed in another repository.  We could copy the
-    directory into our source tree but then we would lose the ability
-    to easily pull updates from the upstream repository (e.g. in the
-    event I change the test files).  git has a tool called [[http://git-scm.com/book/en/Git-Tools-Submodules][submodules]]
-    that handles this situation nicely.
+## Initialize a new git repository
 
-    #+BEGIN_SRC console
-    $ git submodule add <%= config[:git_url]%>:features/balanced.git features
-    $ git commit -m "add features submodule"
-    #+END_SRC
+[initialize a new git repo](git_init) and [add a remote](git_remote_add)
 
-    Now you can run ~git submodule update~ in the future to pull in
-    any changes to the features submodule.
-
-*** Start Coding
+### Start Coding
 1. Start simple. Write an empty ~main()~ function and compile it.
-2. Write a simple ~Makefile~ that will compile a program named
-   ~balanced~ when ~make~ is run.
+2. Write a simple `Makefile` that will compile a program named
+   `balanced` when `make` is run.
 3. Get in the habit of working in short code/compile cycles. Using
    ~make~ it is easy to quickly build a project and check for
    errors. It is usually easier to find and fix compile errors soon
@@ -106,36 +67,50 @@ C++[fn:1]
    judiciously. As a rule of thumb, make a commit each time you make a
    change that results in a successfully compiling project. 
 
-*** Useful libraries and macros
-Remember, when listing library calls that have man page entries I will use the format ~function(N)~ where ~N~ is an integer cooresponding to the manual section the function is defined in.  To view the manual page for ~fopen(3)~ you would run ~man 3 fopen~
+### Useful libraries and macros
+
+Remember, when listing library calls that have man page entries I will
+use the format `function(N)` where `N` is an integer cooresponding to
+the manual section the function is defined in.  To view the manual
+page for `fopen(3)` you would run `man 3 fopen`
 
 - C++
   - Data structures
     
-    check out the [[http://www.cplusplus.com/reference/stl/][standard containers]] provided by the STL.
+    check out the [standard containers] provided by the STL.
   - files streams 
 
-    [[http://www.cplusplus.com/reference/fstream/][<fstream>]] provides [[http://www.cplusplus.com/reference/fstream/ifstream/][ifstream]] and [[http://www.cplusplus.com/reference/fstream/ofstream/][ofstream]] for input/output file
-    streams, respectively.  [[http://www.cplusplus.com/reference/iostream/cin/][std::cin]], [[http://www.cplusplus.com/reference/iostream/cout][std::cout]] and [[http://www.cplusplus.com/reference/iostream/cerr/][std::cerr]] are the
-    streams provided for standard input, standard output and standard
-    error.
+    [<fstream>] provides [ifstream] and [ofstream] for input/output
+    file streams, respectively.  [std::cin], [std::cout] and
+    [std::cerr] are the streams provided for standard input, standard
+    output and standard error.
 
-    The [[http://www.cplusplus.com/reference/istream/istream/get/][std::istream::get]] method can be used to extract the next
+    The [std::istream::get] method can be used to extract the next
     character from an input stream.
 
 - C
   - Data structures
     
-    you may find the ~queue(3)~ macros useful for implementing lists/stacks
+    you may find the `queue(3)` macros useful for implementing lists/stacks
   - file streams
 
-    See the manual pages for ~fopen(3)~, ~fclose(3)~, ~fgetc(3)~
+    See the manual pages for `fopen(3)`, `fclose(3)`, `fgetc(3)`
 
-*** Tips
-- If you have trouble understanding how ~argc~ and ~argv~ are used,
+[std::istream::get]: http://www.cplusplus.com/reference/istream/istream/get/
+[standard containers]: http://www.cplusplus.com/reference/stl/
+[fstream]: http://www.cplusplus.com/reference/fstream/
+[ifstream]: http://www.cplusplus.com/reference/fstream/ifstream/
+[ofstream]: http://www.cplusplus.com/reference/fstream/ofstream/
+[std::cin]: http://www.cplusplus.com/reference/iostream/cin/
+[std::cout]: http://www.cplusplus.com/reference/iostream/cout/
+[std::cerr]: http://www.cplusplus.com/reference/iostream/cerr/
+
+### Tips
+- If you have trouble understanding how `argc` and `argv` are used,
   try writing a simple program that simply prints out the arguments
   provided on the command line:
-  #+BEGIN_SRC c
+
+  ~~~~ c
   #include <stdio.h>
 
   int main(int argc, char* argv[])
@@ -148,18 +123,10 @@ Remember, when listing library calls that have man page entries I will use the f
         }
         return 0;
   }
-  #+END_SRC
+  ~~~~
 
   compile it and run it with a few different arguments to see how the
   argv array works.
 
-[fn:1] if you have a compelling reason to write in something other
-than C/C++ let me know well in advance so I can get the necessary
-build tools on the server.
-** Submitting
-    You will submit your code by pushing your git repository to the remote server just like other activities we have done.  Because this time we initialized a new repo (instead of forking and cloning like we have the past few times) the first time you push you will have to run
-    #+BEGIN_SRC console
-    $ git push -u origin master
-    #+END_SRC
-
-    to tell ~git~ to push to the ~master~ branch on the remote named ~origin~.  The next time you need to push changes you can just run ~git push~.
+[^nonc]:
+    if you have a compelling reason to write in something other than C/C++ let me know well in advance so I can get the necessary build tools on the server.
