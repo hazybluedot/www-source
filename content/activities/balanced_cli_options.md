@@ -10,7 +10,7 @@ provides:
 tests:
   - type: bonair
     feature: features/balanced
-    tags: [ part3 ]
+    tags: [ compile, part3 ]
 language: C
 repos:
   - fork: skel/balanced
