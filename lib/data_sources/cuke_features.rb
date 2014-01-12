@@ -1,6 +1,19 @@
-#require 'cucumber'
+require 'gherkin/parser/parser'
+require 'gherkin/formatter/json_formatter'
+require 'stringio'
+require 'multi_json'
 
 include Nanoc::Extra::FilesystemTools
+
+module Gherkin
+  module Formatter
+    class JSONFormatter
+      def features
+        @feature_hashes
+      end
+    end
+  end
+end
 
 module Nanoc::DataSources
 
@@ -22,7 +35,19 @@ module Nanoc::DataSources
     end
 
     def load_features(feature_path)
+      io = StringIO.new
+      formatter = Gherkin::Formatter::JSONFormatter.new(io)
+      parser = Gherkin::Parser::Parser.new(formatter)
+
       feature_path = File.join(Dir.pwd,feature_path)
+      feature_files = all_files_in(feature_path).select{ |file|  File.extname(file) == '.feature'}
+      feature_files.each do |path|
+        parser.parse(IO.read(path), path, 0)
+      end
+
+      formatter.features.each { |f| $stderr.puts "feature: #{f["name"]}" }
+      #formatter.features.select { |f| f["keyword"] == "Feature" }.each { |f| "$stderr.puts #{f["name"]} " }
+      
       all_files_in(feature_path).select{ |file|  File.extname(file) == '.feature'}.collect do |feature|
         content = File.open(feature, 'r').readlines
         identifier = File.join(config[:items_root],feature.partition(feature_path)[2].gsub('.feature','')) + "/"
