@@ -30,6 +30,8 @@ preprocess do
   @items << index_item_for(/^\/reading\/\w+/, '/reading/', "Background Reading")
   @items << recent_posts('Recent Posts', '/', (0..25))
   @items << syndicated_list('Fall 2013', '/projects/f13/', sorted_projects, item_layout:'project_slug', identifier:'/projects/')
+  @taxonomy_items = taxonomy_items("/taxonomy/tools")
+  @items << @taxonomy_items if @taxonomy_items.any?
 end
 
 compile '/indexes/*/' do
@@ -65,6 +67,10 @@ compile '/stylesheets/*/' do
   filter :relativize_paths, :type => :css
 end
 
+compile '/syndicated/*/' do
+  #don't filter or layout
+end
+
 compile '/projects/*/' do
   filter :kramdown, :fenced_code_blogs => true
 end
@@ -72,6 +78,7 @@ end
 compile '/features/*/'do
   filter :colorize_syntax,:default_colorizer => :pygmentsrb
   layout 'feature'
+  filter :relativize_paths, :type => :html
 end
 
 compile '/reviews/*' do
@@ -81,6 +88,7 @@ compile '/reviews/*' do
     filter :colorize_syntax, :default_colorizer => :pygmentsrb
   end
   layout 'project_review'
+  filter :relativize_paths, :type => :html
 end
 
 compile '*' do
@@ -108,6 +116,7 @@ compile '*' do
     else
       layout 'article'
     end
+    filter :relativize_paths, :type => :html
   end
 end
 
