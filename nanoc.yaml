@@ -3,7 +3,7 @@
 # will be considered as binary.
 text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'org', 'php', 'rb', 'sass', 'scss', 'slim', 'txt', 'xhtml', 'xml' ]
 
-base_url: 'http://ece2524.ece.vt.edu'
+base_url: 'https://computing.ece.vt.edu/~ece2524'
 site_title: 'ECE 2524'
 site_subtitle: 'Introduction to Unix for Engineers'
 author_name: 'Darren Maczka'
@@ -93,6 +93,11 @@ data_sources:
     items_root: /features/
 
 deploy:
+  cvl:
+    kind: rsync
+    dst: "ece2524@cvl.ece.vt.edu:public_html"
+    options: [ '-aP', '--no-o', '--no-g', '--delete-after' ]
+
   public:
     kind: rsync
     dst: "dmaczka@ece2524.ece.vt.edu:/var/www/ece2524.ece.vt.edu/public_html"
