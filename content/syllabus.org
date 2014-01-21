@@ -6,7 +6,7 @@ created_at:
 * ECE2524: Syllabus (Draft)
 ** Course Overview
 Welcome to Introduction to Unix for Engineers. This course will
-introduces you to the Unix operating system and Unix design
+introduce you to the Unix operating system and Unix design
 philosophy. Unix has been around and in use since 1969 and currently
 some variant (most often Linux) is running on 90% of the world's super
 computers. While it is difficult to calculate exact numbers, in 2008
@@ -57,16 +57,13 @@ stand alone programs.
    - [[http://catb.org/esr/writings/taoup/][The Art of Unix Programming]], by Eric S. Raymond
    - [[http://www.diveinto.org/python3/][Dive into Python 3]], by Mark Pilgrim
 ** Computing Resources
-We will use a free version of the GNU/Linux operating system, which
-you are expected to use on your laptop. It is recommended that you
-install [[http://fedoraproject.org/][Fedora 19]] on a separate partition on your hardrive, or on a
-bootable USB flash drive.  If you are currently familiar with another
-version of GNU/Linux such as Ubuntu, or Arch Linux, you may use that
-instead.
+Access to our CVL shell account will be our primary means of
+interacting with a Unix system.  While you are not required to install
+a Unix/Linux on your own computer you are encouraged to do so and I
+can provide some assistance and support of that process.
 
-See [[/getting_started/][Getting Started]] for more information on choosing an Linux
-distribution and other steps you should take to prepare for the
-semester.
+See [[/getting_started/][Getting Started]] for more information on creating a shell account
+and other steps you should take to prepare for the semester.
 
 ** Course Delivery
 We will be implementing a [[http://www.insidehighered.com/blogs/hack-higher-education/top-ed-tech-trends-2012-flipped-classroom][flipped or inverted classroom]]. In a
@@ -92,23 +89,18 @@ will lead directly into graded assignments. In some cases it may be
 possible to complete most of the work of a graded assignment during
 class time.
 
-While I have made small changes in past semesters to transition to a
-flipped classroom environment, this is the first that I have commited
-to it completely.  Expect there to be some bumps along the way. If I
-have to make adjustments to class structure or assignments along the
-way that affect grading, I will always do so in your favor. 
-
 Please feel free to tell me what is working and what is not. There may
 be times and materials that are better suited to a more traditional
 lecture style, so I will remain as flexible and open minded as
 possible and ask that you do the same.
 
 ** Schedule and Assignments   
-  - Syllabus review, due Wednesday Aug 28, 10:10am 
-  - First Blog Post, due Friday, Aug 30 11:59pm
+  - Syllabus review, due Monday, Jan 27, 9:05am 
+  - First Blog Post, due Friday, Jan 31  11:59pm
   - more to come
 *** Late Work
-   - 10% will be deducted from the maximum possible score for each day an assignment is late.
+   - 10% will be deducted from the maximum possible score for each day an assignment is late, up to a maximum of 40%.
+
 *** Create Your Own Assignment
    There are a wide variety of interests in this class, and the Unix
    world is incredibly vast.  It would be impossible (nor appropriate,
@@ -135,7 +127,11 @@ possible and ask that you do the same.
 - Group Project (15%)
 
 ** Final Project
-   During the semester students will form groups of three or four and discuss project ideas. Creative and/or useful project ideas are encouraged, emphasis is not on project complexity, but rather on application of the Unix design philosophy, readable code and the effective use of tools for collaborative software development.
+   During the semester students will form groups of three or four and
+   discuss project ideas. Creative and/or useful project ideas are
+   encouraged, emphasis is not on project complexity, but rather on
+   application of the Unix design philosophy, readable code and the
+   effective use of tools for collaborative software development.
 
 ** Major Learning Objectives
 After completion of this course, participants will be able to
@@ -203,8 +199,8 @@ weeks of the semester.
 Though I am *not* a registered [[http://www.mps.vt.edu/lgbtq/safezone/][Safe Zone]] (I have not completed the
 required training to claim that status), it is my goal to provide a
 safe, inclusive environment in which to learn. If you are ever made to
-feel uncomfortable or unsafe (for *any* reason) in this class, or any
+feel uncomfortable or unsafe for *any* reason in this class, or any
 other, please bring it to my attention. If I am unable to personally
 help or resolve an issue I can direct you to someone more capable and
 will never divulge anything you tell me in confidence to another party
-without your permission (unless required to do so by law).
+without your permission, unless required to do so by law.
