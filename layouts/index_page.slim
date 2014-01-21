@@ -2,9 +2,8 @@
   article
     header
       h1 #{{@item[:title]}}
-    ul
-      - @item[:items].each do |item|
-        li #{{link_to(item[:title], item.identifier)}}
+    - @item[:items].each do |item|
+      #{{link_to(item[:title], item.identifier)}}
 
 
   
