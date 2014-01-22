@@ -68,6 +68,14 @@ module ActivityHelper
     items
   end
 
+  def link_or_content(item)
+    if item[:include]
+      item.compiled_content
+    else
+      link_to(item[:title], item)
+    end
+  end
+
   def items_that_use(item)
     items = []
     topics_provided = list_for item, :provides, :background

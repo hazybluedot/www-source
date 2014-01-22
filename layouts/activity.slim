@@ -4,12 +4,13 @@
       h1 #{item[:title]}
       p
         | Last modified #{{time_tag(item[:mtime])}}
-    section
-      header
-        h1 Background
-      ul
-        - background_items(item).each do |b|
-          li #{{link_to(b[:title], b)}}
+    - if background_items(item).any?
+      section
+        header
+          h1 Background
+        ul
+          - background_items(item).each do |b|
+            li #{{link_or_content(b)}}
       
     section
       == yield
