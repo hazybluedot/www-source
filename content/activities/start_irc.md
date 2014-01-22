@@ -1,5 +1,7 @@
 ---
 title: Connect to IRC with weechat
+kind: activity
+requires: { practice: shell/access }
 ---
 
 # Get on the IRC Channel
@@ -7,9 +9,10 @@ title: Connect to IRC with weechat
 WeeChat is one of many
 [IRC](http://www.irchelp.org/irchelp/new2irc.html)
 [clients](http://www.irchelp.org/irchelp/clients/).  I recommend it
-here because it is fairly simple to setup and use but of course you
-are free to use any client, [irssi](http://www.irssi.org/) is another
-popular console based client.  Console based clients, as opposed to
+because it is fairly simple to setup and use and it's already
+installed the ece2524 server.  Of course, you are free to use any
+client of your choice ([irssi](http://www.irssi.org/) is another
+popular console based client).  Console based clients, as opposed to
 GUI based, play well with other tools such as tmux to
 [set up persistent connections](https://vtluug.org/wiki/Shell_account_tutorial).
 
@@ -25,17 +28,17 @@ will miss out on any conversation when your computer is off or
 disconnected, so it's recommended to use your shell account.
 
 ~~~~ console
-$ ssh username@ece2524.ece.vt.edu
+$ ssh <username>@ece2524.ece.vt.edu
 ~~~~
 
-Where `username` is your CVL account name.
+Where `<username>` is your CVL account name.
 
 ## Use WeeChat to join #ece2524
 
 1. Start weechat
 
    ~~~~ console
-   $ weechat-curses
+   $ weechat
    ~~~~
 
 2. Follow the
