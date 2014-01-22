@@ -2,6 +2,14 @@
 title: Activities
 ---
 
+## Spring 2014
+
+The Spring 2014 Activity list is still being finalized.
+
+1. [Getting Started](/activities/getting_started/)
+
+## Fall 2013
+
 1. Participation
    1. [blogging](/getting_started/)
    2. balanced brace check code review
