@@ -57,13 +57,22 @@ stand alone programs.
    - [[http://catb.org/esr/writings/taoup/][The Art of Unix Programming]], by Eric S. Raymond
    - [[http://www.diveinto.org/python3/][Dive into Python 3]], by Mark Pilgrim
 ** Computing Resources
-Access to our CVL shell account will be our primary means of
+Access to our [[https://computing.ece.vt.edu/wiki/How_to_gain_Remote_Access_to_the_CVL_over_the_Internet][CVL shell account]] will be our primary means of
 interacting with a Unix system.  While you are not required to install
-a Unix/Linux on your own computer you are encouraged to do so and I
+a Unix/Linux OS on your own computer you are encouraged to do so and I
 can provide some assistance and support of that process.
 
-See [[/getting_started/][Getting Started]] for more information on creating a shell account
+See [[/activities/getting_started/][Getting Started]] for more information on creating a shell account
 and other steps you should take to prepare for the semester.
+
+** Other Resources
+
+As you will discover, Unix is not just an operating system, it is a
+community of passionate individuals who volunteer their time to answer
+questions and write open source software tools used by the community.
+The local branch of this world wide community is The Linux and Unix
+Users Group at Virginia Tech ([[http://vtluug.org/][VTLUUG]]). Check out some of their
+meetings and join their [[http://vtluug.org/irc/][IRC channel]] to find out more.
 
 ** Course Delivery
 We will be implementing a [[http://www.insidehighered.com/blogs/hack-higher-education/top-ed-tech-trends-2012-flipped-classroom][flipped or inverted classroom]]. In a
@@ -94,12 +103,15 @@ be times and materials that are better suited to a more traditional
 lecture style, so I will remain as flexible and open minded as
 possible and ask that you do the same.
 
+
 ** Schedule and Assignments   
   - Syllabus review, due Monday, Jan 27, 9:05am 
   - First Blog Post, due Friday, Jan 31  11:59pm
   - more to come
+
 *** Late Work
-   - 10% will be deducted from the maximum possible score for each day an assignment is late, up to a maximum of 40%.
+   - 10% will be deducted from the maximum possible score for each day
+     an assignment is late, up to a maximum of 40% off.
 
 *** Create Your Own Assignment
    There are a wide variety of interests in this class, and the Unix
