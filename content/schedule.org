@@ -3,5 +3,7 @@ title: Schedule
 ---
 
 * 
-** Stand By
-The Spring 2014 schedule is still being tweaked.
+** Monday, Jan 27
+- Address any questions about the syllabus
+- Overview of IRC and WeeChat
+- [[/assets/images/history_of_nix.svg][A Brief History of Unix]]
