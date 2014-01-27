@@ -36,6 +36,7 @@ end
 
 compile '/indexes/*/' do
   layout 'index_page'
+  filter :relativize_paths, :type => :html
 end
 
 compile '/assets/*' do
