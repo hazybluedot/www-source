@@ -1,0 +1,22 @@
+---
+title: Arguments and Paradigms
+---
+
+Two ideas:
+
+1. explore command line arguments in C/C++ and bash provide source for
+   simple argument printer, explore what processing the shell does
+   before arguments are seen by the process. Emphasize that a process
+   is in no way made "aware" of redirects, or globing.
+
+2. Paradigm exploration. How would we design the 'wordfreq'
+   application using a OOP model? How does that differ from how the
+   pipeline was designed?  Any obvious disadvantages or advantages to
+   either method?
+
+Looking towards the short-term future:
+
+supplying a simple flex/bison based parser to generate a data structure could be pretty cool
+- command string to data structure (command, arguments, redirects)
+- expression parser (variable assignment, arithmatic operations) -> AST
+

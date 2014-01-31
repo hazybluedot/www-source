@@ -1,0 +1,81 @@
+---
+title: Now you have two problems
+---
+
+*
+** Notable Regex Quotes 
+
+#+BEGIN_QUOTE
+Some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems. -- Jamie Zawinski
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Regular expressions are like a particularly spicy hot sauce – to be used in moderation and with restraint only when appropriate.
+-- [[http://www.codinghorror.com/blog/2008/06/regular-expressions-now-you-have-two-problems.html][Jeff Atwood]]
+#+END_QUOTE
+
+** Matching Compiler-like errors
+   As we discussed in relation to the balanced brace checker activity, the C compiler generates error messages of the form
+
+   #+BEGIN_EXAMPLE
+   file:line:column: message
+   #+END_EXAMPLE
+   
+   For the purposes of this exercise let's assume ~file~ names must 
+   - be at least one character long
+   - start with a letter
+   - contain only letters, numbers, periods and underscores (~_~)
+     
+   ~line~ and ~column~ 
+   - must be one or more digit
+   - can't start with a '0'
+
+   And finally ~message~
+   - must be at least one character long
+   - must start with a letter
+   - may contain any character
+   
+   Given a file containing text like
+
+   #+BEGIN_EXAMPLE
+   test1.c:2:1: this line should match
+   :20:1: this line should not match
+   this line shouldn't match:30:1 for sure
+   test2.c:0:10: nor should this one
+   test3.c:901:35: but this one should
+   #+END_EXAMPLE
+
+   Write a ~grep~ or ~egrep~ command that filters only the lines
+   indicating they should match.
+
+** Matching phone numbers
+   A phone number is a [[http://discuss.fogcreek.com/joelonsoftware3/default.asp?cmd%3Dshow&ixPost%3D102667&ixReplies%3D15][10 digit number like]]
+   #+BEGIN_EXAMPLE
+   NXX NXX XXXX
+   #+END_EXAMPLE
+
+   Where ~N~ can be a digit betwen 2 and 9 and ~X~ can be a digit
+   between 0 and 9.  The separation character between the three blocks
+   is option and may be a space, hyphen (~-~) or dot (~.~).
+
+   Given a file containing text like
+   #+BEGIN_EXAMPLE
+   the quick brown fox called 555-456-7890
+   followed by 234 456 0990 which are both valid phone numbers.
+   But then the fox tried 012 340 9876 and
+   555 123 4566 which are not valid numbers.
+   Finally the fox called 800-588-8649 and 6736768723
+   which are both pretty awesome.
+   #+END_EXAMPLE
+
+   And using the [[http://www.catb.org/esr/writings/taoup/html/ch08s02.html#regexps][regex tables]] as a guide, write a ~grep~ or ~egrep~ commands that
+   1. print each line containing a number
+   2. print each line containing a valid phone number
+   3. print each valid phone number, one per line
+   4. print lines containing the string 'fox' followed by any number of words, followed by a phone number.
+
+   Try each of your regular expressions in the [[http://www.regexper.com/][Regexper]] visualizer to see the state machine it represents.
+** Regex Resources
+- [[http://regexone.com][RegexOn]]e - Interactive tutorial
+- [[http://www.regexper.com/][Regexper]] - Regex visualizer
+- [[http://regexcrossword.com/][Regex Crossword]] - If you like crossword puzzles...

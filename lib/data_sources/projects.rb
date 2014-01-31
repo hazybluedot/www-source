@@ -20,6 +20,7 @@ module Nanoc::DataSources
     def sync
       #require 'rugged'
       # TODO: get something prettier
+      return if config.has_key? :active && !config[:active]
       system("git-pull-all CREATOR/project repos/project_proposals/CREATOR", :chdir => File.join(ENV['HOME'], 'ece2524/'))
     end
     

@@ -16,6 +16,7 @@ module Nanoc::DataSources
     end
 
     def sync
+      return if config.has_key? :active && !config[:active]
       config[:repos_root] = 'repos'
       config[:git_url] = 'ece2524git@ece2524.ece.vt.edu'
       system("git pull", :chdir => 'user-data/push_logs/')

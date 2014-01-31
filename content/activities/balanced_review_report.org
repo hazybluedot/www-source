@@ -1,0 +1,23 @@
+---
+title: Balaned Brace Checker Review Report
+test_type: bonair
+feature: features/balanced_review
+---
+
+* 
+Working from your cloned copy of AUTHOR's code, add a file named ~report.txt~ to the base directory containing
+
+#+BEGIN_EXAMPLE
+modularity: [0-3]
+orthogonality: [0-3]
+spot: [0-3]
+strong_center: [0-3]
+
+a short paragraph with your feedback and suggestions to AUTHOR to make their code easier to read, more modular, etc.
+#+END_EXAMPLE
+
+Where you rate each property on a scale of 0 to 3: 0 corresponding to
+no demonstration of this property in AUTHOR's code, and 3 indicating
+AUTHORs code demonstrates the property perfectly.
+
+add/commit the ~report.txt~ file and push the repo.  Remember, the remote 'origin' should be ~<%= config[:git_url]%>:REVIEWER/forks/AUTHOR/balanced.git~

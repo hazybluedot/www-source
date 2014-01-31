@@ -1,0 +1,82 @@
+---
+title: Balaned Brace Checker Review Merge
+test_type: bonair
+feature: features/balanced_merge
+---
+
+
+* 
+** Git Branching
+[[http://pcottle.github.io/learnGitBranching/?NODEMO][In Class Demo]]
+
+** Merge REVIEWER's changes
+Make your ~balanced~ working directory your current working directory.  Confirm you are in your ~master~ branch by running ~git branch~.
+Checkout a new branch, naming it your REVIEWER's username:
+
+#+BEGIN_SRC console
+$ git checkout -b REVIEWER
+#+END_SRC
+
+Note, the ~-b~ option to ~git commit~ makes this command a shortcut for
+
+#+BEGIN_SRC
+$ git branch REVIEWER
+$ git checkout REVIEWER
+#+END_SRC
+
+At this point your ~REVIEWER~ branch is identical to your ~master~ branch.  Now we will pull in the changes your REVIEWER made:
+
+#+BEGIN_SRC 
+$ git pull <%= config[:git_url]%>:REVIEWER/forks/AUTHOR/balaned.git master
+#+END_SRC
+
+If you want to know what is different between your REVIEWER's code and your own:
+
+#+BEGIN_SRC console
+$ git diff master
+#+END_SRC
+
+This tells ~git~ to print the difference between your master branch
+and your current branch.  Lines that have been added will start with a
+~+~, while lines that have been removed will start with a ~-~.  If you
+turn on the color UI option added lines will print in green and
+removed lines will print in red:
+
+#+BEGIN_SRC console
+$ git config --global color.ui true
+$ git diff master
+#+END_SRC
+
+Make sure that any changes your REVIWER made don't break your code!
+Try compiling this branch and run the balanced checker with some test
+input to confirm that it works.  
+
+If your REVIEWER suggested any changes that you should make, make them
+in this branch first, not your ~master~ branch, and test the changes.
+
+When you are sure that the code in your ~REVIEWER~ branch is correct
+it's time to merge those changes back into the ~master~ branch.
+
+#+BEGIN_SRC console
+$ git checkout master # first, make 'master' your current branch
+$ git merge REVIEWER  # merge changes made in REVIWER to your current branch
+#+END_SRC
+
+If all goes well the merge will be completed automatically and you'll see an ouput similar to
+
+#+BEGIN_EXAMPLE
+Updating bdfa5f9..29750ed
+Fast-forward
+ balanced.cpp | 9 ++++++++-
+ report.txt   | 4 ++++
+ 2 files changed, 12 insertions(+), 1 deletion(-)
+ create mode 100644 report.txt
+#+END_EXAMPLE
+
+In the event that ~git~ could not figure out how to automatically
+merge changes in your REVIEWER branch to master, for instance if you
+had made changes in ~master~ in similar places that changes were made
+in ~REVIEWER~ the output will indicate that a CONFLICT occured and
+list any files with conflicting information.  You will have to open
+those files in your text editor and manually resolve the conflict and
+complete the merge.
