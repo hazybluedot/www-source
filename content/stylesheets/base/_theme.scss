@@ -97,7 +97,7 @@ html {
 body {
     > header {
         background: $header-bg;
-        h1, h2 {
+        h1, p {
 	    a {
 	        @include link-colors($title-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
 	        text-decoration: none;
@@ -106,7 +106,7 @@ body {
         h1 {
             @include adjust-font-size-to($base-font-size * 3);
         }
-        h2 { 
+        p { 
             @include adjust-font-size-to($base-font-size * 2);
         }
     }

@@ -19,7 +19,7 @@ $header-subtitle-font-family: $heading-font-family !default;
 .mono { font-family: $mono; }
 
 
-section#content {
+main {
     h1 {
         @include adjust-font-size-to($base-font-size * 3, $lines:2);
     }

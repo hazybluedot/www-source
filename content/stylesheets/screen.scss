@@ -41,11 +41,11 @@ body {
     @include container($total-columns, $desktop);
 }
 
-section#content {
+main {
 }
 
 @include at-breakpoint($desktop) {
-    section#content {
+    main {
 	@include pad(2,1,$desktop);
     }
 }
@@ -54,7 +54,7 @@ section#content {
 @import "base/typography";
 @import "partials/project_list";
 
-section#content {
+main {
   // calling susy's container mixin will apply the grid to that element.
     //@extend .grid;
 }

@@ -12,7 +12,7 @@ author_uri: 'http://hazyblue.me'
 gl_user: 'ece2524git'
 gl_host: 'ece2524.ece.vt.edu'
 
-syndicate_since: 'Aug 26 00:00:01 GMT 2013'
+syndicate_since: 'Jan 20 00:00:01 GMT 2014'
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
 # relative to the site directory.
@@ -81,12 +81,14 @@ data_sources:
   - type: snippets
     items_root: /snippets/
     
-  - type: projects
-    items_root: /projects/
+  #- type: projects
+  #  items_root: /projects
+  #  active: false
 
-  - type: project_reviews
-    items_root: /reviews/
-    repos_root: repos
+  #- type: project_reviews
+  #  items_root: /reviews/
+  #  repos_root: repos
+  #  active: false
 
   - type: cuke_features
     feature_path: /features/
