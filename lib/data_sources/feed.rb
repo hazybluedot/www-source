@@ -10,7 +10,7 @@ module Nanoc::DataSources
   Feedzirra::Feed.add_common_feed_entry_element('category', :as => :category)
   Feedzirra::Feed.add_common_feed_entry_element('dc:creator', :as => :creator)
   Feedzirra::Feed.add_common_feed_entry_element('slash:comments', :as => :comment_count)
-
+  Feedzirra::Feed.add_common_feed_entry_element('comments', :as => :comment_url)
   
   class Feeds < Nanoc::DataSource
     identifier :feeds
