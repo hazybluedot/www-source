@@ -114,9 +114,11 @@ compile '*' do
       layout 'activity'
     when 'article_list'
       layout 'ordered_articles'
+      filter :vstrip
     else
       layout 'article'
     end
+    filter :command_code
     filter :relativize_paths, :type => :html
   end
 end
