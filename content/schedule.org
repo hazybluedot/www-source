@@ -7,3 +7,15 @@ title: Schedule
 - Address any questions about the syllabus
 - Overview of IRC and WeeChat
 - [[/assets/images/history_of_nix.svg][A Brief History of Unix]]
+
+** Monday, Feb 3
+- Guest Announcements
+  - NSF Scholarship Opportunities
+  - AMP Lab Demo
+  - [[/assets/images/hancock_hump_day_flyer.jpg][Hancock Hump Day]]
+- Command Discussion
+  - Discuss self study questions
+  - Connect elements of command design to history and philosophy
+- Pipeline examples
+  - count number of blog submissions
+  - calculate percentage of class that have submitted blog URLs
