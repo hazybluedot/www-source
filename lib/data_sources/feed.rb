@@ -24,12 +24,26 @@ module Nanoc::DataSources
     def items
       items = []
       # Get all files under prefix dir
-      get_feeds(@prefix).each do |feed|
+      feeds.each do |feed|
         items.concat(read_entries(feed))
       end
-      items
+      items << blogroll
+    end
+
+    def feeds
+      @feeds ||= get_feeds(@prefix)
     end
     
+    def blogroll
+      Nanoc::Item.new("", {
+                        :title => "Blogroll",
+                        :feeds => feeds,
+                        :kind => 'blogroll'
+                      },
+                      "/blogroll"
+                      )
+    end
+
     def sync
       require 'uri'
       require 'stringex'
