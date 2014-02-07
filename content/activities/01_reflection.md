@@ -19,14 +19,20 @@ require: { background: unix/philosophy/intro }
    - If you are not already, get in the `#ece2524` IRC channel.
    - Send a private message to `RoboRitchie` to tell him your PID
 
-         /msg RoboRitchie my pid is <pid>
-
+     ~~~~~ irc
+     /msg RoboRitchie my pid is <pid>
+     ~~~~~
+     {: .command-syntax }
+     
      Where `<pid>` is your Virginia Tech PID.
 
    - Switch to the buffer containing the private chat with `RoboRitchie` to check for any errors.
    - Tell `RoboRitchie` to add your feed url
 
-         /msg RoboRitchie add feed <feed_url>
+     ~~~~
+     /msg RoboRitchie add feed <feed_url>
+     ~~~~
+     {: .command-syntax }
 
      Where `<feed_url>` is a working URL to a page on your blog, or an RSS/Atom feed.
 

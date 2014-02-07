@@ -1,6 +1,6 @@
 ---
 title: Finding Your Way on the Filesystem
-require: { background: shell/comfort }
+require: { background: [ shell/file_manipulation, shell/commands/help, shell/redirection, shell/pipes ] }
 provides: { practice: shell/comfort }
 kind: activity
 ---
