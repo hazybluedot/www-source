@@ -60,6 +60,24 @@ $footer-link-color: darken($footer-bg, 38) !default;
 $footer-link-color-hover: darken($footer-color, 25) !default;
 $page-border-bottom: darken($footer-bg, 5) !default;
 
+article {
+    header {
+        span {
+            color: lighten($text-color, 5);
+            a {
+                color: lighten($link-color, 5);
+            }
+        }
+    }
+}
+
+footer {
+    color: lighten($text-color, 5);
+    a {
+        color: lighten($link-color, 5);
+    }
+}
+
 @mixin button($bgcolor, $color) {
     background-color: $bgcolor;
     color: $color;
