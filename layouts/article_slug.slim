@@ -1,0 +1,9 @@
+article
+  header
+    h1 #{{link_to(item[:title], item[:entry_url])}}
+    span class="entry-date" #{{time_tag(item[:created_at])}}
+    span class="byline" #{{author_of(item)}}
+  == get_post_start(item)
+  - if item[:comment_url]
+    footer
+      | leave a comment 
