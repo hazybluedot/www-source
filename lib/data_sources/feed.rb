@@ -70,7 +70,7 @@ module Nanoc::DataSources
           begin
             feeds.push(Feedzirra::Feed.parse(file.read()))
           rescue Feedzirra::NoParserAvailable => e
-            $stderr.puts 'Error: ' + file.path
+            $stderr.puts "#{file.path}: #{e}"
           end
         end
       end
@@ -119,17 +119,24 @@ module Nanoc::DataSources
     end
     
     def concurrent_fetch(uris)
-      hydra = Typhoeus::Hydra.new
+      hydra = Typhoeus::Hydra.new(max_concurrency: 40)
       feeds = {}
       uris.each do |uri|
         r = Typhoeus::Request.new(uri, followlocation: true)
         r.on_complete do |response|
-          $stderr.puts "Fetched #{r.url}"
-          feed_url = URI(r.url)
-          feed_dir = File.dirname(File.join(Dir.pwd, config[:feeds_root], feed_url.host.gsub('.','_'), feed_url.path))
-          Dir.exists?(feed_dir) ? nil : FileUtils.mkdir_p(feed_dir)
-          file_path = File.join(File.realpath(feed_dir), 'feed.xml')
-          File.open(file_path, 'w+') { |file| file.write(response.body) }
+          if response.success?
+            feed_url = URI(r.url)
+            feed_dir = File.dirname(File.join(Dir.pwd, config[:feeds_root], feed_url.host.gsub('.','_'), feed_url.path))
+            Dir.exists?(feed_dir) ? nil : FileUtils.mkdir_p(feed_dir)
+            file_path = File.join(File.realpath(feed_dir), 'feed.xml')
+            File.open(file_path, 'w+') { |file| file.write(response.body) }
+          elsif response.timed_out?
+            $stderr.puts "#{r.url}: time out"
+          elsif response.code == 0
+            $stderr.puts "#{r.url}: #{response.return_message}"
+          else
+            $stderr.puts "#{r.url}: #{response.code.to_s}"
+          end
         end
         hydra.queue r
       end
