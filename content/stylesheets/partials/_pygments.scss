@@ -69,3 +69,21 @@ pre {
   .il     { color: #009999 }                                          /* Literal.Number.Integer.Long */
   //div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}
 }
+
+pre.command-syntax span.user-substitution {
+    //font-family: $sans;
+    font-style: italic;
+    font-weight: bold;
+    color: $solar-orange;
+    
+}
+
+.user-input {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.explain-shell {
+    padding-left: 1em;
+    padding-right: 1em;
+}
