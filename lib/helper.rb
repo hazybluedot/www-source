@@ -63,7 +63,7 @@ module PostHelper
       content = content.partition('<!-- more -->').first +
         "<footer><div class='read-more'><a href='#{post.path}'>Continue reading &rsaquo;</a></div></footer>"
     end
-    return content
+    content
   end
 
   def image_tag(image)
