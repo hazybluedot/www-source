@@ -1,5 +1,6 @@
 - render 'default' do
-  h1 #{{@item[:title]}}
+  header
+    h1 #{{@item[:title]}}
   / - ol class="article_list"
   - @item[:items].each do |post|
     == render @item[:item_layout], :item => post
