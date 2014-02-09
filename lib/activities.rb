@@ -69,7 +69,7 @@ module ActivityHelper
   end
 
   def link_or_content(item)
-    if item[:include]
+    if item[:include] or item[:inline]
       item.compiled_content
     else
       link_to(item[:title], item)
