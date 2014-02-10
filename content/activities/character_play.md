@@ -1,7 +1,7 @@
 ---
 Title: Character Play
 kind: activity
-requires: { background: examples/tolower.c }
+requires: { background: [  tools/editor_intro, examples/tolower.c ] }
 ---
 
 ## Play
