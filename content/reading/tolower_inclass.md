@@ -1,6 +1,8 @@
 ---
 title: "Write a simple `tolower` program"
 provides: { background: examples/tolower.c }
+requires: { background: tools/editor_intro }
+kind: reading
 ---
 
 ## Compile and Understand `tolower.c`

@@ -117,6 +117,8 @@ compile '*' do
     case item[:kind]
     when 'activity'
       layout 'activity'
+    when 'reading'
+      layout 'activity'
     when 'article_list'
       layout 'ordered_articles'
       filter :vstrip
