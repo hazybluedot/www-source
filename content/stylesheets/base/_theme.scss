@@ -174,3 +174,22 @@ pre {
 }
 
 @import "partials/pygments";
+
+
+%alert {
+    @include border-radius(5px);       
+    padding: .75em;
+    @include leader;
+    @include trailer;
+}
+
+@mixin alert_box($color) {
+    @extend %alert;
+    background: lighten($color, 50%);
+    @include single-box-shadow($color);
+    
+}
+
+.notice {
+    @include alert_box($solar-yellow);
+}
