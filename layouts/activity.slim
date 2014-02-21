@@ -40,5 +40,11 @@
             p
               | The following features will be tested using cucumber:
             - features(f).each do |feature|
-              == feature.compiled_content
-      footer
+              == feature.compiled_content              
+            p 
+              | You can run the tests manually with 
+              pre
+                code
+                  | $ cucumber /usr/share/#{{f[:feature]}}
+              | when logged in to your shell account. This command assumes your current working directory is your project directory.
+  footer
