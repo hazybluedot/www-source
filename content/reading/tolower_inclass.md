@@ -1,6 +1,6 @@
 ---
 title: "Write a simple `tolower` program"
-provides: { background: examples/tolower.c }
+provides: { background: examples/tolower.c, practice: patterns/stdio }
 requires: { background: tools/editor_intro }
 kind: reading
 ---
