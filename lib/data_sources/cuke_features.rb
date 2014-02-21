@@ -2,6 +2,7 @@ require 'gherkin/parser/parser'
 require 'gherkin/formatter/json_formatter'
 require 'stringio'
 require 'multi_json'
+require 'cgi'
 
 include Nanoc::Extra::FilesystemTools
 
@@ -55,7 +56,7 @@ module Nanoc::DataSources
           :title => features(content).first,
           :tags => tags(content)
         }
-        Nanoc::Item.new("<pre><code>#!gherkin\n#{content.join('')}</code></pre>", meta, identifier)
+        Nanoc::Item.new("<pre><code>#!gherkin\n#{CGI.escapeHTML(content.join(''))}</code></pre>", meta, identifier)
       end
     end
 
