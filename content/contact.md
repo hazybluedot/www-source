@@ -21,5 +21,6 @@ to and who I haven't!
 ## Office Hours:
 
 - Whittemore 356
-- Monday, Tuesday 2-3:30pm
+- Tuesday 1:45-3:15pm
+- Thursday 10:30-noon
 - Friday 10:30-noon
