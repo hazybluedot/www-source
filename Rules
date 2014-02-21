@@ -32,6 +32,7 @@ preprocess do
   @items << syndicated_list('Fall 2013', '/projects/f13/', sorted_projects, item_layout:'project_slug', identifier:'/projects/')
   taxonomy_items = taxonomy_items("/taxonomy/tools")
   @items << taxonomy_items if taxonomy_items.any?
+  @items << activity_schedule("/activities_list/", :activity_list => "/schedule_v2/")
 end
 
 compile '/indexes/*/' do
@@ -94,6 +95,11 @@ compile '/reviews/*' do
     filter :colorize_syntax, :default_colorizer => :pygmentsrb
   end
   layout 'project_review'
+  filter :relativize_paths, :type => :html
+end
+
+compile '/activities_list/' do
+  layout 'schedule'
   filter :relativize_paths, :type => :html
 end
 

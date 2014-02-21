@@ -1,0 +1,37 @@
+---
+title: Schedule
+schedule:
+  /activities/getting_started/: 
+    due: "Jan 27, 2014 9:05am EST"
+  /activities/shell_comfort/: 
+    due: "Jan 29, 9:05am EST"
+  /activities/01_reflection/:
+    due: "Jan 31, 11:59pm EST"
+  /activities/shell_comfort2/:
+    due: "Feb 3, 9:05am EST"
+  /activities/word_count_intro:
+    due: "Feb 5, 9:05am EST"
+  /activities/open_blogging/:
+    due: [ "Feb 7, 11:59pm EST", "weekly" ]
+  /activities/open_blogging/:
+    due: [ "Feb 14, 11:59pm EST", "weekly" ]
+  /activities/open_blogging/:
+    due: "Feb 21, 11:59pm EST"
+  /activities/character_play/:
+    due: "Feb 10, 9:05am EST"
+  /activities/git_intro/:
+    inclass: "Feb 12, 9:05am EST"
+  /reading/important_structures/:
+    inclass: "Feb 10, 9:05am EST"
+  /activities/motr/:
+    open: "Feb 12, 9:05am EST"
+    due: "Feb 17, 9:05am EST"
+  /reading/permissions/:
+    due: "Feb 17, 9:05am EST"
+  /reading/processes/:
+    due: "Feb 19, 9:05am EST"
+  /reading/files_procs_pipes/:
+    due: "Feb 24, 9:05am EST"
+  /activities/inclass_perms_procs/:
+    inclass: "Feb 19, 9:05am EST"
+---

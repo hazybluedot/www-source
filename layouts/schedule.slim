@@ -1,21 +1,13 @@
----
-title: Schedule
----
-
-- sorted_schedule_items.each do |item|
-  article class="#{past?(item) ? 'past' : 'future'}"
-    - if past?(item)
-      header
-        h1 #{{link_to(item[:for_date].to_s,item.identifier)}}
-    - else
-      header
-        h1 #{item[:for_date].to_s}
-      == item.compiled_content
-      - act = activities_for(item[:for_date]) 
-      - if act.any?
-        section
-          header
-            h1 In Class
-          ol
-            - act.each do |a|
-              li #{{ link_to(a[:title], a.identifier) }}
+- render 'default' do
+  article
+    header
+      h1
+        #{item[:title]}
+    ol class="activity_schedule"
+      - activity_by_date(item[:schedule]).each do |date,items|
+        li 
+          | #{{time_tag(date, '%A, %B %-d by %I:%M%P')}}
+          ul
+            == render 'schedule_item_slug', :schedule_items => items, :sym => :due, :title => 'Due'
+            == render 'schedule_item_slug', :schedule_items => items, :sym => :inclass, :title => 'In Class'
+            == render 'schedule_item_slug', :schedule_items => items, :sym => :open, :title => 'Open'

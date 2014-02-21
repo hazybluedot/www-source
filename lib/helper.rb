@@ -8,12 +8,17 @@ require 'uri'
 require 'summarize'
 
 module PostHelper
+  def attribute_to_datetime(time)
+    time = DateTime.parse(time) if time.is_a?(String)
+    time
+  end
+
   def rfc_time(time)
-    DateTime.parse(attribute_to_time(time).strftime('%B %-d, %Y %H:%M %z')).rfc3339
+    DateTime.parse(attribute_to_datetime(time).strftime('%B %-d, %Y %H:%M %z')).rfc3339
   end
   
-  def pretty_time(time)
-    attribute_to_time(time).strftime('%B %-d, %Y')
+  def pretty_time(time, format='%B %-d, %Y')
+    attribute_to_datetime(time).strftime(format)
   end
 
   def pub_prettydate(post)
@@ -32,8 +37,8 @@ module PostHelper
     rfc_time(post[:mtime])
   end
 
-  def time_tag(time)
-    "<time pubtime datetime=\"#{rfc_time(time)}\">#{pretty_time(time)}</time>"
+  def time_tag(time, format='%B %-d, %Y')
+    "<time pubtime datetime=\"#{rfc_time(time)}\">#{pretty_time(time, format)}</time>"
   end
 
   def topics_for(post)

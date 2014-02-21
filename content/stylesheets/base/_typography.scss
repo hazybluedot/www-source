@@ -200,3 +200,11 @@ blockquote {
         }
     }
 }
+
+ol.activity_schedule {
+    @include no-bullet;
+    ul,ol {
+        @include no-bullets;
+        margin-left: em(5px);
+    }
+}
