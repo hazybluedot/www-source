@@ -1,5 +1,5 @@
 ---
-title: Word Count Program
+title: "Word Count Program"
 kind: activity
 requires: { background: [ impl/wordfreq, shell/keyboard ] }
 ---

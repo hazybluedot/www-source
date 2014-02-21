@@ -1,7 +1,8 @@
 ---
-Title: Character Play
+title: Character Play
 kind: activity
 requires: { background: [  tools/editor_intro, examples/tolower.c ] }
+provides: { practice: [ patterns/stdio ] }
 ---
 
 ## Play
