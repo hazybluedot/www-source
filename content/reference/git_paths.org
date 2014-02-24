@@ -5,9 +5,9 @@ title: Git path reference
 * Git and gitolite
 We are using git to manage our software projects.  To help manage the
 multi-user controll access on our class server I am using gitolite.
-The user running ~gitolite~ is ~ece2524git~, and so all remote git
+The user running ~gitolite~ is ~git~, and so all remote git
 transactions will use a url starting with
-~ece2524git@ece2524.ece.vt.edu:~ what you put after the ~:~ will
+~git@ece2524.ece.vt.edu:~ what you put after the ~:~ will
 determine which repository you are accessing. You will often see a
 trailing ~.git~ in repo URLS.  This is a convention used to indicate a
 server-based "bare" repository: one without a working directory.  If
@@ -24,14 +24,14 @@ username you set when copying your public key to the server. In most
 cases this is the same as your CVL account user name.
 
 ** Helpful Settings
-   Since we do an aweful lot of typing ~ece2524git@ece2524.ece.vt.edu~
+   Since we do an aweful lot of typing ~git@ece2524.ece.vt.edu~
    it will be useful to add some lines to our ~.ssh/config~ file so
    that we can type less.
 
    #+BEGIN_EXAMPLE
    Host ece2524
        HostName ece2524.ece.vt.edu
-       User ece2524git
+       User git
        ForwardAgent yes
    #+END_EXAMPLE
 
@@ -40,7 +40,7 @@ cases this is the same as your CVL account user name.
    chmod 600 ~/.ssh/config
    #+END_EXAMPLE
 
-   This names our host ~ece2524~ and uses a default user of ~ece2524git~, so now all of the ~git clone~ and ~fork~ commands can be shortened. For instance, to ~fork~ the ~skel/redir~ repository to ~rflowers/redir~:
+   This names our host ~ece2524~ and uses a default user of ~git~, so now all of the ~git clone~ and ~fork~ commands can be shortened. For instance, to ~fork~ the ~skel/redir~ repository to ~rflowers/redir~:
    
    #+BEGIN_EXAMPLE
    ssh ece2524 fork skel/redir rflowers/redir
@@ -70,8 +70,8 @@ cases this is the same as your CVL account user name.
 
    After that, if all goes well
 ** Troubleshooting
-- asked for the ~ece2524git~ password
-if you are ever asked for the 'ece2524git' password it means something is wrong with your ssh key (this is the file that was created when you ran ssh-keygen). The three most common problems are
+- asked for the ~git~ password
+if you are ever asked for the 'git' password it means something is wrong with your ssh key (this is the file that was created when you ran ssh-keygen). The three most common problems are
 
 1. you created your key locally and are now trying to run git comands while connected to the ece2524 server (or the reverse scenario).
 2. you overwrote or remade your keys (for instance, you reinstalled your system, or created a new virtual machine, and had to run ssh-keygen again) but haven't copied the new keys to the server
@@ -88,6 +88,6 @@ Solutions:
 
 ** fdtest
 - skeleton repo: ~skel/fdtest~
-- fork command: ~ssh ece2524git@ece2524.ece.vt.edu fork skel/fdtest USER/fdtest~
+- fork command: ~ssh git@ece2524.ece.vt.edu fork skel/fdtest USER/fdtest~
 - user repo path: ~USER/fdtest.git~
 - results repo: ~results/USER/fdtest.git~
