@@ -43,7 +43,7 @@ get through at least here by start-of-class Wednesday, February 26
 
 ~~~~ console
 $ cd ~/ece2524/motr
-$ git remote add git@ece2524.ece.vt.edu:<cvl_username>/motr.git
+$ git remote add origin git@ece2524.ece.vt.edu:<cvl_username>/motr.git
 $ git remote -v
 ~~~~
 {: .command-syntax .no-explain }
@@ -76,3 +76,11 @@ Get a neighbor's username, then give them read access to your `motr` repo
 $ ssh git@ece2524.ece.vt.edu perms <your_cvl_username>/motr + READERS <other_username>
 ~~~~
 {: .no-explain .command-syntax }
+
+## The Big Picture
+
+<iframe src="/assets/images/git_flow.svg">
+    This was supposed to be an SVG document
+        in an &lt;object&gt; element.
+</iframe>
+[Git Workflow](/assets/images/git_flow.svg)

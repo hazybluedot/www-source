@@ -165,6 +165,10 @@ route '/stylesheets/*' do
   item.identifier.chop + '.css'
 end
 
+route '/assets/api/*' do
+  item.identifier.chop
+end
+
 route '/assets/*' do
   item.identifier.chop
 end
