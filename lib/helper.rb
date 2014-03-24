@@ -66,7 +66,7 @@ module PostHelper
     content = post.compiled_content
     if content =~ /\s<!-- more -->\s/
       content = content.partition('<!-- more -->').first +
-        "<footer><div class='read-more'><a href='#{post.path}'>Continue reading &rsaquo;</a></div></footer>"
+        "<footer><div class='read-more'><a href='#{post[:entry_url]}'>Continue reading &rsaquo;</a></div></footer>"
     end
     content
   end
