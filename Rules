@@ -69,6 +69,10 @@ compile '/stylesheets/custom/*' do
   # don’t filter or layout
 end
 
+compile '/command_transcript_test/*' do
+  filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
+end
+
 compile '/stylesheets/*/' do
   filter :sass, sass_options.merge(:syntax => :scss)
   filter :relativize_paths, :type => :css
@@ -79,7 +83,7 @@ compile '/syndicated/*/' do
 end
 
 compile '/projects/*/' do
-  filter :kramdown, :fenced_code_blogs => true
+  filter :kramdown, :fenced_code_blocks => true
 end
 
 compile '/features/*/'do
