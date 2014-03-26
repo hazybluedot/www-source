@@ -1,6 +1,16 @@
 ---
 title: Schedule
 schedule:
+  /activities/midterm/:
+    due: "Mar 26, 2014 11:59pm EST"
+  /activities/word_count_part2/:
+    due: "Mar 24, 2014 9:05am EST"
+  /activities/midterm_practice/:
+    due: "Mar 24, 2014 9:05am EST"
+  /activities/open_blogging/:
+    due: "Mar 21, 2014 11:59pm EST"
+  /reading/unix_and_oo/:
+    due: "Mar 19, 2014 9:05am EST"
   /activities/getting_started/: 
     due: "Jan 27, 2014 9:05am EST"
   /activities/shell_comfort/: 
@@ -34,4 +44,26 @@ schedule:
     due: "Feb 24, 9:05am EST"
   /activities/inclass_perms_procs/:
     inclass: "Feb 19, 9:05am EST"
+  /reading/modularity_intro/:
+    due: "Feb 26, 9:05am EST"
+  /activities/inclass_week6_1/:
+    inclass: "Feb 24, 9:05am EST"
+  /reading/ssh_keypair/:
+    due: "Feb 26, 9:05am EST"
+  /activities/inclass_git_remote/:
+    inclass: "Feb 26, 9:05am EST"
+  /activities/word_count_part1/:
+    due: "Mar 1, 11:59pm"
+  /reading/compactness_orthogonality/:
+    due: "Mar 3, 9:05am"
+  /activities/inclass_week7_1/:
+    inclass: "Mar 3, 9:05am"
+  /reading/layers_libraries/:
+    due: "Mar 5, 9:05am"
+  /activities/inclass_week7_2/:
+    inclass: "Mar 5, 9:05am"
+  /activities/midterm_reflection/:
+    due: "Mar 17, 9:05am EST"
+  /activities/inclass_getopt/:
+    inclass: "Mar 17, 9:05am EST"
 ---
