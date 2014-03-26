@@ -1,6 +1,8 @@
 ---
 title: Continuing with CLAs
 kind: activity
+provides: { background: 'cla/intro2' }
+requires: { background: 'cla/intro' }
 ---
 
 # Announcements
@@ -47,7 +49,7 @@ matter who is who.
 
       $ ssh git@ece2524.ece.vt.edu perms user1/wordfreq + READERS user2
 
-- `user2` fork `user2`'s repo
+- `user2` fork `user1`'s repo
 
       $ ssh git@ece2524.ece.vt.edu fork user1/wordfreq user2/forks/wordfreq
 
@@ -89,7 +91,18 @@ Since this will be a collaborative effort, at some point `user1` will
 need to pull updates made by `user2` back into their own repo. They
 will set up a remote refering to `user2`'s forked code
 
-      $ git remote add user2 git@ece2524.ece.vt.edu:user1/forks/wordfreq.git
+      $ git remote add user2 git@ece2524.ece.vt.edu:user2/forks/wordfreq.git
+
+- Note: There was a typo earlier, if you already ran the previous
+command with the incorrect url (`user1` instead of `user2`) run
+
+  ~~~~ console
+  $ git remote set-url user2 git@ece2524.ece.vt.edu:user2/forks/wordfreq.git
+  ~~~~~
+  {: .no-explain}
+
+  to fix it
+{: .notice}
 
 ## Graphical representation
 

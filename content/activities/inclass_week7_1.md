@@ -1,6 +1,7 @@
 ---
 title: Compactness, Orthogonality, CLAs, oh my!
 kind: activity
+provides: { background: 'cla/intro' }
 ---
 
 
