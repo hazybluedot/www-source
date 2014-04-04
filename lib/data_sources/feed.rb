@@ -1,16 +1,16 @@
-require 'feedzirra'
+require 'feedjira'
 
-module Feedzirra::Parser
+module Feedjira::Parser
   class RSS
     element :'atom:link', :value => :href, :as => :feed_url
   end
 end
 
 module Nanoc::DataSources
-  Feedzirra::Feed.add_common_feed_entry_element('category', :as => :category)
-  Feedzirra::Feed.add_common_feed_entry_element('dc:creator', :as => :creator)
-  Feedzirra::Feed.add_common_feed_entry_element('slash:comments', :as => :comment_count)
-  Feedzirra::Feed.add_common_feed_entry_element('comments', :as => :comment_url)
+  Feedjira::Feed.add_common_feed_entry_element('category', :as => :category)
+  Feedjira::Feed.add_common_feed_entry_element('dc:creator', :as => :creator)
+  Feedjira::Feed.add_common_feed_entry_element('slash:comments', :as => :comment_count)
+  Feedjira::Feed.add_common_feed_entry_element('comments', :as => :comment_url)
   
   class Feeds < Nanoc::DataSource
     identifier :feeds
@@ -55,7 +55,7 @@ module Nanoc::DataSources
 
     def comments
       #prefix = config[:prefix] || 'feeds'
-      Feedzirra::Feed.add_common_feed_entry_element('wfw:commentRss', :as => :comment_feed)
+      Feedjira::Feed.add_common_feed_entry_element('wfw:commentRss', :as => :comment_feed)
       #get_feeds(@prefix).each do |feed|
       #  
       #end
@@ -68,8 +68,8 @@ module Nanoc::DataSources
       self.all_files_in(prefix).map do |filename|
         File.open(filename,'r') do |file| 
           begin
-            feeds.push(Feedzirra::Feed.parse(file.read()))
-          rescue Feedzirra::NoParserAvailable => e
+            feeds.push(Feedjira::Feed.parse(file.read()))
+          rescue Feedjira::NoParserAvailable => e
             $stderr.puts "#{file.path}: #{e}"
           end
         end
