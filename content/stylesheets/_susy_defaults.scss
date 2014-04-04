@@ -17,7 +17,7 @@ $base-line-height     : 24px;
 
 // Grid --------------------------------------------------------------
 
-$total-cols         : 7;
+$total-columns      : 12;
 $col-width          : 4em;
 $gutter-width       : 1em;
 $grid-padding       : $gutter-width;
@@ -25,4 +25,4 @@ $side-gutter-width  : 0em;
 
 // Don't move this @import above the GRID variables.
 
-@import "susy";
+@import "susyone";

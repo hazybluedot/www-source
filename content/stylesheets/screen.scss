@@ -11,7 +11,7 @@ $tablet    : 9;
 $desktop   : 12;
 
 @mixin susy-grid-background {
-  @include grid-background($total-cols, $col-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
+  @include grid-background($total-columns, $col-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
 }
 
 // establish your vertical baseline grid.
