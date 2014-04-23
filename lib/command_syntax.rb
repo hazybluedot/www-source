@@ -22,9 +22,9 @@ module Nanoc::Filters
       nodes = content_array.collect do |c| 
         node = Nokogiri::XML::Text.new(c, doc)
         c.match(@tag_regex) do |m|
-          node = Nokogiri::XML::Node.new("span", doc)
-          node["class"] = "user-substitution"
-          node.content = "#{$1}"
+          node = Nokogiri::XML::Node.new('span', doc)
+          node['class'] = 'user-substitution'
+          node.content = $1
           node
         end
         node
@@ -60,20 +60,28 @@ module Nanoc::Filters
       end
     end
 
+    def csub(doc, node)
+        text_nodes = split_content(node.content)
+        node.content = ''
+        node.add_child nodify(doc, text_nodes)
+    end
+
     def run(content, options)
       @tag_regex = Regexp.new('<([^>]+)>')
       doc = Nokogiri::HTML(content)
       doc.css('pre.command-syntax code').find_all do |pre|
-        text_nodes = split_content(pre.content)
-        pre.content = ''
-        pre.add_child nodify(doc, text_nodes)
+        csub(doc, pre)
+      end
+      doc.css('pre.command-syntax + p > code').find_all do |node|
+        #node.css('code').find_all { |code| csub(doc, code)  }
+        csub(doc,node)
       end
       doc.css('pre:not(.no-explain) code.language-console').find_all do |code|
         explain_shell(doc, code)
       end
-      doc.css('code.language-console').find_all do |code|
-        user_input(code)
-      end
+      #doc.css('code.language-console').find_all do |code|
+      #  user_input(code)
+      #end
       doc.to_html
     end
   end
