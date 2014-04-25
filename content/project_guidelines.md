@@ -1,6 +1,9 @@
----
-title: Final Project Guideline
----
+## Timeline
+
+- Now: form groups, brainstorm ideas
+- By May 7: a working prototype is published
+- May 7 - 11: Peer review
+- May 12 - 13: Respond to feedback, address issues
 
 ## Requirements
 There are a few strict requirements for the final project:
@@ -11,6 +14,9 @@ There are a few strict requirements for the final project:
 3. Be able to justify how your project follows Unix design
    philosophy and how it makes use of the concepts/tools we have
    talked about in class.
+4. To receive credit, your author information *must* be present in the
+   git log of the published repository.
+
 
 ## Guidelines
 There are a few guidelines to be aware of
@@ -26,7 +32,7 @@ There are a few guidelines to be aware of
    from a configuration file or command line argument, not hard coded
    in the source.
 3. If you choose to extend a previous project, or another open source
-   project, schedule a meeting with me so we can discuss details. In
+   project, schedule a meeting with me so we can discuss details. I
    encourage this, but it is important to be extremely clear with
    regards to what you are contributing so as to adhere to the
    Virginia Tech (and your own personal) Honor Code.
@@ -50,11 +56,10 @@ There are a few guidelines to be aware of
    weeks to organize, design and implement a project before the end of
    the semester.
 2. If you have an idea for a larger project try to break it into a
-   smaller well defined slice that you can use for the project for
-   this class.  You can always extend your idea after the semester is
-   over, but it is infinitely better to have something simple that
-   works well by the end of the semester than something complex that
-   doesn't work.
+   smaller well-defined slice that you can use for the class project.
+   You can always extend your idea after the semester is over, but it
+   is infinitely better to have something simple that works well by
+   the end of the semester than something complex that doesn't work.
 
 
 ### Suggestions for Games
@@ -66,12 +71,12 @@ example:
 [Zombie Adventure](https://github.com/bgeu/textbasedzombie.git)). Consider
 a text-based game first. With good separation between game logic and
 interface it should be fairly straight forward to build a graphical
-engine for your game engine in the future if you do want to transition
+interface for your game engine in the future if you do want to transition
 it to a graphical environment.
 
 ### Suggestions for Utilities:
 
-Use the `balanced` project as a guide and other Unix utilities we have
+Use the `wordfreq` project as a guide and other Unix utilities we have
 used such as `grep` and `tr`. Think in terms of a
 [Strong Single Center](http://catb.org/~esr/writings/taoup/html/ch04s02.html#id2895445).  Make sure you can clearly define what your
 algorithm is and separate that code from the interface
@@ -82,7 +87,7 @@ for each algorithm, and use them together in a pipeline or shell
 script.
 
 # Resources
-- [Projects of Semesters Past](/projects_past/index.html)
+- [Projects of Semesters Past](/projects/index.html)
 - [Chapter 11. Interfaces](http://catb.org/~esr/writings/taoup/html/ch11s01.html) from TAUP
 - [Top-Down vs Bottom-Up](http://catb.org/~esr/writings/taoup/html/ch04s03.html#id2899552) design from TAUP
 - Really the entire section on
