@@ -1,0 +1,9 @@
+SURGE 104C: 
+    desc: a generic classroom
+    items: [ desk, chalk, a mysterious note ] 
+    north: SURGE Study Area
+SURGE Study Area: 
+   desc: an open space 
+   items: [ vending machine ]
+   south: SURGE 104C
+

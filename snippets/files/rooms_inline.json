@@ -1,0 +1,1 @@
+{"SURGE 104C": {"north": "SURGE Study Area", "desc": "a generic classroom", "items": ["desk", "chalk", "a mysterious note"]}, "SURGE Study Area": {"desc": "an open space", "south": "SURGE 104C", "items": ["vending machine"]}}

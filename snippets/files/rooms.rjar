@@ -1,0 +1,9 @@
+name: SURGE 104C
+description: a generic classroom
+items: desk,chalk,a mysterious note
+north: SURGE Study Area
+%%
+name: SURGE Study Area
+description: an open space
+items: vending machine
+south: SURGE 104C

@@ -1,20 +1,28 @@
 #!/usr/bin/env python3
 
-from sys import stderr
-
 def record_reader(flo):
-	record = {}
-	for line in flo:
-		if line.startswith('%%'):
-			yield record
-			record = {}
-		else:
-			try:
-				key, value = line.split(':')
-				record[key.strip()] = value.strip()
-			except ValueError as e:
-				stderr.write("{0}\n".format(e))		
-	yield record
+        """read a stream containing record-jar formatted data, yield a
+        complete record
+
+        """
+
+        record = {}
+        for line in flo:
+                if line.startswith('%%'):
+                        yield record
+                        record = {}
+                else:
+                        key, value = line.split(':')
+                        record[key.strip()] = value.strip()
+                        
+        yield record
+
+def load_records(flo):
+        """read a complete stream containing record-jar formatted data and
+        load all records into memory
+        """
+
+        return [ record for record in record_reader(flo) ]
 
 if __name__ == '__main__':
 	import sys
