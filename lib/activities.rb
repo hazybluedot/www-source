@@ -139,7 +139,7 @@ module ActivityHelper
       link = { it[:title] => it } if it
       link
     end.compact
-    $stderr.puts "links: #{links}"
+    #$stderr.puts "links: #{links}"
     links.inject Hash.new, :merge
   end
 
@@ -151,10 +151,10 @@ module ActivityHelper
     id = id.to_sym
     merged = h1
     if h1.has_key? id
-      $stderr.puts "merging #{h1[id]} with #{h2}"
+      #$stderr.puts "merging #{h1[id]} with #{h2}"
       merged[id].merge(h2) 
     end
-    $stderr.puts "setting merged[#{id}] = #{h2}" unless h1.has_key? id
+    #$stderr.puts "setting merged[#{id}] = #{h2}" unless h1.has_key? id
     merged[id] = h2 unless h1.has_key? id
     merged
   end
@@ -181,9 +181,9 @@ module ActivityHelper
     #$stderr.puts "schedule: #{schedule}"
     #$stderr.puts "bg_items: #{bg_items}"
     schedule = value_merge(schedule, bg_items)
-    $stderr.puts "Merged Schedule Debug"
-    schedule.each { |k,v| $stderr.puts "#{k} => #{v}" }
-    $stderr.puts "merged schedule: #{schedule}"
+    #$stderr.puts "Merged Schedule Debug"
+    #schedule.each { |k,v| $stderr.puts "#{k} => #{v}" }
+    #$stderr.puts "merged schedule: #{schedule}"
     Nanoc::Item.new("",
                     { :title => "Activity Schedule",
                       :schedule => schedule

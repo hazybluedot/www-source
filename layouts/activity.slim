@@ -18,16 +18,26 @@
       section
         header
           h1 id="submission" Submission
+        p The source files should exist in their own git repository, if you change to the directory containing your source files and run <code>ls -a</code> you should see a directory named <code>.git</code>.  If not, run <code>git init</code> to initialize a git repository in the current directory.  You should only run <code>git init</code> once for each <em>new</em> project.
         p 
           | Push your git repository to the remote at 
           code
-            | #{config[:git_url]}:#{user_repo(item)} 
+            | #{config[:git_url]}:#{user_repo(item)}.git 
           | where <code>USER</code> is your git user name.
         p 
           | If you have initialized a new repo but have not added a remote yet:
-          code
-            | git remote add origin #{config[:git_url]}:#{user_repo(item)}
+        pre class="command-syntax"
+          code style="console-language"
+            | $ git remote add origin #{config[:git_url]}:#{user_repo(item)}.git
+        p
+          | where <code><USER></code> is your git user name.
         p If you have already added a remote named <code>origin</code>, but the URL is incorrect, replace <code>add</code> with <code>set-url</code> in the above command. You can always check that remotes you have added by running <code>git remote -v</code>.
+        p 
+          | Remember, if this is the first time pushing to a new remote you need to specify a destination branch (usually `master`). Using the `-u` option will save this default destination for future pushes.
+          pre
+            code style="console-language"
+              | $ git push -u origin master
+
     - if has_tests(item)
       section
         header
