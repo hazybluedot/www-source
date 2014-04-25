@@ -30,6 +30,7 @@ disconnected, so it's recommended to use your shell account.
 ~~~~ console
 $ ssh <username>@ece2524.ece.vt.edu
 ~~~~
+{:.command-syntax .no-explain}
 
 Where `<username>` is your CVL account name.
 
@@ -40,7 +41,8 @@ Where `<username>` is your CVL account name.
    ~~~~ console
    $ weechat
    ~~~~
-
+   {:.no-explain}
+   
 2. Follow the
    [Quick Start](http://www.weechat.org/files/doc/devel/weechat_quickstart.en.html)
    guide to setup WeeChat for the first time.

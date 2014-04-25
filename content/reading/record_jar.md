@@ -48,7 +48,7 @@ abstract programming concept that can be implemented in most other
 common programming languages,
 [including C++](http://stackoverflow.com/questions/9059187/equivalent-c-to-python-generator-pattern).
 
-<%= code_snippet('record-jar/planet_reader.py') %>
+[[snippet:record-jar/planet_reader.py]]
 
 The `yield` keyword works kind of like `return` in that at that point
 in the code the current value stored in `planet` is returned and the
@@ -67,7 +67,7 @@ Let's separate the record-jar parsing code from the specifics of the
 planet content so that we can re-use our parser for any data in the
 record-jar format.
 
-<%= code_snippet('record-jar/record_jar_reader.py') %>
+[[snippet:record-jar/record_jar_reader.py]]
 
 Note I include a simple `__main__` function to test the functionality
 of the record-jar reader that does not depend on any particular data

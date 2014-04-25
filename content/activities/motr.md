@@ -5,6 +5,8 @@ requires: { practice: [ vcs/git/intro ], experience: [ patterns/stdio, lib/ctype
 tests:
   - type: bonair
     feature: features/motr
+repos:
+  - user: USER/motr
 ---
 
 ## Complete the motr program

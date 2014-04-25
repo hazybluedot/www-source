@@ -1,11 +1,13 @@
 ---
 title: Word Frequency Count
 kind: activity
-provides: { practice: modularity, API/use }
+provides: { practice: [ modularity, API/use, 'activity/wordfreq/part1' ] }
 tests:
   - type: bonair
     feature: features/wordfreq
     tags: [ compile, part1 ]
+repos:
+  - user: USER/wordfreq
 ---
 
 ## The Task

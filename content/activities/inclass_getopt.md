@@ -2,6 +2,7 @@
 title: Option Parsing with getopt
 kind: activity
 requires: { background: [ 'cla/intro', 'cla/intro2' ] }
+provides: { background: [ 'cla/wordfreq' ] }
 ---
 
 # Contents
@@ -20,27 +21,7 @@ requires: { background: [ 'cla/intro', 'cla/intro2' ] }
 
 ## Where we left off
 
-Both `user1` and `user2` should be able to read/pull from the other's repository
-
-- `user1` has read access to `user2/forks/wordfreq`
-- `user2` has read access to `user1/wordfreq`
-
-- `user1` has a remote named `origin` with repo name `user1/wordfreq`
-- `user1` has a remote named `user2` with repo name `user2/forks/wordfreq`
-
-- `user2` has a remote named `origin` with repo name `user2/forks/wordfreq`
-- `user2` has a remote named `upstream` with repo name `user1/wordfreq`
-
-## Workflow
-
-- setup
-  ![Git Remotes](/assets/images/git_remotes.svg "remote associations")
-
-- independent work
-  ![Git Remotes](/assets/images/git_collab_workflow_independent.svg "independent work")
-
-- merge
-  ![Git Remotes](/assets/images/git_collab_workflow_merge.svg "merge work")
+- [Git Workflow for `wordfreq`](/reading/wordfreq_gitsetup/)
 
 ## Parsing Command Line Options
 
