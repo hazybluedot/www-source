@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:ns1="http://sozi.baierouge.fr"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="805.06647"
+   height="507.45874"
+   id="svg2">
+  <defs
+     id="defs4">
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Sstart"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(0.2,0,0,0.2,1.2,0)"
+         id="path4326"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         id="path4320"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Send"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         id="path3828"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         id="path3813"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path3816"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Send-7"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         id="path3828-7"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Send-4"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         id="path3828-5"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Send-75"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         id="path3828-3"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lend-0"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path3816-5"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Sstart-2"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(0.2,0,0,0.2,1.2,0)"
+         id="path4326-4"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Send-75-4"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         id="path3828-3-6"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Send-75-4-3"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         id="path3828-3-6-2"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-22.355928,-482.3054)"
+     id="layer1">
+    <rect
+       width="632.97156"
+       height="113.70264"
+       x="103.77016"
+       y="484.58835"
+       id="rect6615-1-9"
+       style="fill:#afe9dd;fill-opacity:1;stroke:#93aca7;stroke-width:4.56589746;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="195.45547"
+       height="290.94141"
+       x="503.42117"
+       y="662.37903"
+       id="rect6615-1-0"
+       style="fill:#afe9dd;fill-opacity:1;stroke:#93aca7;stroke-width:4.0585928;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       x="117.24452"
+       y="504.42206"
+       id="text4656"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="117.24452"
+         y="504.42206"
+         id="tspan4658">git@ece2524:rflowers/wordfreq.git</tspan></text>
+    <g
+       transform="translate(0.764191,0)"
+       id="g6054">
+      <g
+         id="g6042">
+        <rect
+           width="151.31583"
+           height="67.058693"
+           x="158.15051"
+           y="516.0332"
+           id="rect2985-0-3"
+           style="fill:#87deaa;fill-opacity:1;stroke:#000000;stroke-width:1.08417046;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <text
+           x="233.39827"
+           y="545.83014"
+           id="text2987-07-9"
+           xml:space="preserve"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+             x="233.39827"
+             y="545.83014"
+             id="tspan2989-0-7">Repository</tspan><tspan
+             x="233.39827"
+             y="560.83014"
+             id="tspan4650">(bare)</tspan></text>
+      </g>
+      <g
+         id="g6048">
+        <rect
+           width="151.31583"
+           height="67.058693"
+           x="529.51715"
+           y="510.017"
+           id="rect2985-0-3-4"
+           style="fill:#87deaa;fill-opacity:1;stroke:#000000;stroke-width:1.08417046;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <text
+           x="604.76489"
+           y="539.8139"
+           id="text2987-07-9-1"
+           xml:space="preserve"
+           style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+             x="604.76489"
+             y="539.8139"
+             id="tspan2989-0-7-6">Repository</tspan><tspan
+             x="604.76489"
+             y="554.8139"
+             id="tspan4650-0">(bare)</tspan></text>
+      </g>
+    </g>
+    <text
+       x="480.66238"
+       y="505.0256"
+       id="text4656-4"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="480.66238"
+         y="505.0256"
+         id="tspan4658-7">git@ece2524:spilgrim/forks/wordfreq.git</tspan></text>
+    <path
+       d="m 133.42394,623.18438 585.522,0"
+       id="path5958"
+       style="fill:none;stroke:#ff0000;stroke-width:1.80300963;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.5091743;stroke-dasharray:7.21203813, 1.80300953;stroke-dashoffset:0" />
+    <text
+       x="558.71527"
+       y="655.87598"
+       id="text6656-2"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="558.71527"
+         y="655.87598"
+         id="tspan6658-8">spilgrim@local</tspan></text>
+    <text
+       x="533.82172"
+       y="684.57404"
+       id="text4652-4"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="533.82172"
+         y="684.57404"
+         id="tspan4654-3">~/forks/wordfreq/.git</tspan></text>
+    <text
+       x="539.76208"
+       y="935.76355"
+       id="text4652-8-6"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="539.76208"
+         y="935.76355"
+         id="tspan4654-8-9">~/forks/wordfreq/</tspan></text>
+    <rect
+       width="195.45546"
+       height="290.94141"
+       x="134.39087"
+       y="659.84222"
+       id="rect6615-1"
+       style="fill:#afe9dd;fill-opacity:1;stroke:#93aca7;stroke-width:4.05859232;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <g
+       transform="translate(0,-16.315948)"
+       id="g5990">
+      <rect
+         width="151.5443"
+         height="41.981155"
+         x="158.03767"
+         y="802.51721"
+         id="rect2985-9"
+         style="fill:#ffe680;stroke:#000000;stroke-width:0.85846943;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         x="195.302"
+         y="826.81836"
+         id="text2987-0"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="195.302"
+           y="826.81836"
+           id="tspan2989-6">Staging Area</tspan></text>
+    </g>
+    <g
+       transform="translate(0,-20)"
+       id="g5995">
+      <rect
+         width="151.31807"
+         height="67.123077"
+         x="158.15079"
+         y="871.55389"
+         id="rect2985"
+         style="fill:#87cdde;fill-opacity:1;stroke:#000000;stroke-width:1.0846988;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         x="179.73071"
+         y="908.42596"
+         id="text2987"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="179.73071"
+           y="908.42596"
+           id="tspan2989">Working Directory</tspan></text>
+    </g>
+    <text
+       x="164.57651"
+       y="935.76355"
+       id="text4652-8"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="164.57651"
+         y="935.76355"
+         id="tspan4654-8">~/ece2524/wordfreq/</tspan></text>
+    <text
+       x="182.7981"
+       y="654.23047"
+       id="text6656"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="182.7981"
+         y="654.23047"
+         id="tspan6658">rflowers@local</tspan></text>
+    <g
+       id="g6000">
+      <rect
+         width="151.31807"
+         height="67.123077"
+         x="158.15079"
+         y="695.70673"
+         id="rect2985-0"
+         style="fill:#87deaa;stroke:#000000;stroke-width:1.0846988;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         x="201.4895"
+         y="732.5788"
+         id="text2987-07-8-4"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="201.4895"
+           y="732.5788"
+           id="tspan2989-0-2-6">Repository</tspan></text>
+    </g>
+    <text
+       x="149.55981"
+       y="684.57404"
+       id="text4652-4-9"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="149.55981"
+         y="684.57404"
+         id="tspan4654-3-2">~/ece2524/wordfreq/.git</tspan></text>
+    <g
+       transform="translate(0,-24.264312)"
+       id="g6010">
+      <rect
+         width="151.5443"
+         height="41.981155"
+         x="527.91357"
+         y="810.46558"
+         id="rect2985-9-2"
+         style="fill:#ffe680;stroke:#000000;stroke-width:0.85846943;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         x="565.17792"
+         y="834.76666"
+         id="text2987-0-7"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="565.17792"
+           y="834.76666"
+           id="tspan2989-6-1">Staging Area</tspan></text>
+    </g>
+    <g
+       transform="translate(0,-27.948303)"
+       id="g6005">
+      <rect
+         width="151.31807"
+         height="67.123077"
+         x="528.02667"
+         y="879.5022"
+         id="rect2985-4"
+         style="fill:#87cdde;fill-opacity:1;stroke:#000000;stroke-width:1.0846988;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         x="549.60663"
+         y="916.37427"
+         id="text2987-3"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="549.60663"
+           y="916.37427"
+           id="tspan2989-8">Working Directory</tspan></text>
+    </g>
+    <g
+       transform="translate(0,-7.9483643)"
+       id="g6015">
+      <rect
+         width="151.31807"
+         height="67.123077"
+         x="528.02667"
+         y="703.65509"
+         id="rect2985-0-7"
+         style="fill:#87deaa;stroke:#000000;stroke-width:1.0846988;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         x="571.36542"
+         y="740.52716"
+         id="text2987-07-8-4-6"
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="571.36542"
+           y="740.52716"
+           id="tspan2989-0-2-6-7">Repository</tspan></text>
+    </g>
+  </g>
+  <g
+     transform="translate(-14.730926,11.066225)"
+     id="layer4"
+     style="display:none">
+    <path
+       d="M 121.76713,213.93147 C 219.85731,190.25452 324.35673,8.4494417 469.3108,8.4494417"
+       id="path5688"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-0)" />
+    <text
+       x="64.265984"
+       y="206.32101"
+       id="text3264"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="64.265984"
+         y="206.32101"
+         id="tspan3266">origin</tspan></text>
+    <text
+       x="730.21552"
+       y="201.9801"
+       id="text3264-6"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="730.21552"
+         y="201.9801"
+         id="tspan3266-2">origin</tspan></text>
+    <path
+       d="M 58.346747,201.24739 C 1.6912095,177.57044 -13.876422,9.2349446 104.00943,8.4494419"
+       id="path3291"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend)" />
+    <path
+       d="M 781.96347,198.12708 C 838.61901,174.45013 839.81136,8.6514407 721.92551,7.8659387"
+       id="path3291-3"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:url(#Arrow1Lend)" />
+    <text
+       x="728.91156"
+       y="214.77707"
+       id="text5484"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="728.91156"
+         y="214.77707"
+         id="tspan5486">upstream</tspan></text>
+    <path
+       d="M 723.83792,211.39465 C 689.16811,213.08586 493.83335,7.6038366 323.86673,6.7582316"
+       id="path5488"
+       style="opacity:0.5;fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-0)" />
+    <text
+       x="61.729168"
+       y="219.0051"
+       id="text5684"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="61.729168"
+         y="219.0051"
+         id="tspan5686">spilgrim</tspan></text>
+  </g>
+  <g
+     transform="translate(-14.730926,11.066225)"
+     id="layer3"
+     style="display:none">
+    <text
+       x="-824.83997"
+       y="109.84192"
+       transform="matrix(0,-1,1,0,-7.625,-493.37161)"
+       id="text3799"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="-824.83997"
+         y="109.84192"
+         id="tspan3801">git commit</tspan></text>
+    <text
+       x="-924.6687"
+       y="72.417686"
+       transform="matrix(0,-1,1,0,-7.625,-493.37161)"
+       id="text3803"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="-924.6687"
+         y="72.417686"
+         id="tspan3805">git add</tspan></text>
+    <path
+       d="m 13.46072,722.72311 136.658,0"
+       transform="translate(-7.625,-493.37161)"
+       id="path4904"
+       style="fill:none;stroke:#000000;stroke-width:0.86475843px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5" />
+    <path
+       d="m 13.46072,832.96932 136.658,0"
+       transform="translate(-7.625,-493.37161)"
+       id="path4904-2"
+       style="fill:none;stroke:#000000;stroke-width:0.86475843px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50196078" />
+    <path
+       d="m 13.460715,943.21553 136.658005,0"
+       transform="translate(-7.625,-493.37161)"
+       id="path4904-6"
+       style="fill:none;stroke:#000000;stroke-width:0.86475843px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50196078" />
+    <path
+       d="m 34.31222,722.92835 0,211.60142"
+       transform="translate(-7.625,-493.37161)"
+       id="path4931"
+       style="fill:none;stroke:#000000;stroke-width:4.94229174;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)" />
+    <path
+       d="m 81.58513,941.97626 0,-100.55762"
+       transform="translate(-7.625,-493.37161)"
+       id="path5489"
+       style="fill:none;stroke:#000000;stroke-width:5.03566742;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)" />
+    <path
+       d="m 120.45078,832.60533 0,-102.33466"
+       transform="translate(-7.625,-493.37161)"
+       id="path5491"
+       style="fill:none;stroke:#000000;stroke-width:4.98533678;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)" />
+    <text
+       x="-825.72931"
+       y="25.695023"
+       transform="matrix(0,-1,1,0,-7.625,-493.37161)"
+       id="text5865"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="-825.72931"
+         y="25.695023"
+         id="tspan5867"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono">git checkout</tspan></text>
+    <path
+       d="m 13.460718,549.56255 136.658002,0"
+       transform="translate(-7.625,-493.37161)"
+       id="path4904-0"
+       style="fill:none;stroke:#000000;stroke-width:0.86475843px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5" />
+    <path
+       d="m 94.742126,549.06214 0,166.35543"
+       transform="translate(-7.625,-493.37161)"
+       id="path4931-6"
+       style="fill:none;stroke:#000000;stroke-width:4.52703571;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)" />
+    <path
+       d="m 62.45374,722.89597 0,-166.35544"
+       transform="translate(-7.625,-493.37161)"
+       id="path4931-6-4"
+       style="fill:none;stroke:#000000;stroke-width:4.52703571;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)" />
+    <text
+       x="-703.1947"
+       y="50.577923"
+       transform="matrix(0,-1,1,0,-7.625,-493.37161)"
+       id="text5950"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="-703.1947"
+         y="50.577923"
+         id="tspan5952">git push</tspan></text>
+    <text
+       x="646.64777"
+       y="-107.3772"
+       transform="matrix(0,1,-1,0,-7.625,-493.37161)"
+       id="text5954"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="646.64777"
+         y="-107.3772"
+         id="tspan5956">git pull</tspan></text>
+    <path
+       d="m 312.7646,548.38158 212.10661,0"
+       transform="translate(-7.625,-493.37161)"
+       id="path5960"
+       style="fill:none;stroke:#000000;stroke-width:4.78145933;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send-4)" />
+    <text
+       x="333.1684"
+       y="538.23438"
+       transform="translate(-7.625,-493.37161)"
+       id="text6532"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="333.1684"
+         y="538.23438"
+         id="tspan6534">ssh git@ece2524 fork</tspan></text>
+    <path
+       d="m 696.08422,715.45765 112.21641,0"
+       transform="translate(-7.625,-493.37161)"
+       id="path4904-05"
+       style="fill:none;stroke:#000000;stroke-width:0.78380305px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5" />
+    <path
+       d="m 696.08422,542.21613 112.21641,0"
+       transform="translate(-7.625,-493.37161)"
+       id="path4904-0-6"
+       style="fill:none;stroke:#000000;stroke-width:0.78380305px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5" />
+    <path
+       d="m 743.4061,541.7562 0,166.35543"
+       transform="translate(-7.625,-493.37161)"
+       id="path4931-6-6"
+       style="fill:none;stroke:#000000;stroke-width:4.52703571;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)" />
+    <text
+       x="548.01648"
+       y="-753.50439"
+       transform="matrix(0,1,-1,0,-7.625,-493.37161)"
+       id="text5954-9"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="548.01648"
+         y="-753.50439"
+         id="tspan5956-8">git clone / git pull</tspan></text>
+  </g>
+  <g
+     transform="translate(-14.730926,11.066225)"
+     id="layer2"
+     style="display:none">
+    <rect
+       width="329.46112"
+       height="339.62598"
+       x="1.7937992"
+       y="164.10034"
+       id="rect6927"
+       style="fill:#afe9dd;fill-opacity:0.31219512;stroke:#93aca7;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.17073173;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="330.56003"
+       height="505.15646"
+       x="0.64641094"
+       y="-1.4786292"
+       id="rect7131"
+       style="fill:#afe9dd;fill-opacity:0.31219512;stroke:#93aca7;stroke-width:6.2928319;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.17073173;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="807.58679"
+       height="157.63354"
+       x="0.40935713"
+       y="-8.8908863"
+       id="rect7337"
+       style="fill:#afe9dd;fill-opacity:0.31219512;stroke:#93aca7;stroke-width:5.81871414;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.17073173;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="371.91437"
+       height="512.42865"
+       x="435.89319"
+       y="-8.7023106"
+       id="rect7545"
+       style="fill:#afe9dd;fill-opacity:0.31219512;stroke:#93aca7;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.17073173;stroke-dasharray:none;stroke-dashoffset:0" />
+    <rect
+       width="810.08966"
+       height="509.89993"
+       x="2.4914856e-08"
+       y="-6.771452"
+       id="rect8190"
+       style="fill:#afe9dd;fill-opacity:0.31219512;stroke:#93aca7;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.17073173;stroke-dasharray:none;stroke-dashoffset:0" />
+  </g>
+  <g
+     transform="translate(-0.00823775,0.00368901)"
+     id="layer5"
+     style="display:inline">
+    <path
+       d="m 208.86444,112.88726 0,86.09105"
+       id="path3110"
+       style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:9.45100021;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Sstart);marker-end:url(#Arrow1Send-75)" />
+    <path
+       d="m 584.31308,110.35044 0,86.09105"
+       id="path3110-6"
+       style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:9.45100021;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Sstart);marker-end:url(#Arrow1Send-75)" />
+    <text
+       x="144.4711"
+       y="483.90616"
+       id="text5940"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="144.4711"
+         y="483.90616"
+         id="tspan5942">push origin master</tspan></text>
+    <text
+       x="144.4711"
+       y="502.39658"
+       id="text5940-6"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="144.4711"
+         y="502.39658"
+         id="tspan5942-8">pull origin master</tspan></text>
+    <text
+       x="513.5014"
+       y="486.38651"
+       id="text5940-4"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="513.5014"
+         y="486.38651"
+         id="tspan5942-9">push origin master</tspan></text>
+    <text
+       x="513.5014"
+       y="504.87692"
+       id="text5940-6-8"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="513.5014"
+         y="504.87692"
+         id="tspan5942-8-8">pull origin master</tspan></text>
+  </g>
+  <g
+     transform="translate(-0.00823775,0.00368901)"
+     id="layer6"
+     style="display:none">
+    <path
+       d="M 288.00185,65.103569 493.75769,236.94664"
+       id="path5003"
+       style="fill:none;stroke:#000000;stroke-width:9.30105591;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send-75-4)" />
+    <path
+       d="M 504.05415,65.342969 298.29831,237.18604"
+       id="path5003-5"
+       style="fill:none;stroke:#000000;stroke-width:9.30105591;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send-75-4)" />
+    <text
+       x="137.25235"
+       y="486.56436"
+       id="text5738"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="137.25235"
+         y="486.56436"
+         id="tspan5740">pull spilgrim master</tspan></text>
+    <text
+       x="506.28265"
+       y="488.1749"
+       id="text5738-6"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
+         x="506.28265"
+         y="488.1749"
+         id="tspan5740-5">pull upstream master</tspan></text>
+  </g>
+  <style
+     id="sozi-style" />
+  <ns1:frame
+     ns1:refid="rect6927"
+     ns1:title="rflowers@local"
+     ns1:sequence="1"
+     ns1:hide="true"
+     ns1:clip="true"
+     ns1:timeout-enable="false"
+     ns1:timeout-ms="5000.0"
+     ns1:transition-duration-ms="1000.0"
+     ns1:transition-zoom-percent="0.0"
+     ns1:transition-profile="linear"
+     ns1:transition-path-hide="true" />
+  <ns1:frame
+     ns1:transition-path-hide="true"
+     ns1:transition-profile="accelerate-decelerate"
+     ns1:transition-zoom-percent="-25.0"
+     ns1:transition-duration-ms="1000.0"
+     ns1:timeout-ms="5000.0"
+     ns1:timeout-enable="false"
+     ns1:clip="true"
+     ns1:hide="true"
+     ns1:sequence="2"
+     ns1:title="rflowers remote"
+     ns1:refid="rect7131" />
+  <ns1:frame
+     ns1:refid="rect7337"
+     ns1:title="fork"
+     ns1:sequence="3"
+     ns1:hide="true"
+     ns1:clip="true"
+     ns1:timeout-enable="false"
+     ns1:timeout-ms="5000.0"
+     ns1:transition-duration-ms="1000.0"
+     ns1:transition-zoom-percent="-25"
+     ns1:transition-profile="accelerate-decelerate"
+     ns1:transition-path-hide="true" />
+  <ns1:frame
+     ns1:transition-path-hide="true"
+     ns1:transition-profile="accelerate-decelerate"
+     ns1:transition-zoom-percent="-25"
+     ns1:transition-duration-ms="1000.0"
+     ns1:timeout-ms="5000.0"
+     ns1:timeout-enable="false"
+     ns1:clip="true"
+     ns1:hide="true"
+     ns1:sequence="4"
+     ns1:title="spilgrim remote"
+     ns1:refid="rect7545" />
+  <ns1:frame
+     ns1:refid="rect8190"
+     ns1:title="The Big Picture"
+     ns1:sequence="5"
+     ns1:hide="true"
+     ns1:clip="true"
+     ns1:timeout-enable="false"
+     ns1:timeout-ms="5000.0"
+     ns1:transition-duration-ms="1000.0"
+     ns1:transition-zoom-percent="-25.0"
+     ns1:transition-profile="accelerate-decelerate"
+     ns1:transition-path-hide="true" />
+</svg>
