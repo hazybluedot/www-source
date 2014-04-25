@@ -9,7 +9,7 @@ site_subtitle: 'Introduction to Unix for Engineers'
 author_name: 'Darren Maczka'
 author_uri: 'http://hazyblue.me'
 
-gl_user: 'ece2524git'
+gl_user: 'git'
 gl_host: 'ece2524.ece.vt.edu'
 
 syndicate_since: 'Jan 20 00:00:01 GMT 2014'
@@ -81,9 +81,8 @@ data_sources:
   - type: snippets
     items_root: /snippets/
     
-  #- type: projects
-  #  items_root: /projects
-  #  active: false
+  - type: projects
+    items_root: /projects
 
   #- type: project_reviews
   #  items_root: /reviews/
