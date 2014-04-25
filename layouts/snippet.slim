@@ -3,5 +3,5 @@ section class="snippet"
     == link_to(@file_name, @snippet)
 
   pre
-    code
-      == Pygments.highlight(@code, :lexer => lexer_for_mime(@mime_type))
+    code[class="language-#{@lexer || lexer_for_mime(@snippet[:mime_type])}"]
+      == @code

@@ -72,8 +72,7 @@ module Nanoc::Filters
       doc.css('pre.command-syntax code').find_all do |pre|
         csub(doc, pre)
       end
-      doc.css('pre.command-syntax + p > code').find_all do |node|
-        #node.css('code').find_all { |code| csub(doc, code)  }
+      doc.css('pre.command-syntax + p > code, pre.command-syntax + code').find_all do |node|
         csub(doc,node)
       end
       doc.css('pre:not(.no-explain) code.language-console').find_all do |code|

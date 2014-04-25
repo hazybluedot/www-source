@@ -70,7 +70,7 @@ pre {
   //div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}
 }
 
-pre.command-syntax span.user-substitution {
+pre.command-syntax span.user-substitution, p > code > span.user-substitution {
     //font-family: $sans;
     font-style: italic;
     font-weight: bold;
