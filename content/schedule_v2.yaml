@@ -1,14 +1,58 @@
 ---
 title: Schedule
 schedule:
+  /activities/make_project_group/:
+    due: "Apr 28, 2014 9:05am EST"
+  /activities/inclass_week13_2/:
+    inclass: "Apr 23, 2014 9:05am EST"
+  /activities/practice_dfm/:
+    due: "Apr 23, 2014 9:05am EST"
+  /activities/past_project_review/:
+    due: "Apr 23, 2014 9:05am EST"
+  /activities/fix_motr/:
+    due: "Apr 23, 2014 9:05am EST"
+  /activities/inclass_week13_1/:
+    inclass: "Apr 21, 2014 9:05am"
+  /reading/text_adventure_context/:
+    due: "Apr 21, 2014 9:00am"
+  /reading/python_datatypes/:
+    due: "Apr 21, 2014 9:00am"
+  /reading/datafile_metaformats/:
+    due: "Apr 21, 2014 9:00am"
+  /activities/pyfreq_part1/:
+    due: "Apr 18, 2014 11:59pm"
+  /activities/inclass_week12_2/:
+    due: "Apr 16, 2014 9:05am"
+  /reading/python_syntax/:
+    due: "Apr 16, 2014 9:05am"
+  /activities/looking_forward/:
+    due: "Apr 11, 2014 11:59pm"
+  /activities/topics_of_interest/:
+    due: "Apr 11, 2014 11:59pm"
+  /activities/inclass_week11_2/:
+    inclass: "Apr 09, 2014 9:05am"
+  /reading/make_intro/:
+    due: "Apr 09, 2014 9:05am"
+  /activities/word_count_part3/:
+    due: "Apr 09, 2014 9:05am"
+  /activities/inclass_week11_1/:
+    inclass: [ "Apr 07, 2014 9:05am EST" ]
+  /reading/interface_patterns2/:
+    due: [ "Apr 7, 9:05am EST" ]
+  /activities/open_blogging/:
+    due: [ "Feb 7, 11:59pm EST", "Feb 14, 11:59pm EST", "Feb 21, 11:59pm EST", "Mar 21, 2014 11:59pm EST", "Apr 4, 2014 11:59pm EST" ]
+  /activities/inclass_week10_2/:
+    inclass: "Apr 02, 2014 9:05am EST"
+  /reading/interface_patterns/:
+    due: "Apr 2, 2014 9:05am EST"
+  /activities/inclass_week10_1/:
+    inclass: "Mar 31, 2014 9:05am EST"
   /activities/midterm/:
     due: "Mar 26, 2014 11:59pm EST"
   /activities/word_count_part2/:
     due: "Mar 24, 2014 9:05am EST"
   /activities/midterm_practice/:
     due: "Mar 24, 2014 9:05am EST"
-  /activities/open_blogging/:
-    due: "Mar 21, 2014 11:59pm EST"
   /reading/unix_and_oo/:
     due: "Mar 19, 2014 9:05am EST"
   /activities/getting_started/: 
@@ -21,12 +65,6 @@ schedule:
     due: "Feb 3, 9:05am EST"
   /activities/word_count_intro:
     due: "Feb 5, 9:05am EST"
-  /activities/open_blogging/:
-    due: [ "Feb 7, 11:59pm EST", "weekly" ]
-  /activities/open_blogging/:
-    due: [ "Feb 14, 11:59pm EST", "weekly" ]
-  /activities/open_blogging/:
-    due: "Feb 21, 11:59pm EST"
   /activities/character_play/:
     due: "Feb 10, 9:05am EST"
   /activities/git_intro/:
