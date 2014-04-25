@@ -115,7 +115,6 @@ compile '*' do
       when 'md'
         filter :erb
         filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
-        filter :colorize_syntax, :default_colorizer => :pygmentsrb
       when 'haml' 
         filter :haml
       when 'org'
@@ -135,8 +134,10 @@ compile '*' do
     else
       layout 'article'
     end
-    filter :command_code
     filter :relativize_paths, :type => :html
+    filter :snippet
+    filter :colorize_syntax, :default_colorizer => :pygmentsrb
+    filter :command_code
   end
 end
 
