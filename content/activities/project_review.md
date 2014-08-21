@@ -24,23 +24,25 @@ you are reviewing.
 ### Initializing a git repo
 
 ~~~~ console
-$ git init ~/ece2524/reviews/TAG
-$ cd ~/ece2524/reviews/TAG
-$ git remote add origin <%= config[:git_url]%>:USER/reviews/TAG
+$ git init ~/ece2524/reviews/<TAG>
+$ cd ~/ece2524/reviews/<TAG>
+$ git remote add origin <%= config[:git_url]%>:<USER>/reviews/<TAG>
 ~~~~
+{:.command-syntax .no-explain}
 
 Create a file named `REVIEW.md`, the first few lines should be
 
 ~~~~ text
 ---
-title: A descriptive title of your review
+title: "A descriptive title of your review"
 tag: TAG
 ---
 ~~~~
 
-
-adjusting the title and `TAG` as appropriate. The rest of the file you
-may format with
+adjusting the title and `TAG` as appropriate. This will be the
+headline of your review and will be displayed on the course website so
+make it sensational and attention grabbing. The rest of
+the file you may format with
 [markdown](http://daringfireball.net/projects/markdown/syntax).
 
 ### Crash course in markdown
@@ -52,7 +54,11 @@ For example:
 
 A very short [markdown](http://daringfireball.net/projects/markdown/syntax) file.
 
-This is a paragraph.
+This is a paragraph. Here is an `inline command`.
+
+    /* this is a code block */
+    int main() {}
+    /* because it is indented by 4 spaces */
 
 ## A level 2 header
 
@@ -99,6 +105,19 @@ structure. Does this project embody the Unix design philosophy? How or
 how not? Are there any changes the developers could make to make the
 project more "Unixy"?
 
+Some things to ask yourself:
+
+- does the program follow one of the standard [interface patterns](http://www.catb.org/esr/writings/taoup/html/ch11s06.html)?
+- Is the choice interface pattern a good one for what the program does?
+- If the program has an interactive interface, can it also operate in
+  a non-interactive mode if standard input is redirected to a file or
+  pipe?
+- Does the program follow the [Rule of Silence]?
+- Could the program be simplified by moving complexity into a data
+  file, following the [Rule of Representation]
+
+[Rule of Silence]: http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878450
+[Rule of Representation]: http://www.catb.org/esr/writings/taoup/html/ch01s06.html#id2878263
 
 ## Example REVIEW.md
 
@@ -107,7 +126,7 @@ detailed.  Link to more information where appropriate.
 
 ~~~~ text
 ---
-title: Review of a very awesome project
+title: "Review of a very awesome project"
 tag: very_awesome_project
 ---
 

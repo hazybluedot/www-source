@@ -1,6 +1,32 @@
 ---
 title: Schedule
 schedule:
+  /activities/myo_assignment/:
+    due: "May 12, 2014 11:59pm EST"
+  /activities/myo_quiz/:
+    due: "May 12, 2014 11:59pm EST"
+  /activities/project_review/:
+    due: "May 12, 2014 9:00am EST"
+  /activities/inclass_week15_2/:
+    inclass: "May 7, 2014 9:05am EST"
+  /activities/project_prototype/:
+    due: "May 7, 2014 6:00pm EST"
+  /activities/pytxtadventure1/:
+    due: "May 2, 2014 11:59pm EST"
+  /activities/project_proposal/:
+    due: "May 5, 2014 11:59pm EST"    
+  /activities/pytxtadventure2/:
+    due: "May 5, 2014 11:59pm EST"    
+  /activities/pytxtadventure2/:
+    due: "May 5, 2014 11:59pm EST"    
+  /activities/project_workday/:
+    inclass: "May 5, 2014 9:05am EST"
+  /activities/inclass_week14_2/:
+    inclass: "Apr 30, 2014 9:05am EST"
+  /activities/inclass_week14_1/:
+    inclass: "Apr 28, 2014 9:05am EST"
+  /activities/python_oop/:
+    due: "Apr 28, 2014 9:05am EST"
   /activities/make_project_group/:
     due: "Apr 28, 2014 9:05am EST"
   /activities/inclass_week13_2/:

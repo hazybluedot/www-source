@@ -1,0 +1,7 @@
+- if item_select(schedule_items, sym).any?
+  li 
+    | #{title}: 
+    ul
+      - item_links(item_select(schedule_items, sym)).each do |title,item|
+        li 
+          == link_to(title, item)

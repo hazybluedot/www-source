@@ -28,14 +28,14 @@ $solarized: light !default;
   $_base2:  $base2;
   $_base3:  $base3;
 
-  $base03:  $_base3;
-  $base02:  $_base2;
-  $base01:  $_base1;
-  $base00:  $_base0;
-  $base0:   $_base00;
-  $base1:   $_base01;
-  $base2:   $_base02;
-  $base3:   $_base03;
+  $base03:  $_base3 !global;
+  $base02:  $_base2 !global;
+  $base01:  $_base1 !global;
+  $base00:  $_base0 !global;
+  $base0:   $_base00 !global;
+  $base1:   $_base01 !global;
+  $base2:   $_base02 !global;
+  $base3:   $_base03 !global;
 }
 
 /* non highlighted code colors */

@@ -62,6 +62,11 @@ article {
     p {
         @include trailer;
     }
+    li {
+        p {
+            @include trailer(0);
+        }
+    }
     ol,ul {
         + p {
         @include leader;
@@ -168,7 +173,6 @@ blockquote {
     padding-left: 1em;
     padding-right: 1em;
 
-    //quotes:"\201C""\201D""\2018""\2019";
     quotes:"\201C""\201D";
     &:before {
         content:open-quote;

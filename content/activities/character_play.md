@@ -9,7 +9,7 @@ provides: { practice: [ patterns/stdio ] }
 
 Take a look at the other functions available to you in the
 [standard C library](http://www.cplusplus.com/reference/clibrary/). Specifically
-look at [cstdio.h](http://www.cplusplus.com/reference/stdio/),
+look at [stdio.h](http://www.cplusplus.com/reference/cstdio/),
 focusing on "Character input/output" for now, and all functions
 defined in [ctype.h](http://www.cplusplus.com/reference/cctype/).
 

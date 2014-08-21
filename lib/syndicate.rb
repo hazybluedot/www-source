@@ -41,6 +41,26 @@ module Nanoc::Helpers
       name = post[:author_name] ? post[:author_name] : "Anonymous"
       post[:author_uri] ? link_to(name, post[:author_uri]) : name
     end  
+
+    def get_post_summary(post)
+      encoding_options = {
+        :invalid           => :replace,  # Replace invalid byte sequences
+        :undef             => :replace,  # Replace anything not defined in ASCII
+        :replace           => '',        # Use a blank for those replacements
+        :universal_newline => true       # Always break lines with \n
+      }
+      raw_content = get_post_raw_start(post)
+      Kramdown::Document.new(raw_content).to_html.encode(Encoding.find('ASCII'), encoding_options).summarize(:ratio => 25)
+    end
+    
+    def get_post_start(post)
+      content = post.compiled_content
+      if content =~ /\s<!-- more -->\s/
+        content = content.partition('<!-- more -->').first +
+          "<footer><div class='read-more'><a href='#{post[:entry_url]}'>Continue reading &rsaquo;</a></div></footer>"
+      end
+      content
+    end
   end
 end
 

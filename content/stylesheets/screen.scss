@@ -53,9 +53,10 @@ main {
 @import "base/theme";
 @import "base/typography";
 @import "partials/project_list";
+@import "partials/reviews";
 
 main {
-  // calling susy's container mixin will apply the grid to that element.
+    // calling susy's container mixin will apply the grid to that element.
     //@extend .grid;
 }
 

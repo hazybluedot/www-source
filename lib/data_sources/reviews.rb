@@ -8,7 +8,7 @@ module Nanoc::DataSources
     include Nanoc::DataSources::Filesystem
 
     def items
-      load_objects('repos', 'item', Nanoc::Item)
+      load_objects('reviews', 'item', Nanoc::Item)
     end
 
     def layout
@@ -18,7 +18,7 @@ module Nanoc::DataSources
     def sync
       return if config.has_key? :active && !config[:active]
       config[:repos_root] = 'repos'
-      config[:git_url] = 'ece2524git@ece2524.ece.vt.edu'
+      config[:git_url] = @site.config[:git_url]
       system("git pull", :chdir => 'user-data/push_logs/')
       File.open('user-data/push_logs/project_reviews.log').collect { |line| line.split(' ').first }.uniq.compact.each do |repo|
         repodir = File.join(config[:repos_root], repo)

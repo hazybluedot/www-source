@@ -1,0 +1,28 @@
+span.likert4 {
+    font-weight: bold;
+    font-style: italic;
+    color: #444;
+}
+
+span.likert4[value="1"]:before {
+    content: "disagree"
+}
+span.likert4[value="2"]:before {
+    content: "slightly disagree"
+}
+span.likert4[value="3"]:before {
+    content: "slightly agree"
+}
+span.likert4[value="4"]:before {
+    content: "agree"
+}
+
+blockquote.review_comment {
+    &:before {
+        content: normal;
+        font-size:4em;
+        line-height:.1em;
+        margin-right:.25em;
+        vertical-align:-.4em;
+    }
+}

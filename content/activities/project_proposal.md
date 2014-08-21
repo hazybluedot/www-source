@@ -1,14 +1,16 @@
 ---
-title: Project Proposal
+title: Project Description
 kind: activity
-tests:
- - type: bonair
-   feature: features/project
-repos:
- - user: USER/project
 ---
 
-As a group, create a text file named `README` or `README.md` containing the following information
+## Background
+
+[Project Guidelines](/project_guidelines)
+
+## Project Description
+
+In your project repo, as a group, create a text file named `README` or
+`README.md` (but not both!) containing the following information
 
 ~~~~ text
 Summary of project, just a few sentences. This will be displayed on
@@ -24,17 +26,32 @@ elements of Unix design philosophy to implement the project.
 and a file named `README.yaml` with
 
 ~~~~ yaml
----
-title: "Project Title"
-contributors: astudent, rflowers, spilgrim
-url: https://github.com/rflowers/super_cool_project
----
+title: 'Project Title'
+contributors: [ astudent, rflowers, spilgrim ]
+url: 'https://github.com/rflowers/super_cool_project'
 ~~~~
 
 You may leave the url empty if you haven't set up a
-[github](https://github.com/) page yet.  The contributors should be a
-comma separated list of user names (not emails, not real names, not a
-combination of one or the other, just one username per person).
+[github](https://github.com/) page yet but be sure to update and
+resubmit when you have a URL.  The contributors should be a list of
+user names (not emails, not real names, not a combination of one or
+the other, just one username per person).
 
-Each member of the group should add a copy of the `README` file to
-their own repo `USER/project` and push to the server.
+## Submission
+
+You may put this `README` file in your main project repo (in most
+cases this will probably be most convenient), or a separate repo just
+for this purpose. Add a remote, you might use the name `origin` if you
+haven't already created a remote for your project elsewhere. Push to
+th remote.
+
+~~~~ console
+$ git remote add origin <%= config[:git_url]%>:<cvl_username>/project/<project_id>
+$ git push -u origin master
+~~~~
+{:.command-syntax .no-explain}
+
+Replace `<project_id>` with a suitable identifier for your project:
+
+- must start with a letter
+- must contain only letters, numbers, underscore (`_`) and hyphen (`-`)

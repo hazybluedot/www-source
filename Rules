@@ -24,12 +24,14 @@ sass_options = Compass.sass_engine_options
 #   because “*” matches zero or more characters.
 
 preprocess do
+  #sorted_projects.each { |p| add_project_tag(p) }
   config[:git_url] = config[:gl_user] + "@" + config[:gl_host]
   @items.delete_if { |i| i.identifier.chop =~ /.*\/\#/ }
   @items << index_item_for(/^\/reference\/\w+/, '/references/', "References")
   @items << index_item_for(/^\/reading\/\w+/, '/reading/', "Background Reading")
   @items << recent_posts('Recent Posts', '/', (0..25))
-  @items << syndicated_list('Fall 2013', '/projects/f13/', sorted_projects, item_layout:'project_slug', identifier:'/projects/')
+  @items << syndicated_list('Fall 2013', '/projects/f13/', sorted_projects, item_layout:'project_slug', identifier:'/projects/f13/')
+  @items << syndicated_list('Spring 2014', '/projects/s14/', sorted_projects, item_layout:'project_slug', identifier:'/projects/')
   taxonomy_items = taxonomy_items("/taxonomy/tools")
   @items << taxonomy_items if taxonomy_items.any?
   @items << activity_schedule("/activities_list/", :activity_list => "/schedule_v2/")
@@ -89,6 +91,13 @@ end
 compile '/features/*/'do
   filter :colorize_syntax,:default_colorizer => :pygmentsrb
   layout 'feature'
+  filter :relativize_paths, :type => :html
+end
+
+compile '/reviews/dmaczka/*' do
+  filter :mustache, :content_layout => '/reviews/review_template/'
+  filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
+  layout 'project_review'
   filter :relativize_paths, :type => :html
 end
 
@@ -185,7 +194,11 @@ end
 route '*' do
   if item.binary?
     # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
+    begin
+      item.identifier.chop + '.' + item[:extension]
+    rescue
+      $stderr.puts "could not handle #{item.identifier}"
+    end
   else
     # Write item with identifier /foo/ to /foo/index.html
     item.identifier + 'index.html'

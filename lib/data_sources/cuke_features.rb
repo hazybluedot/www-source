@@ -46,7 +46,7 @@ module Nanoc::DataSources
         parser.parse(IO.read(path), path, 0)
       end
 
-      formatter.features.each { |f| $stderr.puts "feature: #{f["name"]}" }
+      #formatter.features.each { |f| $stderr.puts "feature: #{f["name"]}" }
       #formatter.features.select { |f| f["keyword"] == "Feature" }.each { |f| "$stderr.puts #{f["name"]} " }
       
       all_files_in(feature_path).select{ |file|  File.extname(file) == '.feature'}.collect do |feature|

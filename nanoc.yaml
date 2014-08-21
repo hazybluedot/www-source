@@ -82,12 +82,25 @@ data_sources:
     items_root: /snippets/
     
   - type: projects
-    items_root: /projects
+    items_root: /projects/f13
+    active: false
 
-  #- type: project_reviews
-  #  items_root: /reviews/
-  #  repos_root: repos
-  #  active: false
+  - type: file_glob
+    glob: '/**/README*'
+    path: projects/s14
+    items_root: /projects/s14
+    allow_periods_in_identifiers: true
+
+  - type: project_reviews
+    items_root: /reviews/
+    repos_root: repos
+    active: true
+
+  - type: file_glob
+    glob: '/**/review.yaml'
+    items_root: /reviews/dmaczka/
+    path: reviews/reviews/dmaczka
+    active: true
 
   - type: cuke_features
     feature_path: /features/
